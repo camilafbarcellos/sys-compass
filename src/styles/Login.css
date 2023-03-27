@@ -1,0 +1,20 @@
+body {
+  background-color: #26272d;
+  color: #f5f5f5;
+  font-family: "Poppins";
+}
+
+::placeholder {
+  color: white;
+}
+
+input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 19px 24px;
+  background-color: #26272d;
+  border: 2px solid #f5f5f5;
+  border-radius: 46px;
+}
