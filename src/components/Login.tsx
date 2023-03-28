@@ -1,59 +1,53 @@
 import { Link } from 'react-router-dom';
-import '../styles/Login.css'
+import '../styles/loginSignup.css'
 
 function Login() {
     return (
         <body>
-            <section className='left'>
-                <section className="login">
+            <section className='container'>
+                <section className='left'>
                     <section className='header'>
-                        <h1 className="title">Olá,</h1>
-                        <p className="subtitle">
+                        <h1 className='title'>Olá,</h1>
+                        <p className='subtitle'>
                             Para continuar navegando de forma segura, efetue o login
                         </p>
                     </section>
                     <section className='form'>
-                        <h2 className="label-login">Login</h2>
+                        <h2 className='label-form'>Login</h2>
                         <form>
-                            <p className="form-item">
-                                <input
-                                    id='input-user'
-                                    type={"text"}
-                                    className="user"
-                                    name="user"
-                                    placeholder="Usuário"
+                            <p className='form-item'>
+                                <input required
+                                    id='input required-user'
+                                    type={'text'}
+                                    className='user'
+                                    name='user'
+                                    placeholder='Usuário'
                                 />
                             </p>
-                            <p className="form-item">
-                                <input
-                                    id='input-password'
-                                    type={"password"}
-                                    className="password"
-                                    name="password"
-                                    placeholder="Senha"
+                            <p className='form-item'>
+                                <input required
+                                    id='input required-password'
+                                    type={'password'}
+                                    className='password'
+                                    name='password'
+                                    placeholder='Senha'
                                 />
                             </p>
                             <p>
                                 <button
-                                    id="button"
+                                    className='button'
+                                    id='login'
                                     type='submit'
                                     name='login'>Logar-se
                                 </button>
                             </p>
+                            <p className='other-option'>
+                                Novo por aqui? &nbsp;<Link className='other-link' to='/signup'>Registre-se</Link>
+                            </p>
                         </form>
-                        <p id="signup-option">
-                            Novo por aqui?
-                            <Link id="signup-link" to="/signup">
-                                Registre-se
-                            </Link>
-                        </p>
                     </section>
                 </section>
-            </section>
-            <section className='right'>
-                <section className='side-image'>
-
-                </section>
+                <section className='right' />
             </section>
         </body>
     );
