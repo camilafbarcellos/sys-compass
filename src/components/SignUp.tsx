@@ -4,27 +4,31 @@ import '../styles/loginSignup.css'
 
 function SignUp() {
 
-    const [passwordInput, setPasswordInput] = useState({
+    const [form, setForm] = useState({
+        name: '',
+        username: '',
+        birthDate: '',
+        email: '',
         password: '',
         confirmPassword: ''
     });
 
     const [matchPasswords, setMatchPasswords] = useState(true);
 
-    const handlePasswordChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
+    const handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
         event.preventDefault();
         const { value, name } = event.target;
-        setPasswordInput({
-            ...passwordInput,
+        setForm({
+            ...form,
             [name]: value
         });
     }
 
     useEffect(() => {
-        (passwordInput.password === passwordInput.confirmPassword) ?
-            setMatchPasswords(true) :
-            setMatchPasswords(false);
-    }, [passwordInput]);
+        form.password === form.confirmPassword
+            ? setMatchPasswords(true)
+            : setMatchPasswords(false);
+    }, [form]);
 
     return (
         <body>
@@ -45,6 +49,8 @@ function SignUp() {
                                 name='name'
                                 placeholder='Nome'
                                 aria-required='true'
+                                onChange={handleInputChange}
+                                value={form.name}
                             />
                         </p>
                         <p className='form-item'>
@@ -56,6 +62,8 @@ function SignUp() {
                                 name='username'
                                 placeholder='Usuário'
                                 aria-required='true'
+                                onChange={handleInputChange}
+                                value={form.username}
                             />
                         </p>
                         <p className='form-item'>
@@ -67,6 +75,8 @@ function SignUp() {
                                 name='birthDate'
                                 placeholder='Nascimento'
                                 aria-required='true'
+                                onChange={handleInputChange}
+                                value={form.birthDate}
                             />
                         </p>
                         <p className='form-item'>
@@ -78,6 +88,8 @@ function SignUp() {
                                 name='email'
                                 placeholder='Email'
                                 aria-required='true'
+                                onChange={handleInputChange}
+                                value={form.email}
                             />
                         </p>
                         <p className='form-item'>
@@ -85,11 +97,12 @@ function SignUp() {
                                 aria-label='Password'
                                 id='input required-password'
                                 type={'password'}
-                                className={matchPasswords ? 'password' : 'password-error'}
+                                className={matchPasswords ? 'password' : 'input-error'}
                                 name='password'
                                 placeholder='Senha'
                                 aria-required='true'
-                                onChange={handlePasswordChange}
+                                onChange={handleInputChange}
+                                value={form.password}
                             />
                         </p>
                         <p className='form-item'>
@@ -97,16 +110,20 @@ function SignUp() {
                                 aria-label='Confirm Password'
                                 id='input required-confirm-password'
                                 type={'password'}
-                                className={matchPasswords ? 'confirm-password' : 'password-error'}
+                                className={matchPasswords ? 'confirm-password' : 'input-error'}
                                 name='confirmPassword'
                                 placeholder='Confirmar Senha'
                                 aria-required='true'
-                                onChange={handlePasswordChange}
+                                onChange={handleInputChange}
+                                value={form.confirmPassword}
                             />
                         </p>
-                        <p className='password-error-message'>
-                            {matchPasswords ? <span></span> : <span>As senha não correspondem!</span>}
-                        </p>
+                        {matchPasswords ? ''
+                            : (
+                                <span className="input-error-message">
+                                    As senha não correspondem!
+                                </span>
+                            )}
                         <p>
                             <button
                                 aria-label='Create Account'
