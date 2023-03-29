@@ -59,7 +59,7 @@ body {
 .title {
   margin: 0px;
   font-weight: 500;
-  font-size: 64px;
+  font-size: 4em;
 
   /* Inside auto layout */
   flex: none;
@@ -70,7 +70,7 @@ body {
 .subtitle {
   margin: 0px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: em;
   width: 40vh;
 
   /* Inside auto layout */
@@ -98,7 +98,7 @@ form {
 
 .label-form {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 2em;
   line-height: 48px;
   margin: 0px;
 
@@ -111,7 +111,7 @@ form {
 input {
   background: transparent;
   align-items: flex-start;
-  font-size: 16px;
+  font-size: 1em;
   box-sizing: border-box;
   padding: 19px 24px;
   width: 90vw;
@@ -139,7 +139,7 @@ input {
   max-width: 406px;
   height: 90vw;
   max-height: 62px;
-  font-size: 16px;
+  font-size: 1em;
   font-weight: 600;
   cursor: pointer;
   background: linear-gradient(180deg, #ad2d14 0%, #f42e07 100%);
@@ -162,7 +162,7 @@ input {
   display: flex;
   justify-content: center;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1em;
   width: 90vw;
   max-width: 406px;
   height: 90vw;
@@ -180,16 +180,21 @@ input {
   color: #f5f5f5;
 }
 
-.password-error {
+.input-error {
   border: 2px solid #e9b425;
 }
 
-.password-error-message {
+.input-error-message {
   display: flex;
   justify-content: center;
   width: 90vw;
   max-width: 406px;
   height: 90vw;
   max-height: 62px;
+  color: #e9b425;
+}
+
+.strong-password {
+  font-size: 0.8em;
   color: #e9b425;
 }
