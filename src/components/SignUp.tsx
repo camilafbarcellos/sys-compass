@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { checkName, checkUsername, checkEmail, checkPassword } from '../regex/regex';
 import '../styles/loginSignup.css'
 
 function SignUp() {
@@ -13,10 +14,13 @@ function SignUp() {
         confirmPassword: ''
     });
 
+    const [invalidName, setInvalidName] = useState(false);
+    const [invalidUsername, setInvalidUsername] = useState(false);
+    const [invalidEmail, setInvalidEmail] = useState(false);
+    const [invalidPassword, setInvalidPassword] = useState(false);
     const [matchPasswords, setMatchPasswords] = useState(true);
 
     const handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
-        event.preventDefault();
         const { value, name } = event.target;
         setForm({
             ...form,
@@ -24,10 +28,37 @@ function SignUp() {
         });
     }
 
+    function handlesubmit (event: React.SyntheticEvent<HTMLFormElement>)  {
+        event.preventDefault();
+
+        // name validation
+        !checkName.test(form.name)
+            ? setInvalidName(true)
+            : setInvalidName(false);
+
+        // username validation
+        !checkUsername.test(form.username)
+            ? setInvalidUsername(true)
+            : setInvalidUsername(false);
+
+        // email validation
+        !checkEmail.test(form.email)
+            ? setInvalidEmail(true)
+            : setInvalidEmail(false);
+
+        // password validation
+        !checkPassword.test(form.password)
+            ? setInvalidPassword(true)
+            : setInvalidPassword(false);
+    }
+
     useEffect(() => {
+
+        // password confirmation
         form.password === form.confirmPassword
             ? setMatchPasswords(true)
             : setMatchPasswords(false);
+
     }, [form]);
 
     return (
@@ -38,14 +69,14 @@ function SignUp() {
                         <h1 className='title'>Olá,</h1>
                         <p className='subtitle'>Por favor, registre-se para continuar</p>
                     </section>
-                    <form className='form'>
+                    <form className='form' onSubmit={handlesubmit}>
                         <h2 className='label-form'>Registro</h2>
                         <p className='form-item'>
                             <input required
                                 aria-label='Name'
                                 id='input required-name'
                                 type={'text'}
-                                className='name'
+                                className={!invalidName ? 'name' : 'input-error'}
                                 name='name'
                                 placeholder='Nome'
                                 aria-required='true'
@@ -53,12 +84,15 @@ function SignUp() {
                                 value={form.name}
                             />
                         </p>
+                        {invalidName && <span className='input-error-message'>
+                            Insira um nome válido!
+                        </span>}
                         <p className='form-item'>
                             <input required
                                 aria-label='Username'
                                 id='input required-username'
                                 type={'text'}
-                                className='username'
+                                className={!invalidUsername ? 'username' : 'input-error'}
                                 name='username'
                                 placeholder='Usuário'
                                 aria-required='true'
@@ -66,6 +100,9 @@ function SignUp() {
                                 value={form.username}
                             />
                         </p>
+                        {invalidUsername && <span className='input-error-message'>
+                            Insira um usuário válido!
+                        </span>}
                         <p className='form-item'>
                             <input required
                                 aria-label='Birth Date'
@@ -84,7 +121,7 @@ function SignUp() {
                                 aria-label='Email'
                                 id='input required-email'
                                 type={'email'}
-                                className='email'
+                                className={!invalidEmail ? 'email' : 'input-error'}
                                 name='email'
                                 placeholder='Email'
                                 aria-required='true'
@@ -92,12 +129,15 @@ function SignUp() {
                                 value={form.email}
                             />
                         </p>
+                        {invalidEmail && <span className='input-error-message'>
+                            Insira um email válido!
+                        </span>}
                         <p className='form-item'>
                             <input required
                                 aria-label='Password'
                                 id='input required-password'
                                 type={'password'}
-                                className={matchPasswords ? 'password' : 'input-error'}
+                                className={matchPasswords && !invalidPassword ? 'password' : 'input-error'}
                                 name='password'
                                 placeholder='Senha'
                                 aria-required='true'
@@ -105,6 +145,14 @@ function SignUp() {
                                 value={form.password}
                             />
                         </p>
+                        {invalidPassword && <span className='input-error-message'>
+                            Insira uma senha válida!
+                        </span>}
+                        {invalidPassword && <ul className='strong-password'>
+                            <li>Mínimo de 8 caracteres</li>
+                            <li>Pelo menos uma letra maiúscula ou minúscula</li>
+                            <li>Pelo menos um número</li>
+                        </ul>}
                         <p className='form-item'>
                             <input required
                                 aria-label='Confirm Password'
@@ -120,7 +168,7 @@ function SignUp() {
                         </p>
                         {matchPasswords ? ''
                             : (
-                                <span className="input-error-message">
+                                <span className='input-error-message'>
                                     As senha não correspondem!
                                 </span>
                             )}
