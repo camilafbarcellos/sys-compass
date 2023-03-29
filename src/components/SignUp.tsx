@@ -5,6 +5,7 @@ import '../styles/loginSignup.css'
 
 function SignUp() {
 
+    // contains every form input data
     const [form, setForm] = useState({
         name: '',
         username: '',
@@ -14,12 +15,14 @@ function SignUp() {
         confirmPassword: ''
     });
 
+    // controls all the form validation
     const [invalidName, setInvalidName] = useState(false);
     const [invalidUsername, setInvalidUsername] = useState(false);
     const [invalidEmail, setInvalidEmail] = useState(false);
     const [invalidPassword, setInvalidPassword] = useState(false);
     const [matchPasswords, setMatchPasswords] = useState(true);
 
+    // handler triggered at every input change, set the form properties
     const handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
         const { value, name } = event.target;
         setForm({
@@ -28,8 +31,9 @@ function SignUp() {
         });
     }
 
+    // handler triggered at every form submit, checks inputs validation
     function handlesubmit (event: React.SyntheticEvent<HTMLFormElement>)  {
-        event.preventDefault();
+        event.preventDefault(); // prevents from default submit
 
         // name validation
         !checkName.test(form.name)
@@ -52,8 +56,8 @@ function SignUp() {
             : setInvalidPassword(false);
     }
 
+    // triggered when form element's rendered
     useEffect(() => {
-
         // password confirmation
         form.password === form.confirmPassword
             ? setMatchPasswords(true)
@@ -61,6 +65,7 @@ function SignUp() {
 
     }, [form]);
 
+    // signup page split in half for the form and image
     return (
         <body>
             <section className='container'>
