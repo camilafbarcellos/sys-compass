@@ -30,7 +30,7 @@ function Login() {
 
         // username validation - can be email
         !checkUsername.test(form.username)
-        && !checkEmail.test(form.username)
+            && !checkEmail.test(form.username)
             ? setInvalidUsername(true)
             : setInvalidUsername(false);
 
@@ -78,13 +78,13 @@ function Login() {
                                 onChange={handleInputChange}
                                 value={form.password}
                             />
+                            {invalidUsername
+                                && invalidPassword
+                                && <span className='input-error-message'>
+                                    Usuário e/ou Senha inválidos.
+                                    <br/>Por favor, tente novamente!
+                                </span>}
                         </p>
-                        {invalidUsername 
-                        && invalidPassword
-                        && <span className='input-error-message'>
-                            Usuário e/ou Senha inválidos.
-                            Por favor, tente novamente!
-                        </span>}
                         <p>
                             <button
                                 className='button'
