@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { checkUsername, checkPassword, checkEmail } from '../regex/regex';
+import { checkUsername, checkPassword, checkEmail } from '../util/regex';
 import '../styles/loginSignup.css'
 
 function Login() {
