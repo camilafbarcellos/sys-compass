@@ -112,7 +112,9 @@ function SignUp() {
                             <input required
                                 aria-label='Birth Date'
                                 id='input required-birth'
-                                type={'date'}
+                                type={'text'}
+                                onFocus={(e) => (e.target.type='date')}
+                                onBlur={(e) => (e.target.type='text')}
                                 className='birthDate'
                                 name='birthDate'
                                 placeholder='Nascimento'
