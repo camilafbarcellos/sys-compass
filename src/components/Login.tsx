@@ -78,8 +78,8 @@ function Login() {
                                 onChange={handleInputChange}
                                 value={form.password}
                             />
-                            {invalidUsername
-                                && invalidPassword
+                            {(invalidUsername
+                                || invalidPassword)
                                 && <span className='input-error-message'>
                                     Usuário e/ou Senha inválidos.
                                     <br/>Por favor, tente novamente!
