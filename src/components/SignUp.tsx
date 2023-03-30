@@ -186,8 +186,8 @@ function SignUp() {
                                 name='signup'>Registrar-se
                             </button>
                         </p>
-                        <p id='other-option'>
-                            Já possui uma conta? &nbsp;<Link id='other-link' to='/login'>Faça Login</Link>
+                        <p className='other-option'>
+                            Já possui uma conta? &nbsp;<Link className='other-link' to='/login'>Faça Login</Link>
                         </p>
                     </form>
                 </section>
