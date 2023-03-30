@@ -151,8 +151,8 @@ input {
 }
 
 .button:hover {
-  background: linear-gradient(180deg, #ad2d24 0%, #f42e17 100%);
-  border: 1px solid #fe2e05;
+  background: linear-gradient(180deg, #9B2812 0%, #DB2906 100%);
+  border: 1px solid #E42904;
 }
 
 .other-option {
@@ -172,6 +172,10 @@ input {
   text-decoration: none;
   font-weight: 600;
   color: #f5f5f5;
+}
+
+.other-link:hover {
+  color: #fe2e05;
 }
 
 .input-error {
