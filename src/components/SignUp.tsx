@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import {
+    UserIcon, FingerPrintIcon, CakeIcon,
+    AtSymbolIcon, LockClosedIcon, ShieldCheckIcon
+} from '@heroicons/react/24/outline'
 import { checkName, checkUsername, checkEmail, checkPassword } from '../util/regex';
 import '../styles/loginSignup.css'
 
@@ -88,6 +92,7 @@ function SignUp() {
                                 onChange={handleInputChange}
                                 value={form.name}
                             />
+                            <UserIcon className='icon'/>
                             {invalidName && <span className='input-error-message'>
                                 Insira um nome válido!
                             </span>}
@@ -104,6 +109,7 @@ function SignUp() {
                                 onChange={handleInputChange}
                                 value={form.username}
                             />
+                            <FingerPrintIcon className='icon' />
                             {invalidUsername && <span className='input-error-message'>
                                 Insira um usuário válido!
                             </span>}
@@ -113,8 +119,8 @@ function SignUp() {
                                 aria-label='Birth Date'
                                 id='input required-birth'
                                 type={'text'}
-                                onFocus={(e) => (e.target.type='date')}
-                                onBlur={(e) => (e.target.type='text')}
+                                onFocus={(e) => (e.target.type = 'date')}
+                                onBlur={(e) => (e.target.type = 'text')}
                                 className='birthDate'
                                 name='birthDate'
                                 placeholder='Nascimento'
@@ -122,6 +128,7 @@ function SignUp() {
                                 onChange={handleInputChange}
                                 value={form.birthDate}
                             />
+                            <CakeIcon className='icon' />
                         </p>
                         <p className='form-item'>
                             <input required
@@ -135,6 +142,7 @@ function SignUp() {
                                 onChange={handleInputChange}
                                 value={form.email}
                             />
+                            <AtSymbolIcon className='icon' />
                             {invalidEmail && <span className='input-error-message'>
                                 Insira um email válido!
                             </span>}
@@ -151,6 +159,7 @@ function SignUp() {
                                 onChange={handleInputChange}
                                 value={form.password}
                             />
+                            <LockClosedIcon className='icon' />
                             {invalidPassword && <span className='input-error-message'>
                                 Insira uma senha válida!
                             </span>}
@@ -172,6 +181,7 @@ function SignUp() {
                                 onChange={handleInputChange}
                                 value={form.confirmPassword}
                             />
+                            <ShieldCheckIcon className='icon'/>
                             {matchPasswords ? ''
                                 : (
                                     <span className='input-error-message'>

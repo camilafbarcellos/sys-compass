@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 import { checkUsername, checkPassword, checkEmail } from '../util/regex';
 import '../styles/loginSignup.css'
 
@@ -53,7 +54,7 @@ function Login() {
                     </section>
                     <form className='form' onSubmit={handlesubmit}>
                         <h2 className='label-form'>Login</h2>
-                        <p className='form-item'>
+                        <p className='form-input'>
                             <input required
                                 aria-label='Username'
                                 id='input required-username'
@@ -65,8 +66,9 @@ function Login() {
                                 onChange={handleInputChange}
                                 value={form.username}
                             />
+                            <UserIcon className='icon' />
                         </p>
-                        <p className='form-item'>
+                        <p className='form-input'>
                             <input required
                                 aria-label='Password'
                                 id='input required-password'
@@ -78,6 +80,7 @@ function Login() {
                                 onChange={handleInputChange}
                                 value={form.password}
                             />
+                            <LockClosedIcon className='icon' />
                             {(invalidUsername
                                 || invalidPassword)
                                 && <span className='input-error-message'>
