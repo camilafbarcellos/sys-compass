@@ -37,7 +37,7 @@ body {
 
 .right {
   flex: 1;
-  background-image: url("../images/side-image.png");
+  background-image: url("../resources/images/side-image.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -147,20 +147,25 @@ input[type='date'] {
   font-size: 1rem;
 }
 
+input:focus,
+input[type='date']:focus {
+  outline: none;
+}
+
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
 .button {
   box-sizing: border-box;
+  margin: 1rem 0 1rem 0;
   padding: 1rem 1.5rem;
   min-width: 20vw;
   max-width: 30vw;
   min-height: 6vh;
-  max-height: 10vh;
+  max-height: 12vh;
   font-size: 1rem;
   font-weight: 600;
-  margin: 1rem 0 1rem 0;
   cursor: pointer;
   background: linear-gradient(180deg, #ad2d14 0%, #f42e07 100%);
   border: 1px solid #fe2e05;
