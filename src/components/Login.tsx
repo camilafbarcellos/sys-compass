@@ -29,16 +29,26 @@ function Login() {
     function handlesubmit(event: React.SyntheticEvent<HTMLFormElement>) {
         event.preventDefault(); // prevents from default submit
 
-        // username validation - can be email
-        !checkUsername.test(form.username)
-            && !checkEmail.test(form.username)
-            ? setInvalidUsername(true)
-            : setInvalidUsername(false);
+        // checks username admin - not admin must follow pattern
+        if (form.username !== 'admin') {
+            // username validation - can be email
+            !checkUsername.test(form.username)
+                && !checkEmail.test(form.username)
+                ? setInvalidUsername(true)
+                : setInvalidUsername(false);
 
-        // password validation
-        !checkPassword.test(form.password)
-            ? setInvalidPassword(true)
-            : setInvalidPassword(false);
+            // password validation
+            !checkPassword.test(form.password)
+                ? setInvalidPassword(true)
+                : setInvalidPassword(false);
+        }
+
+        // password must match admin
+        form.password !== 'admin'
+        ? setInvalidPassword(true)
+        : setInvalidPassword(false);
+
+
     }
 
     // login page split in half for the form and image
@@ -85,7 +95,7 @@ function Login() {
                                 || invalidPassword)
                                 && <span className='input-error-message'>
                                     Usuário e/ou Senha inválidos.
-                                    <br/>Por favor, tente novamente!
+                                    <br />Por favor, tente novamente!
                                 </span>}
                         </p>
                         <p>
