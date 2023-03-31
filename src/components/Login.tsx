@@ -30,21 +30,23 @@ function Login() {
         event.preventDefault(); // prevents from default submit
 
         // checks username admin - not admin must follow pattern
-        if (form.username !== 'admin') {
-            // username validation - can be email
-            !checkUsername.test(form.username)
-                && !checkEmail.test(form.username)
-                ? setInvalidUsername(true)
-                : setInvalidUsername(false);
-
-            // password validation
-            !checkPassword.test(form.password)
+        if (form.username === 'admin') {
+            // password must match admin
+            form.password !== 'admin'
                 ? setInvalidPassword(true)
                 : setInvalidPassword(false);
+            
+            return;
         }
 
-        // password must match admin
-        form.password !== 'admin'
+        // username validation - can be email
+        !checkUsername.test(form.username)
+            && !checkEmail.test(form.username)
+            ? setInvalidUsername(true)
+            : setInvalidUsername(false);
+
+        // password validation
+        !checkPassword.test(form.password)
             ? setInvalidPassword(true)
             : setInvalidPassword(false);
 
