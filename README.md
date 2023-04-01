@@ -4,6 +4,10 @@
 
 Week 4 | FullStack Journey | Compass UOL | 2023
 
+## 🌐 Vercel Deploy
+
+Access the website at [sys-compass-login.vercel.app](https://sys-compass-login.vercel.app/)
+
 ## ℹ️ About The App
 Login and registration screen of a Compass.UOL application following a Figma project with input validations
 
@@ -22,6 +26,7 @@ Login and registration screen of a Compass.UOL application following a Figma pro
 ![ReactJS logo](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![ReactRouter logo](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 ![NodeJS logo](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![Vercel logo](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ## 🚀 Setup
 - Download or clone the repository
