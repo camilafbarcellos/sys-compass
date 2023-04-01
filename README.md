@@ -40,16 +40,24 @@ Login and registration screen of a Compass.UOL application following a Figma pro
 
 - **Login with username error**
 
-![LoginPage](/src/assets/screenshots/LoginUsernameError.png)
+![LoginUsernameError](/src/assets/screenshots/LoginUsernameError.png)
 
 - **Login with 'admin' credentials error**
 
-![LoginPage](/src/assets/screenshots/LoginAdminError.png)
+![LoginAdminError](/src/assets/screenshots/LoginAdminError.png)
+
+- **Login (mobile)**
+
+![LoginMobile](/src/assets/screenshots/LoginMobile.png)
 
 - **Sign Up**
 
-![LoginPage](/src/assets/screenshots/SignupPage.png)
+![SignupPage](/src/assets/screenshots/SignupPage.png)
 
 - **Sign Up with input errors**
 
-![LoginPage](/src/assets/screenshots/SignupErrors.png)
+![SignupErrors](/src/assets/screenshots/SignupErrors.png)
+
+- **Sign Up (mobile)**
+
+![SignupMobile](/src/assets/screenshots/SignupMobile.png)
