@@ -54,7 +54,7 @@ export default function LoginForm() {
     return (
         <form className='form' onSubmit={handlesubmit}>
             <h2 className='label-form'>Login</h2>
-            <p className='form-input'>
+            <p className='form-item'>
                 <input required
                     aria-label='Username'
                     id='input required-username'
@@ -68,7 +68,7 @@ export default function LoginForm() {
                 />
                 <UserIcon className='icon' />
             </p>
-            <p className='form-input'>
+            <p className='form-item'>
                 <input required
                     aria-label='Password'
                     id='input required-password'

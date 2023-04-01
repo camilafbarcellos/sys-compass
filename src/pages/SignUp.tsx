@@ -11,7 +11,7 @@ export default function SignUp() {
                     <SignUpHeader/>
                     <SignUpForm/>
                 </section>
-                <section className='right' />
+                <section className='right'/>
             </section>
         </body>
     );

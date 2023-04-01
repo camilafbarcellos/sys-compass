@@ -153,11 +153,11 @@ export default function SignUpForm() {
                 {invalidPassword && <span className='input-error-message'>
                     Insira uma senha válida!
                 </span>}
-                {invalidPassword && <ul className='strong-password'>
+                {invalidPassword && <span className='strong-password'>
                     <li>Mínimo de 8 caracteres</li>
                     <li>Pelo menos uma letra maiúscula ou minúscula</li>
                     <li>Pelo menos um número</li>
-                </ul>}
+                </span>}
             </p>
             <p className='form-item'>
                 <input required

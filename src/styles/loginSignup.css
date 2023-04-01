@@ -1,134 +1,78 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-/* CSS Reset */
 * {
-  padding: 0;
-  margin: 0;
-  vertical-align: baseline;
-  list-style: none;
-  border: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  margin: auto;
-  padding: auto;
+  padding: 0;
+  margin: 0;
+  color: #f5f5f5;
+  background: linear-gradient(180deg, #2e2f36 0%, #17181c 100%);
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
-  background: linear-gradient(180deg, #2e2f36 0%, #17181c 100%);
-  position: relative;
-  overflow: auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  overflow: hidden;
 }
 
 .left {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 100%;
-  font-family: "Poppins", sans-serif;
-  color: #f5f5f5;
-  font-style: normal;
+  justify-content: center;
+  padding-left: 150px;
 }
 
 .right {
-  flex: 1;
-  background-image: url("../resources/images/side-image.png");
-  background-size: contain;
+  display: inline-flex;
+  justify-content: center;
+  background-image: url('../assets/images/side-image.png');
+  width: 80%;
   background-repeat: no-repeat;
-  background-position: center;
-  max-width: 100%;
+}
+
+img {
+  width: 80%;
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 20vh;
-  max-height: 50vh;
-  margin: 2rem 0 0 0;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  margin-bottom: 50px;
 }
 
 .title {
-  margin: 0;
   font-weight: 500;
   font-size: 4rem;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  margin: 0;
 }
 
 .subtitle {
-  margin: 0;
   font-weight: 400;
   font-size: 1rem;
   width: 40vh;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 20vh;
-  max-height: 50vh;
-  min-width: 0;
-  margin: auto;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  flex-grow: 0;
+  width: 450px;
 }
 
 .label-form {
   font-weight: 400;
   font-size: 2rem;
-  line-height: 48px;
-  margin: 0;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 
 input {
   background: transparent;
-  align-items: flex-start;
+  height: 55px;
+  padding: 0rem 2rem;
+  width: 100%;
+  outline: none;
   font-size: 1rem;
-  box-sizing: border-box;
-  margin: 1rem 0 1rem 0;
-  padding: 1rem 1.5rem;
-  min-width: 20vw;
-  max-width: 30vw;
-  min-height: 6vh;
-  max-height: 12vh;
+  color: #f5f5f5;
   border: 2px solid #f5f5f5;
   border-radius: 2rem;
-  color: #f5f5f5;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
 
 ::placeholder {
@@ -138,18 +82,12 @@ input {
 .icon {
   height: 1.5rem;
   width: 1.5rem;
-  transform: translate(-3em, 135%);
+  transform: translate(-2em, -170%);
   float: right;
 }
 
 input[type='date'] {
-  font-family: "Poppins", sans-serif;
   font-size: 1rem;
-}
-
-input:focus,
-input[type='date']:focus {
-  outline: none;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -157,25 +95,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .button {
-  box-sizing: border-box;
-  margin: 1rem 0 1rem 0;
-  padding: 1rem 1.5rem;
-  min-width: 20vw;
-  max-width: 30vw;
-  min-height: 6vh;
-  max-height: 12vh;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  background: linear-gradient(180deg, #ad2d14 0%, #f42e07 100%);
   border: 1px solid #fe2e05;
   border-radius: 2rem;
   color: #f5f5f5;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 3;
-  flex-grow: 0;
+  background: linear-gradient(180deg, #ad2d14 0%, #f42e07 100%);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  height: 55px;
 }
 
 .button:hover {
@@ -184,16 +113,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .other-option {
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 55px;
   font-weight: 400;
-  min-width: 20vw;
-  max-width: 30vw;
-
-  /* Inside auto layout */
-  flex: none;
-  order: 4;
-  flex-grow: 0;
 }
 
 .other-link {
@@ -211,12 +134,37 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .input-error-message {
-  color: #e9b425;
   display: flex;
   justify-content: center;
+  color: #e9b425;
 }
 
 .strong-password {
   font-size: 0.8rem;
   color: #e9b425;
+}
+
+/* Responsive */
+@media (max-width:1350px) {
+  .left {
+    padding: 50px !important;
+  }
+
+  .form {
+    width: 100%;
+  }
+}
+
+@media (max-width:768px) {
+  body {
+    padding: 20px;
+  }
+
+  .container {
+    grid-template-columns: auto;
+  }
+
+  .right {
+    display: none;
+  }
 }

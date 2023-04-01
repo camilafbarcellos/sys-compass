@@ -8,10 +8,10 @@ export default function Login() {
         <body>
             <section className='container'>
                 <section className='left'>
-                    <LoginHeader/>
-                    <LoginForm/>
+                    <LoginHeader />
+                    <LoginForm />
                 </section>
-                <section className='right' />
+                <section className='right'/>
             </section>
         </body>
     );
