@@ -1,9 +1,30 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserIcon, LockClosedIcon } from '@heroicons/react/24/outline'
-import { checkUsername, checkPassword, checkEmail } from '../util/regex';
 
 export default function LoginForm() {
+
+    // navigation
+    const navigate = useNavigate();
+    const goToHomepage = () => navigate('/home');
+
+    // fetch users data
+    const [users, setUsers] = useState<any[]>([]);
+
+    const fetchUserData = () => {
+        fetch('http://localhost:9000/users')
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                setUsers(data)
+            })
+    }
+
+    useEffect(() => {
+        fetchUserData()
+    }, []);
+
     // contains every form input data
     const [form, setForm] = useState({
         username: '',
@@ -27,28 +48,38 @@ export default function LoginForm() {
     function handlesubmit(event: React.SyntheticEvent<HTMLFormElement>) {
         event.preventDefault(); // prevents from default submit
 
-        // checks username admin - not admin must follow pattern
-        if (form.username === 'admin') {
-            // password must match admin
-            form.password !== 'admin'
-                ? setInvalidPassword(true)
-                : setInvalidPassword(false);
+        setInvalidUsername(false);
+        setInvalidPassword(false);
 
-            return;
+        let exists: boolean = false;
+        let userPassword: string = '';
+
+        // in case of having users data
+        if (users.length > 0) {
+            // loops the users
+            users.forEach((user: { name: string; user: string; birthdate: string; email: string; password: string; profile_photo: string }) => {
+                // checks form user existance
+                if (form.username === user.user || form.username === user.email) {
+                    exists = true;
+                    userPassword = user.password;
+                    return;
+                }
+            })
         }
 
-        // username validation - can be email
-        !checkUsername.test(form.username)
-            && !checkEmail.test(form.username)
-            ? setInvalidUsername(true)
-            : setInvalidUsername(false);
-
-        // password validation
-        !checkPassword.test(form.password)
-            ? setInvalidPassword(true)
-            : setInvalidPassword(false);
-
-
+        // checks username -> can be email
+        if (exists) {
+            // checks user's password
+            if (form.password === userPassword) {
+                // links to homepage
+                goToHomepage();
+            } else { // can't find password -> invalid
+                setInvalidPassword(true);
+            }
+        } else { // can't find username -> invalid
+            setInvalidUsername(true);
+            setInvalidPassword(true);
+        }
     }
 
     return (
