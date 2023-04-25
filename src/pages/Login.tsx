@@ -5,7 +5,7 @@ import LoginForm from '../components/LoginForm';
 export default function Login() {
     // login page split in half for the form and image
     return (
-        <body>
+        <section>
             <section className='container'>
                 <section className='left'>
                     <LoginHeader />
@@ -13,6 +13,6 @@ export default function Login() {
                 </section>
                 <section className='right'/>
             </section>
-        </body>
+        </section>
     );
 }

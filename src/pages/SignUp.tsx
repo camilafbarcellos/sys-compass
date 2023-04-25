@@ -5,7 +5,7 @@ import SignUpForm from '../components/SignUpForm';
 export default function SignUp() {
     // signup page split in half for the form and image
     return (
-        <body>
+        <section>
             <section className='container'>
                 <section className='left'>
                     <SignUpHeader/>
@@ -13,6 +13,6 @@ export default function SignUp() {
                 </section>
                 <section className='right'/>
             </section>
-        </body>
+        </section>
     );
 }
