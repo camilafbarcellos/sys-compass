@@ -1,0 +1,39 @@
+[
+    {
+        "user": "viniciusperes",
+        "post_date": "2023-04-05T17:30:00",
+        "description": "Dia de praia com a galera! 🌊☀️",
+        "likes": 28,
+        "comments": [
+            {
+                "user": "isadorabrito",
+                "comment": "E essa marquinha de sol, hein, Vinicius? 😅"
+            },
+            {
+                "user": "camilabarcellos",
+                "comment": "Foi muito divertido, precisamos fazer de novo! 🙌"
+            }
+        ],
+        "url_imagem": "https://exemplo.com/imagens/vinicius1.jpg"
+    },
+    {
+        "user": "yuricaetano",
+        "post_date": "2023-04-03T22:00:00",
+        "description": "Noite de karaokê com os amigos! 🎤🎶",
+        "likes": 18,
+        "comments": [
+            {
+                "user": "isadorabrito",
+                "comment": "Quando é a minha vez de escolher a música, hein? 😜"
+            },
+            {
+                "user": "gabrielgarcia",
+                "comment": "Você arrasou no Queen, Yuri! 👏"
+            },
+            {
+                "user": "emanuellescortegagna",
+                "comment": "Precisamos repetir mais vezes! 🙌"
+            }
+        ]
+    }
+]
