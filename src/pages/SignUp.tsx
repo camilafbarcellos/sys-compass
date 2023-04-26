@@ -1,6 +1,6 @@
-import '../styles/loginSignup.css'
-import SignUpHeader from '../components/SignUpHeader';
-import SignUpForm from '../components/SignUpForm';
+import '../styles/loginSignup.css';
+import Form from '../components/signup/Form';
+import Header from '../components/signup/Header';
 
 export default function SignUp() {
     // signup page split in half for the form and image
@@ -8,8 +8,8 @@ export default function SignUp() {
         <section>
             <section className='container'>
                 <section className='left'>
-                    <SignUpHeader/>
-                    <SignUpForm/>
+                    <Header/>
+                    <Form/>
                 </section>
                 <section className='right'/>
             </section>

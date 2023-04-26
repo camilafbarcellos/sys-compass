@@ -4,9 +4,9 @@ import {
     UserIcon, FingerPrintIcon, CakeIcon,
     AtSymbolIcon, LockClosedIcon, ShieldCheckIcon
 } from '@heroicons/react/24/outline'
-import { checkName, checkUsername, checkEmail, checkPassword } from '../util/regex';
+import { checkName, checkUsername, checkEmail, checkPassword } from '../../util/regex';
 
-export default function SignUpForm() {
+export default function Form() {
     // contains every form input data
     const [form, setForm] = useState({
         name: '',

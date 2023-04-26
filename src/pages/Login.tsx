@@ -1,6 +1,6 @@
-import '../styles/loginSignup.css'
-import LoginHeader from '../components/LoginHeader';
-import LoginForm from '../components/LoginForm';
+import '../styles/loginSignup.css';
+import Header from '../components/login/LoginHeader';
+import Form from '../components/login/Form';
 
 export default function Login() {
     // login page split in half for the form and image
@@ -8,8 +8,8 @@ export default function Login() {
         <section>
             <section className='container'>
                 <section className='left'>
-                    <LoginHeader />
-                    <LoginForm />
+                    <Header />
+                    <Form />
                 </section>
                 <section className='right'/>
             </section>

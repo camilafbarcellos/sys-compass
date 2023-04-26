@@ -1,4 +1,4 @@
-export default function SignUpHeader() {
+export default function Header() {
     return (
         <section className='header'>
             <h1 className='title'>Olá,</h1>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
-export default function LoginForm() {
+export default function Form() {
 
     // navigation
     const navigate = useNavigate();
