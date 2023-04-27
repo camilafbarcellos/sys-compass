@@ -16,8 +16,8 @@ body {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    width: 1440px;
-    height: 1024px;
+    width: fit-content;
+    height: 100vh;
     background: #17181C;
 }
 
@@ -27,15 +27,14 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 42px 10px;
-    width: 300px;
-    height: 1024px;
+    height: 100vh;
     background: #1E1F23;
     border: 2px solid #2E2F36;
 }
 
 .navLogo {
-    width: 240px;
-    height: 32.78px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .homeMain {
@@ -43,9 +42,6 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-
-    width: 1090px;
-    height: 1024px;
 }
 
 .homeHeader {
@@ -54,8 +50,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0px 28px;
-    width: 1090px;
-    height: 73px;
+    width: 100%;
     background: #1E1F23;
     border-width: 2px 2px 2px 0px;
     border-style: solid;
@@ -68,8 +63,6 @@ body {
     align-items: center;
     padding: 0px;
     gap: 16px;
-    width: 84px;
-    height: 24px;
 }
 
 .homeIcon {
@@ -91,8 +84,6 @@ body {
     align-items: center;
     padding: 10px;
     gap: 10px;
-    width: 200px;
-    height: 62px;
 }
 
 .userName {
@@ -112,6 +103,8 @@ body {
     cursor: pointer;
 }
 
+/* BODY */
+
 .homeBody {
     display: flex;
     flex-direction: row;
@@ -123,14 +116,14 @@ body {
     height: 951px;
 }
 
+/* NEW POST */
+
 .homePost {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px;
     gap: 24px;
-    width: 710px;
-    height: 879px;
 }
 
 .writeField {
@@ -139,8 +132,6 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     padding: 16px;
-    width: 710px;
-    height: 120px;
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
@@ -152,8 +143,6 @@ body {
     align-items: center;
     padding: 0px;
     gap: 16px;
-    width: 678px;
-    height: 37px;
 }
 
 .userIconPost {
@@ -187,11 +176,9 @@ body {
 .newPostOptions {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0px;
-    width: 678px;
-    height: 33px;
+    align-items: center;
+    padding-top: 15px;
+    gap: 110%;
 }
 
 .newPostOptionsItems {
@@ -200,8 +187,6 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 24px;
-    width: 216px;
-    height: 24px;
 }
 
 .newPostOptionIcon {
@@ -213,8 +198,7 @@ body {
 
 .buttonPost {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     padding: 6px 32px;
     width: 109px;
     height: 33px;
@@ -222,6 +206,7 @@ body {
     border-radius: 8px;
     background-color: transparent;
     color: #ffff;
+    cursor: pointer;
 }
 
 .buttonPost:hover {
@@ -229,14 +214,14 @@ body {
     background-color: #4a4b4e;
 }
 
+/* TIMELINE POSTS */
+
 .timelinePost {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 16px 0px;
     gap: 16px;
-    width: 710px;
-    height: 709px;
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
@@ -248,8 +233,6 @@ body {
     align-items: flex-start;
     padding: 0px 16px;
     gap: 16px;
-    width: 710px;
-    height: 91px;
 }
 
 .postUser {
@@ -259,8 +242,6 @@ body {
     align-items: center;
     padding: 0px;
     gap: 16px;
-    width: 330px;
-    height: 39px;
 }
 
 .postInfo {
@@ -269,15 +250,12 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 0px;
-    width: 282px;
-    height: 39px;
 }
 
 .postAuthor {
-    width: 118px;
-    height: 21px;
     font-size: 14px;
     line-height: 16px;
+    cursor: pointer;
 }
 
 .dateInfo {
@@ -286,8 +264,6 @@ body {
     align-items: center;
     padding: 0px;
     gap: 6px;
-    width: 282px;
-    height: 18px;
 }
 
 .dateIcon {
@@ -297,16 +273,12 @@ body {
 }
 
 .postDate {
-    width: 264px;
-    height: 18px;
     font-size: 12px;
     line-height: 18px;
     color: #75767D;
 }
 
 .postDescription {
-    width: 678px;
-    height: 36px;
     font-size: 12px;
     line-height: 18px;
 }
@@ -314,22 +286,17 @@ body {
 .postInteraction {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 10px 48px;
-    gap: 10px;
-    width: 710px;
-    height: 35px;
+    gap: 50%;
 }
 
 .postLike {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 8px;
-    width: 94px;
-    height: 16px;
+    cursor: pointer;
 }
 
 .likeIcon {
@@ -339,8 +306,6 @@ body {
 }
 
 .likeText {
-    width: 35px;
-    height: 15px;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
     line-height: 15px;
@@ -359,8 +324,6 @@ body {
 }
 
 .likesNumber {
-    width: 15px;
-    height: 10px;
     font-family: 'Inter', sans-serif;
     font-size: 8px;
     line-height: 10px;
@@ -371,10 +334,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px;
     gap: 8px;
-    width: 133px;
-    height: 16px;
+    cursor: pointer;
 }
 
 .commentIcon,
@@ -386,8 +347,6 @@ body {
 
 .commentText,
 .shareText {
-    width: 73px;
-    height: 15px;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
     line-height: 15px;
@@ -408,13 +367,13 @@ body {
 }
 
 .commentsNumber {
-    width: 16px;
-    height: 10px;
     font-family: 'Inter', sans-serif;
     font-size: 8px;
     line-height: 10px;
     color: #FFFFFF;
 }
+
+/* COMMENTS */
 
 .postComments {
     display: flex;
@@ -422,8 +381,6 @@ body {
     align-items: flex-start;
     padding: 0px 16px;
     gap: 16px;
-    width: 710px;
-    height: 203px;
 }
 
 .addComment {
@@ -465,14 +422,13 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 17px;
-    width: 148px;
-    height: 16px;
 }
 
 .addCommentOptionIcon {
     width: 16px;
     height: 16px;
     color: #A1A3A7;
+    cursor: pointer;
 }
 
 .everyComments {
@@ -480,13 +436,9 @@ body {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    width: 678px;
-    height: 18px;
 }
 
 .everyCommentsText {
-    width: 133px;
-    height: 18px;
     font-size: 12px;
     line-height: 18px;
 }
@@ -498,8 +450,6 @@ body {
     align-items: center;
     padding: 0px;
     gap: 16px;
-    width: 678px;
-    height: 65px;
 }
 
 .commentLeft {
@@ -507,8 +457,6 @@ body {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    width: 24px;
-    height: 65px;
 }
 
 .commentUserIcon {
@@ -525,13 +473,9 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 0px;
-    width: 638px;
-    height: 65px;
 }
 
 .commentContent {
-    width: 638px;
-    height: 65px;
     font-size: 12px;
     line-height: 18px;
 }
@@ -543,9 +487,11 @@ body {
     padding: 0px;
     gap: 16px;
     width: 678px;
-    height: 2px;
-    background: #27282F;
+    border: 2px solid #27282F;
+    border-radius: 16px;
 }
+
+/* RIGHT TOPICS */
 
 .homeTopics {
     display: flex;
@@ -553,9 +499,9 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 36px;
-    width: 272px;
-    height: 879px;
 }
+
+/* FRIENDS */
 
 .friends {
     display: flex;
@@ -563,8 +509,6 @@ body {
     align-items: flex-start;
     padding: 24px 20px;
     gap: 24px;
-    width: 272px;
-    height: 272px;
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
@@ -576,13 +520,9 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     padding: 0px;
-    width: 232px;
-    height: 24px;
 }
 
 .friendsTitle {
-    width: 102px;
-    height: 19px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 19px;
@@ -594,7 +534,31 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 16px;
+}
 
-    width: 180px;
-    height: 176px;
+.friend {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    cursor: pointer;
+}
+
+.friendUserIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.friendName {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    font-size: 14px;
+    line-height: 21px;
 }
