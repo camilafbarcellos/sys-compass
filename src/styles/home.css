@@ -1,0 +1,600 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap?family= Inter & display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: #f5f5f5;
+}
+
+.homeContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    width: 1440px;
+    height: 1024px;
+    background: #17181C;
+}
+
+.homeNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 42px 10px;
+    width: 300px;
+    height: 1024px;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+}
+
+.navLogo {
+    width: 240px;
+    height: 32.78px;
+}
+
+.homeMain {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 1090px;
+    height: 1024px;
+}
+
+.homeHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 28px;
+    width: 1090px;
+    height: 73px;
+    background: #1E1F23;
+    border-width: 2px 2px 2px 0px;
+    border-style: solid;
+    border-color: #2E2F36;
+}
+
+.homeFrame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 84px;
+    height: 24px;
+}
+
+.homeIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.homeTitle {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.userFrame {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    width: 200px;
+    height: 62px;
+}
+
+.userName {
+    padding: 10px;
+    gap: 10px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.userIcon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.homeBody {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 36px;
+    gap: 36px;
+
+    width: 1090px;
+    height: 951px;
+}
+
+.homePost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+    width: 710px;
+    height: 879px;
+}
+
+.writeField {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 16px;
+    width: 710px;
+    height: 120px;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+    border-radius: 16px;
+}
+
+.newPost {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 678px;
+    height: 37px;
+}
+
+.userIconPost {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.newPostInput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 24px;
+    width: 630px;
+    height: 37px;
+    background: #27282F;
+    border-radius: 46px;
+    border: none;
+}
+
+.newPostInput::placeholder {
+    color: #75767D;
+}
+
+.newPostInput:focus {
+    outline: none;
+}
+
+.newPostOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    width: 678px;
+    height: 33px;
+}
+
+.newPostOptionsItems {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+    width: 216px;
+    height: 24px;
+}
+
+.newPostOptionIcon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    color: #A1A3A7;
+}
+
+.buttonPost {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 6px 32px;
+    width: 109px;
+    height: 33px;
+    border: 2px solid #27282F;
+    border-radius: 8px;
+    background-color: transparent;
+    color: #ffff;
+}
+
+.buttonPost:hover {
+    border: 2px solid #525258;
+    background-color: #4a4b4e;
+}
+
+.timelinePost {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 0px;
+    gap: 16px;
+    width: 710px;
+    height: 709px;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+    border-radius: 16px;
+}
+
+.postHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 16px;
+    gap: 16px;
+    width: 710px;
+    height: 91px;
+}
+
+.postUser {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 330px;
+    height: 39px;
+}
+
+.postInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    width: 282px;
+    height: 39px;
+}
+
+.postAuthor {
+    width: 118px;
+    height: 21px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.dateInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 6px;
+    width: 282px;
+    height: 18px;
+}
+
+.dateIcon {
+    width: 12px;
+    height: 12px;
+    color: #75767D;
+}
+
+.postDate {
+    width: 264px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #75767D;
+}
+
+.postDescription {
+    width: 678px;
+    height: 36px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.postInteraction {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 48px;
+    gap: 10px;
+    width: 710px;
+    height: 35px;
+}
+
+.postLike {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 94px;
+    height: 16px;
+}
+
+.likeIcon {
+    width: 16px;
+    height: 16px;
+    color: #2D86FC;
+}
+
+.likeText {
+    width: 35px;
+    height: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    color: #2D86FC;
+}
+
+.likesBadge {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 2px 6px;
+    width: 22px;
+    height: 14px;
+    background: #2D86FC;
+    border-radius: 16px;
+}
+
+.likesNumber {
+    width: 15px;
+    height: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    line-height: 10px;
+}
+
+.postComment,
+.postShare {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 133px;
+    height: 16px;
+}
+
+.commentIcon,
+.shareIcon {
+    width: 16px;
+    height: 16px;
+    color: #A1A3A7;
+}
+
+.commentText,
+.shareText {
+    width: 73px;
+    height: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    color: #A1A3A7;
+}
+
+.commentsBadge {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 2px 6px;
+    width: 18px;
+    height: 14px;
+    background: #27282F;
+    border-radius: 16px;
+}
+
+.commentsNumber {
+    width: 16px;
+    height: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 8px;
+    line-height: 10px;
+    color: #FFFFFF;
+}
+
+.postComments {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px 16px;
+    gap: 16px;
+    width: 710px;
+    height: 203px;
+}
+
+.addComment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 666px;
+    height: 37px;
+}
+
+.addCommentInput {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 24px;
+    width: 618px;
+    height: 37px;
+    background: #27282F;
+    border-radius: 46px;
+    border: none;
+}
+
+.addCommentInput::placeholder {
+    font-size: 14px;
+    line-height: 21px;
+    color: #75767D;
+}
+
+.addCommentInput:focus {
+    outline: none;
+}
+
+.addCommentOptions {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 17px;
+    width: 148px;
+    height: 16px;
+}
+
+.addCommentOptionIcon {
+    width: 16px;
+    height: 16px;
+    color: #A1A3A7;
+}
+
+.everyComments {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    width: 678px;
+    height: 18px;
+}
+
+.everyCommentsText {
+    width: 133px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 678px;
+    height: 65px;
+}
+
+.commentLeft {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    width: 24px;
+    height: 65px;
+}
+
+.commentUserIcon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.commentFrame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    width: 638px;
+    height: 65px;
+}
+
+.commentContent {
+    width: 638px;
+    height: 65px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.commentDivider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+    width: 678px;
+    height: 2px;
+    background: #27282F;
+}
+
+.homeTopics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 36px;
+    width: 272px;
+    height: 879px;
+}
+
+.friends {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+    gap: 24px;
+    width: 272px;
+    height: 272px;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+    border-radius: 16px;
+}
+
+.friendsHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px;
+    width: 232px;
+    height: 24px;
+}
+
+.friendsTitle {
+    width: 102px;
+    height: 19px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.friendsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+
+    width: 180px;
+    height: 176px;
+}
