@@ -1,5 +1,5 @@
 import '../styles/loginSignup.css';
-import Header from '../components/login/LoginHeader';
+import Header from '../components/login/Header';
 import Form from '../components/login/Form';
 
 export default function Login() {
