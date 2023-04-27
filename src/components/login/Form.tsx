@@ -6,7 +6,6 @@ export default function Form() {
 
     // navigation
     const navigate = useNavigate();
-    const goToHomepage = () => navigate('/home');
 
     // fetch users data
     const [users, setUsers] = useState<any[]>([]);
@@ -53,6 +52,7 @@ export default function Form() {
 
         let exists: boolean = false;
         let userPassword: string = '';
+        let userName: string = '';
 
         // in case of having users data
         if (users.length > 0) {
@@ -62,6 +62,7 @@ export default function Form() {
                 if (form.username === user.user || form.username === user.email) {
                     exists = true;
                     userPassword = user.password;
+                    userName = user.name;
                     return;
                 }
             })
@@ -71,8 +72,12 @@ export default function Form() {
         if (exists) {
             // checks user's password
             if (form.password === userPassword) {
+                // saves user to localstoreage
+                localStorage.setItem('user', form.username);
+                // pops alert to the user
+                alert(`Bem vind@, ${userName}! Você será redirecionado para a homepage...`)
                 // links to homepage
-                goToHomepage();
+                navigate('/home');
             } else { // can't find password -> invalid
                 setInvalidPassword(true);
             }
