@@ -16,9 +16,15 @@ body {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    width: fit-content;
-    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow-x: hidden;
     background: #17181C;
+    scrollbar-width: none;
+}
+
+.homeContainer::-webkit-scrollbar {
+    display: none;
 }
 
 .homeNav {
@@ -111,9 +117,15 @@ body {
     align-items: flex-start;
     padding: 36px;
     gap: 36px;
+    max-width: 1090px;
+    max-height: 951px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+}
 
-    width: 1090px;
-    height: 951px;
+.homeBody::-webkit-scrollbar {
+    display: none;
 }
 
 /* NEW POST */
@@ -394,16 +406,12 @@ body {
 }
 
 .addCommentInput {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     padding: 8px 24px;
-    width: 618px;
     height: 37px;
     background: #27282F;
     border-radius: 46px;
     border: none;
+    font-size: 14px;
 }
 
 .addCommentInput::placeholder {
@@ -543,9 +551,9 @@ body {
 .toggleButton {
     padding-left: 101px;
     background: inherit;
-	color: inherit;
-	border: none;
-	cursor: pointer;
+    color: inherit;
+    border: none;
+    cursor: pointer;
 }
 
 #toggleButtonDownIcon,
@@ -568,6 +576,14 @@ body {
     align-items: flex-start;
     padding: 0px;
     gap: 16px;
+    max-width: 272px;
+    max-height: 267.5px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.friendsContent::-webkit-scrollbar {
+    display: none;
 }
 
 .friend {
