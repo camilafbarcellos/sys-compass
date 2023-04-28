@@ -10,7 +10,7 @@ import {
     CameraIcon, PhotoIcon,
     PaperClipIcon, MapPinIcon, FaceSmileIcon,
     ClockIcon, ChatBubbleLeftEllipsisIcon,
-    ShareIcon
+    ShareIcon, ChevronUpIcon, ChevronDownIcon
 } from '@heroicons/react/24/outline';
 
 function Home() {
@@ -48,6 +48,31 @@ function Home() {
 
     // user coming from localstorage
     const localUser = users.find(i => i.user === sessionStorage.getItem('user'));
+
+    // handler triggered when clicking toggle friends button
+    function toggleFriends(event: React.SyntheticEvent<HTMLButtonElement>) {
+        const friendsContent = document.getElementById('friendsContent');
+        const toggleButtonDownIcon = document.getElementById('toggleButtonDownIcon');
+        const toggleButtonUpIcon = document.getElementById('toggleButtonUpIcon');
+
+        if (friendsContent && toggleButtonDownIcon && toggleButtonUpIcon) {
+            if (friendsContent.style.display === 'none') {
+                // shows element if hidden
+                friendsContent.style.display = 'flex';
+
+                // inverts button icon display
+                toggleButtonUpIcon.style.display = 'flex';
+                toggleButtonDownIcon.style.display = 'none';
+            } else {
+                // hides element if shown
+                friendsContent.style.display = 'none';
+
+                // inverts button icon display
+                toggleButtonUpIcon.style.display = 'none';
+                toggleButtonDownIcon.style.display = 'flex';
+            }
+        }
+    }
 
     // social homepage
     return (
@@ -202,9 +227,12 @@ function Home() {
                                 <section className='friends'>
                                     <div className='friendsHeader'>
                                         <span className='friendsTitle'>Meus Amigos</span>
-                                        {/* TOGGLE */}
+                                        <button className='toggleButton' onClick={toggleFriends}>
+                                            <ChevronDownIcon id='toggleButtonDownIcon' />
+                                            <ChevronUpIcon id='toggleButtonUpIcon' />
+                                        </button>
                                     </div>
-                                    <div className='friendsContent'>
+                                    <div className='friendsContent' id='friendsContent'>
                                         {users.length > 0 && (
                                             users.filter(user => localUser.user !== user.user).map((user: {
                                                 name: string; user: string; profile_photo: string
@@ -219,6 +247,10 @@ function Home() {
                                         )}
                                     </div>
                                 </section>
+
+                                <section className='trendTopic' />
+
+                                <section className='trendTopic' />
 
                             </section>
                         </section>

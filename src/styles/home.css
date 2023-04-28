@@ -501,6 +501,18 @@ body {
     gap: 36px;
 }
 
+.trendTopic {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0px;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+    border-radius: 16px;
+    width: 272px;
+    height: 267.5px;
+}
+
 /* FRIENDS */
 
 .friends {
@@ -528,8 +540,30 @@ body {
     line-height: 19px;
 }
 
-.friendsContent {
+.toggleButton {
+    padding-left: 101px;
+    background: inherit;
+	color: inherit;
+	border: none;
+	cursor: pointer;
+}
+
+#toggleButtonDownIcon,
+#toggleButtonUpIcon {
+    width: 24px;
+    height: 24px;
+}
+
+#toggleButtonDownIcon {
     display: flex;
+}
+
+#toggleButtonUpIcon {
+    display: none;
+}
+
+.friendsContent {
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
