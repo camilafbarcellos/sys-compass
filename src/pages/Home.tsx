@@ -137,7 +137,7 @@ function Home() {
                                                             alt='User' className='userIconPost' />
                                                         <div className='postInfo'>
                                                             <div className='postAuthor' key={post.user}>
-                                                                {post.user}
+                                                                {users.find(i => i.user === post.user)?.name}
                                                             </div>
 
                                                             <div className='dateInfo'>
@@ -207,7 +207,8 @@ function Home() {
 
                                                                 <div className='commentFrame'>
                                                                     <span className='commentContent' key={comment.user}>
-                                                                        <b>{comment.user}: &nbsp;</b> {comment.comment}
+                                                                        <b>{comment.user}: &nbsp;</b> 
+                                                                        {comment.comment}
                                                                     </span>
                                                                 </div>
                                                             </div>
