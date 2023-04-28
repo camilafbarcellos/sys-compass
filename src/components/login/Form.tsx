@@ -73,9 +73,9 @@ export default function Form() {
             // checks user's password
             if (form.password === userPassword) {
                 // saves user to localstoreage
-                localStorage.setItem('user', form.username);
+                sessionStorage.setItem('user', form.username);
                 // pops alert to the user
-                alert(`Bem vind@, ${userName}! Você será redirecionado para a homepage...`)
+                alert(`Bem vind@, ${userName}! Redirecionando para a homepage...`)
                 // links to homepage
                 navigate('/home');
             } else { // can't find password -> invalid
