@@ -1,7 +1,7 @@
 [
     {
         "name": "Ana Luiza Landim Irschlinger",
-        "user": "analuizalandimirschlinger",
+        "user": "analuizairschlinger",
         "birthdate": "1992-08-05",
         "email": "ana.irschlinger.pb@compasso.com.br",
         "password": "BolsistasUOL",
@@ -9,7 +9,7 @@
     },
     {
         "name": "Camila Florão Barcellos",
-        "user": "camilafloraobarcellos",
+        "user": "camilabarcellos",
         "birthdate": "1993-04-10",
         "email": "camila.barcellos.pb@compasso.com.br",
         "password": "BolsistasUOL",
@@ -17,7 +17,7 @@
     },
     {
         "name": "Dener Kisner Borges",
-        "user": "denerkisnerborges",
+        "user": "denerborges",
         "birthdate": "1992-06-03",
         "email": "dener.borges.pb@compasso.com.br",
         "password": "BolsistasUOL",
@@ -25,7 +25,7 @@
     },
     {
         "name": "Diego Leonardo Martinicorena Suarez",
-        "user": "diegomartinicorenasuarez",
+        "user": "diegosuarez",
         "birthdate": "1994-09-27",
         "email": "diego.suarez.pb@compasso.com.br",
         "password": "BolsistasUOL",
@@ -33,7 +33,7 @@
     },
     {
         "name": "Emanuelle Fritzen Machado",
-        "user": "emanuellefritzenmachado",
+        "user": "emanuellemachado",
         "birthdate": "1993-01-28",
         "email": "emanuelle.machado.pb@compasso.com.br",
         "password": "BolsistasUOL",
@@ -57,7 +57,7 @@
     },
     {
         "name": "Gabriel Medeiros Garcia",
-        "user": "gabrielmedeiros",
+        "user": "gabrielgarcia",
         "birthdate": "1993-10-18",
         "email": "gabriel.garcia.pb@compasso.com.br",
         "password": "BolsistasUOL",
@@ -65,7 +65,7 @@
     },
     {
         "name": "Isadora de Pinho Brito",
-        "user": "isadorapinhobrito",
+        "user": "isadorabrito",
         "birthdate": "1994-06-17",
         "email": "isadora.brito.pb@compasso.com.br",
         "password": "BolsistasUOL",
