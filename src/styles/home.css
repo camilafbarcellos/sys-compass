@@ -77,7 +77,7 @@ body {
 }
 
 .homeTitle {
-    font-size: 16px;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     color: #FFFFFF;
@@ -95,7 +95,7 @@ body {
 .userName {
     padding: 10px;
     gap: 10px;
-    font-size: 16px;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     color: #FFFFFF;
@@ -228,6 +228,14 @@ body {
 
 /* TIMELINE POSTS */
 
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 24px;
+}
+
 .timelinePost {
     display: flex;
     flex-direction: column;
@@ -265,7 +273,7 @@ body {
 }
 
 .postAuthor {
-    font-size: 14px;
+    font-size: 0.9rem;
     line-height: 16px;
     cursor: pointer;
 }
@@ -285,13 +293,13 @@ body {
 }
 
 .postDate {
-    font-size: 12px;
+    font-size: 0.8rem;
     line-height: 18px;
     color: #75767D;
 }
 
 .postDescription {
-    font-size: 12px;
+    font-size: 0.8rem;
     line-height: 18px;
 }
 
@@ -319,7 +327,7 @@ body {
 
 .likeText {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 0.8rem;
     line-height: 15px;
     color: #2D86FC;
 }
@@ -337,7 +345,7 @@ body {
 
 .likesNumber {
     font-family: 'Inter', sans-serif;
-    font-size: 8px;
+    font-size: 0.6rem;
     line-height: 10px;
 }
 
@@ -360,7 +368,7 @@ body {
 .commentText,
 .shareText {
     font-family: 'Inter', sans-serif;
-    font-size: 12px;
+    font-size: 0.8rem;
     line-height: 15px;
     display: flex;
     align-items: center;
@@ -380,7 +388,7 @@ body {
 
 .commentsNumber {
     font-family: 'Inter', sans-serif;
-    font-size: 8px;
+    font-size: 0.6rem;
     line-height: 10px;
     color: #FFFFFF;
 }
@@ -411,11 +419,11 @@ body {
     background: #27282F;
     border-radius: 46px;
     border: none;
-    font-size: 14px;
+    font-size: 0.9rem;
 }
 
 .addCommentInput::placeholder {
-    font-size: 14px;
+    font-size: 0.9rem;
     line-height: 21px;
     color: #75767D;
 }
@@ -447,7 +455,7 @@ body {
 }
 
 .everyCommentsText {
-    font-size: 12px;
+    font-size: 0.8rem;
     line-height: 18px;
 }
 
@@ -484,7 +492,7 @@ body {
 }
 
 .commentContent {
-    font-size: 12px;
+    font-size: 0.8rem;
     line-height: 18px;
 }
 
@@ -495,8 +503,24 @@ body {
     padding: 0px;
     gap: 16px;
     width: 678px;
-    border: 2px solid #27282F;
+    border: 1.5px solid #27282F;
     border-radius: 16px;
+}
+
+.seeAllComments {
+    margin: auto;
+    width: 50%;
+    padding: 0px;
+}
+
+.seeAllCommentsText {
+    margin: 0;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    line-height: 17px;
+    color: #2D86FC;
+    cursor: pointer;
 }
 
 /* RIGHT TOPICS */
@@ -544,7 +568,7 @@ body {
 
 .friendsTitle {
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
 }
 
@@ -609,6 +633,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding: 0px;
-    font-size: 14px;
+    font-size: 0.9rem;
     line-height: 21px;
 }

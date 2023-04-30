@@ -214,7 +214,12 @@ function Home() {
                                                             </div>
                                                         ))
                                                     )}
+
                                                     <hr className='commentDivider' />
+
+                                                    <div className='seeAllComments'>
+                                                        <p className='seeAllCommentsText'>Ver todos os comentaríos</p>
+                                                    </div>
                                                 </div>
                                             </section>
                                         ))
