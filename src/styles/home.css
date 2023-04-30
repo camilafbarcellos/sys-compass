@@ -523,6 +523,10 @@ body {
     cursor: pointer;
 }
 
+.seeAllCommentsText:hover {
+    color: #ffff;
+}
+
 /* RIGHT TOPICS */
 
 .homeTopics {
@@ -577,13 +581,13 @@ body {
     background: inherit;
     color: inherit;
     border: none;
-    cursor: pointer;
 }
 
 #toggleButtonDownIcon,
 #toggleButtonUpIcon {
     width: 24px;
     height: 24px;
+    cursor: pointer;
 }
 
 #toggleButtonDownIcon {
