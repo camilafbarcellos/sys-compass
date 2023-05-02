@@ -8,6 +8,31 @@ import User from '../../api/models/user';
 
 export default function Timeline({ localUser, posts, users }: any) {
 
+    function likePost() {
+        const likeIcon = document.getElementById('likeIcon');
+        const likeText = document.getElementById('likeText');
+        const likesBadge = document.getElementById('likesBadge');
+        const likesNumber = document.getElementById('likesNumber');
+
+        if (likeIcon && likeText && likesBadge && likesNumber) {
+            if (likeText.textContent === 'Curtir') {
+                likeIcon.style.color = '#2D86FC';
+                likeText.style.color = '#2D86FC';
+                likeText.textContent = 'Curtiu';
+                likesBadge.style.background = '#2D86FC';
+                let oldLikes = parseInt(likesNumber.textContent!);
+                likesNumber.textContent = (++oldLikes).toString();
+            } else if(likeText.textContent === 'Curtiu') {
+                likeIcon.style.color = '#A1A3A7';
+                likeText.style.color = '#A1A3A7';
+                likeText.textContent = 'Curtir';
+                likesBadge.style.background = '#A1A3A7';
+                let oldLikes = parseInt(likesNumber.textContent!);
+                likesNumber.textContent = (--oldLikes).toString();
+            }
+        }
+    }
+
     return (
         <section className='timeline'>
             {posts.length > 0 && (
@@ -44,26 +69,26 @@ export default function Timeline({ localUser, posts, users }: any) {
                         </div>
 
                         <div className='postInteraction'>
-                            <div className='postLike'>
-                                <HandThumbUpIcon className='likeIcon' />
-                                <span className='likeText'>Curtiu</span>
-                                <div className='likesBadge'>
-                                    <span className='likesNumber' key={post.user}>{post.likes}</span>
+                            <button className='postLike' type='button' onClick={likePost}>
+                                <HandThumbUpIcon className='likeIcon' id='likeIcon' />
+                                <span className='likeText' id='likeText'>Curtir</span>
+                                <div className='likesBadge' id='likesBadge'>
+                                    <span className='likesNumber' id='likesNumber' key={post.user}>{post.likes}</span>
                                 </div>
-                            </div>
+                            </button>
 
-                            <div className='postComment'>
+                            <button className='postComment' type='button'>
                                 <ChatBubbleLeftEllipsisIcon className='commentIcon' />
                                 <span className='commentText'>Comentários</span>
                                 <div className='commentsBadge'>
                                     <span className='commentsNumber' key={post.user}>{post.comments.length}</span>
                                 </div>
-                            </div>
+                            </button>
 
-                            <div className='postShare'>
+                            <button className='postShare' type='button'>
                                 <ShareIcon className='shareIcon' />
                                 <span className='shareText'>Compartilhar</span>
-                            </div>
+                            </button>
                         </div>
 
                         <div className='postComments'>
