@@ -23,9 +23,8 @@ button {
     flex-direction: row;
     align-items: flex-start;
     padding: 0px;
-    max-width: 100vw;
     max-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
     background: #17181C;
     scrollbar-width: none;
 }
@@ -123,9 +122,10 @@ button {
     flex-direction: row;
     align-items: flex-start;
     padding: 36px;
+    padding-bottom: 0px;
     gap: 36px;
-    max-width: 1090px;
-    max-height: 951px;
+    max-width: 90vw;
+    max-height: 92.8vh;
     overflow-y: scroll;
     overflow-x: hidden;
     scrollbar-width: none;
@@ -240,6 +240,7 @@ button {
     flex-direction: column;
     align-items: center;
     padding: 0px;
+    padding-bottom: 36px;
     gap: 24px;
 }
 
@@ -306,7 +307,7 @@ button {
 }
 
 .postDescription {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 18px;
 }
 
@@ -340,7 +341,7 @@ button {
 .commentText,
 .shareText {
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 15px;
     display: flex;
     align-items: center;
@@ -430,7 +431,7 @@ button {
 }
 
 .everyCommentsText {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 18px;
 }
 
@@ -535,6 +536,8 @@ button {
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
+    max-width: 272px;
+    max-height: 267.5px;
 }
 
 .friendsHeader {
