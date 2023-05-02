@@ -39,7 +39,7 @@ Homepage of a Compass.UOL social application focused on creating and viewing pos
 
 ## :exclamation: Know Issues
 - Signup page is not functional and doesn't actually persists data to the JSON of users
-- Home page with CSS layout malfunctions, including overflow
+- Home page without CSS layout responsiveness
 - Mostly home page buttons are purely visual and not functional
 
 ## :camera_flash: Screenshots
