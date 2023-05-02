@@ -18,6 +18,8 @@ Homepage of a Compass.UOL social application focused on creating and viewing pos
     - No database has been used yet, so all the data is provided by the API and resides in a JSON file
     - JSON data retrieved by fetch API
 - Uses the [Lorem Picsum](https://picsum.photos/) API to generate random pictures used in homepage
+- Home page allows adding new posts via "add post" input (only visually, doesn't persist to the JSON of posts)
+- Home page allows dinamically liking and disliking posts, with visual (color/text) impact and dinamic number of likes
 
 ## :gear: Technologies
 ![TypeScript logo](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -38,8 +40,7 @@ Homepage of a Compass.UOL social application focused on creating and viewing pos
 ## :exclamation: Know Issues
 - Signup page is not functional and doesn't actually persists data to the JSON of users
 - Home page with CSS layout malfunctions, including overflow
-- Home page doesn't allow adding new posts via "add post" input, either visually or by persisting to the JSON of posts
-- All home page buttons are purely visual and not functional
+- Mostly home page buttons are purely visual and not functional
 
 ## :camera_flash: Screenshots
 ![Homepage initial](/src/assets/screenshots/Homepage.png)
