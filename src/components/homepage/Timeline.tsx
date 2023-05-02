@@ -8,27 +8,28 @@ import User from '../../api/models/user';
 
 export default function Timeline({ localUser, posts, users }: any) {
 
-    function likePost() {
-        const likeIcon = document.getElementById('likeIcon');
-        const likeText = document.getElementById('likeText');
-        const likesBadge = document.getElementById('likesBadge');
-        const likesNumber = document.getElementById('likesNumber');
+    // handles the like button click
+    function likePost(event: React.MouseEvent<HTMLButtonElement>) {
+        const button: HTMLButtonElement = event.currentTarget;
+        const likeIcon = button.getElementsByClassName('likeIcon');
+        const likeText = button.getElementsByClassName('likeText');
+        const likesBadge = button.getElementsByClassName('likesBadge');
+        const likesNumber = button.getElementsByClassName('likesNumber');
+        let oldLikes = parseInt((likesNumber[0] as HTMLSpanElement).textContent!);
 
         if (likeIcon && likeText && likesBadge && likesNumber) {
-            if (likeText.textContent === 'Curtir') {
-                likeIcon.style.color = '#2D86FC';
-                likeText.style.color = '#2D86FC';
-                likeText.textContent = 'Curtiu';
-                likesBadge.style.background = '#2D86FC';
-                let oldLikes = parseInt(likesNumber.textContent!);
-                likesNumber.textContent = (++oldLikes).toString();
-            } else if(likeText.textContent === 'Curtiu') {
-                likeIcon.style.color = '#A1A3A7';
-                likeText.style.color = '#A1A3A7';
-                likeText.textContent = 'Curtir';
-                likesBadge.style.background = '#A1A3A7';
-                let oldLikes = parseInt(likesNumber.textContent!);
-                likesNumber.textContent = (--oldLikes).toString();
+            if ((likeText[0] as HTMLSpanElement).textContent === 'Curtir') {
+                (likeIcon[0] as HTMLElement).style.color = '#2D86FC';
+                (likeText[0] as HTMLSpanElement).style.color = '#2D86FC';
+                (likeText[0] as HTMLSpanElement).textContent = 'Curtiu';
+                (likesBadge[0] as HTMLDivElement).style.background = '#2D86FC';
+                (likesNumber[0] as HTMLSpanElement).textContent = (++oldLikes).toString();
+            } else if((likeText[0] as HTMLSpanElement).textContent === 'Curtiu') {
+                (likeIcon[0] as HTMLElement).style.color = '#A1A3A7';
+                (likeText[0] as HTMLSpanElement).style.color = '#A1A3A7';
+                (likeText[0] as HTMLSpanElement).textContent = 'Curtir';
+                (likesBadge[0] as HTMLDivElement).style.background = '#27282F';
+                (likesNumber[0] as HTMLSpanElement).textContent = (--oldLikes).toString();
             }
         }
     }
