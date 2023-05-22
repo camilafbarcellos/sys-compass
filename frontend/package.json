@@ -1,6 +1,7 @@
 {
-  "name": "sys-compass-login",
+  "name": "sys-compass-front",
   "version": "0.1.0",
+  "description": "Client side (frontend) of the application",
   "private": true,
   "dependencies": {
     "@heroicons/react": "^2.0.16",
@@ -26,8 +27,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "concurrently \"npx ts-node src/api/api.ts\" \"react-scripts start\"",
-    "dev": "concurrently \"nodemon src/api/api.ts\" \"react-scripts start\"",
+    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
