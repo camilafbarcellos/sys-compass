@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserIcon, LockClosedIcon } from '@heroicons/react/24/outline'
+import User from '../../types/user';
 
 export default function Form() {
 
-    // navigation
     const navigate = useNavigate();
 
-    // fetch users data
     const [users, setUsers] = useState<any[]>([]);
 
     const fetchUserData = () => {
@@ -24,17 +23,14 @@ export default function Form() {
         fetchUserData()
     }, []);
 
-    // contains every form input data
     const [form, setForm] = useState({
         username: '',
         password: ''
     });
 
-    // controls all the form validation
     const [invalidUsername, setInvalidUsername] = useState(false);
     const [invalidPassword, setInvalidPassword] = useState(false);
 
-    // handler triggered at every input change, set the form properties
     const handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
         const { value, name } = event.target;
         setForm({
@@ -43,9 +39,8 @@ export default function Form() {
         });
     }
 
-    // handler triggered at every form submit, checks inputs validation
     function handlesubmit(event: React.SyntheticEvent<HTMLFormElement>) {
-        event.preventDefault(); // prevents from default submit
+        event.preventDefault();
 
         setInvalidUsername(false);
         setInvalidPassword(false);
@@ -54,11 +49,8 @@ export default function Form() {
         let userPassword: string = '';
         let userName: string = '';
 
-        // in case of having users data
         if (users.length > 0) {
-            // loops the users
-            users.forEach((user: { name: string; user: string; birthdate: string; email: string; password: string; profile_photo: string }) => {
-                // checks form user existance
+            users.forEach((user: User) => {
                 if (form.username === user.user || form.username === user.email) {
                     exists = true;
                     userPassword = user.password;
@@ -68,20 +60,15 @@ export default function Form() {
             })
         }
 
-        // checks username -> can be email
         if (exists) {
-            // checks user's password
             if (form.password === userPassword) {
-                // saves user to localstoreage
                 sessionStorage.setItem('user', form.username);
-                // pops alert to the user
                 alert(`Bem vind@, ${userName}! Redirecionando para a homepage...`)
-                // links to homepage
                 navigate('/home');
-            } else { // can't find password -> invalid
+            } else {
                 setInvalidPassword(true);
             }
-        } else { // can't find username -> invalid
+        } else {
             setInvalidUsername(true);
             setInvalidPassword(true);
         }

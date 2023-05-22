@@ -1,10 +1,12 @@
+import Comment from './comment';
+
 type Post = {
     user: string,
     post_date: string,
     description: string,
     likes: number,
-    comments: [{user: string, comment: string} ?],
-    url_imagem?: string
+    comments?: Comment[],
+    url_image?: string
 }
 
 export default Post;

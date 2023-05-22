@@ -1,7 +1,7 @@
 import '../styles/home.css';
 import withAuth from '../util/withAuth';
-import Post from '../api/models/post';
-import User from '../api/models/user';
+import Post from '../types/post';
+import User from '../types/user';
 import Nav from '../components/homepage/Nav';
 import Main from '../components/homepage/Main';
 import { useEffect, useState } from 'react';

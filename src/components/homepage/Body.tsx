@@ -8,7 +8,7 @@ export default function Body({ localUser, posts, users }: any, ) {
             <HomePost localUser={localUser} posts={posts} users={users} />
 
             <section className='homeTopics'>
-                <Friends localUser={localUser} posts={posts} users={users} />
+                <Friends localUser={localUser} users={users} />
 
                 <section className='trendTopic' />
 

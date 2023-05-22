@@ -4,11 +4,12 @@ import {
     PaperClipIcon, MapPinIcon, FaceSmileIcon,
     ClockIcon, ChatBubbleLeftEllipsisIcon,
 } from '@heroicons/react/24/outline';
-import User from '../../api/models/user';
+import User from '../../types/user';
+import Post from '../../types/post';
+import Comment from '../../types/comment';
 
 export default function Timeline({ localUser, posts, users }: any) {
 
-    // handles the like button click
     function likePost(event: React.MouseEvent<HTMLButtonElement>) {
         const button: HTMLButtonElement = event.currentTarget;
         const likeIcon = button.getElementsByClassName('likeIcon');
@@ -37,11 +38,7 @@ export default function Timeline({ localUser, posts, users }: any) {
     return (
         <section className='timeline'>
             {posts.length > 0 && (
-                posts.map((post: {
-                    user: string; post_date: string; description: string;
-                    likes: number; comments: [{ user: string; comment: string }];
-                    url_imagem: string
-                }) => (
+                posts.map((post: Post) => (
                     <section className='timelinePost' key={post.user}>
                         <div className='postHeader'>
                             <div className='postUser'>
@@ -64,8 +61,8 @@ export default function Timeline({ localUser, posts, users }: any) {
                             <div className='postDescription' key={post.user}>
                                 {post.description}
                             </div>
-                            {post.url_imagem && (
-                                <img src={post.url_imagem} alt='Post' className='postImage' />
+                            {post.url_image && (
+                                <img src={post.url_image} alt='Post' className='postImage' />
                             )}
                         </div>
 
@@ -82,7 +79,7 @@ export default function Timeline({ localUser, posts, users }: any) {
                                 <ChatBubbleLeftEllipsisIcon className='commentIcon' />
                                 <span className='commentText'>Comentários</span>
                                 <div className='commentsBadge'>
-                                    <span className='commentsNumber' key={post.user}>{post.comments.length}</span>
+                                    <span className='commentsNumber' key={post.user}>{post.comments?.length}</span>
                                 </div>
                             </button>
 
@@ -109,8 +106,8 @@ export default function Timeline({ localUser, posts, users }: any) {
                                 <span className='everyCommentsText'>Todos os comentários</span>
                             </div>
 
-                            {post.comments.length > 0 && (
-                                post.comments.map((comment: { user: string; comment: string }) => (
+                            {post.comments && (
+                                post.comments.map((comment: Comment) => (
                                     <div className='comment' key={comment.user}>
                                         <div className='commentLeft'>
                                             <img src={users.find((i: User) => i.user === comment.user)?.profile_photo}

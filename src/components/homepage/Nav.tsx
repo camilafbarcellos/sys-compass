@@ -1,6 +1,5 @@
 export default function Nav() {
 
-    // compass logo
     const CompassLogo = require('../../assets/images/compass-uol-logo.png');
 
     return (

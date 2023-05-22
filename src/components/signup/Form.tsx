@@ -7,7 +7,6 @@ import {
 import { checkName, checkUsername, checkEmail, checkPassword } from '../../util/regex';
 
 export default function Form() {
-    // contains every form input data
     const [form, setForm] = useState({
         name: '',
         username: '',
@@ -17,14 +16,12 @@ export default function Form() {
         confirmPassword: ''
     });
 
-    // controls all the form validation
     const [invalidName, setInvalidName] = useState(false);
     const [invalidUsername, setInvalidUsername] = useState(false);
     const [invalidEmail, setInvalidEmail] = useState(false);
     const [invalidPassword, setInvalidPassword] = useState(false);
     const [matchPasswords, setMatchPasswords] = useState(true);
 
-    // handler triggered at every input change, set the form properties
     const handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
         const { value, name } = event.target;
         setForm({
@@ -33,34 +30,27 @@ export default function Form() {
         });
     }
 
-    // handler triggered at every form submit, checks inputs validation
     function handlesubmit(event: React.SyntheticEvent<HTMLFormElement>) {
-        event.preventDefault(); // prevents from default submit
+        event.preventDefault();
 
-        // name validation
         !checkName.test(form.name)
             ? setInvalidName(true)
             : setInvalidName(false);
 
-        // username validation
         !checkUsername.test(form.username)
             ? setInvalidUsername(true)
             : setInvalidUsername(false);
 
-        // email validation
         !checkEmail.test(form.email)
             ? setInvalidEmail(true)
             : setInvalidEmail(false);
 
-        // password validation
         !checkPassword.test(form.password)
             ? setInvalidPassword(true)
             : setInvalidPassword(false);
     }
 
-    // triggered when form element's rendered
     useEffect(() => {
-        // password confirmation
         form.password === form.confirmPassword
             ? setMatchPasswords(true)
             : setMatchPasswords(false);
