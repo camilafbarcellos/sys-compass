@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import fs from 'fs';
-import User from './models/user';
-import Post from './models/post';
+import User from '../types/user';
+import Post from '../types/post';
 
 // server port
 const PORT = 9000;
