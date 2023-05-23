@@ -8,12 +8,10 @@ import { useEffect, useState } from 'react';
 
 function Home() {
 
-    // fetch json data
     const [posts, setPosts] = useState<Post[]>([]);
     const [users, setUsers] = useState<User[]>([]);
 
     const fetchData = () => {
-        // fetch users
         fetch('http://localhost:9000/users')
             .then(response => {
                 return response.json()
@@ -22,7 +20,6 @@ function Home() {
                 setUsers(data)
             })
 
-        // fetch posts
         fetch('http://localhost:9000/posts')
             .then(response => {
                 return response.json()
@@ -36,10 +33,8 @@ function Home() {
         fetchData()
     }, []);
 
-    // user coming from localstorage
     const localUser = users.find((i: User) => i.user === sessionStorage.getItem('user'));
 
-    // social homepage
     return (
         <section>
             {localUser && (
