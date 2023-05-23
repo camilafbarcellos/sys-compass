@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "sys-compass-server": "file:backend"
+  }
+}
