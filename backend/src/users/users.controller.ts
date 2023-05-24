@@ -6,8 +6,8 @@ import {
   Get,
   NotFoundException,
   Param,
-  Patch,
   Post,
+  Put,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
@@ -37,17 +37,7 @@ export class UsersController {
     return user;
   }
 
-  // @Get(':username')
-  // async getUserByUsername(@Param('username') username: string) {      
-  //   const user = await this.usersService.findOneByUsername(username);
-  //   if (!user) {
-  //     throw new NotFoundException('User not found');
-  //   }
-
-  //   return user;
-  // }
-
-  @Patch(':id')
+  @Put(':id')
   async updateUser(@Param('id') id: string, @Body() userUpdated: UpdateUserDto) {
     const user = await this.usersService.findOne(id);
     if (!user) {

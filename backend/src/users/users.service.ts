@@ -24,17 +24,14 @@ export class UsersService {
         return this.usersRepository.findOneBy({ _id: new ObjectId(id) });
     }
 
-    // findOneByUsername(username: string): Promise<User> {
-    //     return this.usersRepository.findOne({ where: {user: username} });
-    // }
-
     async update(id: string, userDto: UpdateUserDto) {
         const user = await this.findOne(id);
         if (!user) {
             throw new NotFoundException('User not found');
         }
-
-        return this.usersRepository.update(id, userDto);
+        Object.assign(user, userDto);
+        
+        return this.usersRepository.save(user);
     }
 
     async remove(id: string) {
