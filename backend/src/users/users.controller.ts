@@ -18,8 +18,8 @@ export class UsersController {
   constructor(private usersService: UsersService) { }
 
   @Post()
-  async createUser(@Body() post: CreateUserDto) {
-    return this.usersService.create(post);
+  async createUser(@Body() user: CreateUserDto) {
+    return this.usersService.create(user);
   }
 
   @Get()
@@ -37,15 +37,15 @@ export class UsersController {
     return user;
   }
 
-  @Get(':username')
-  async getUserByUsername(@Param('username') username: string) {      
-    const user = await this.usersService.findOneByUsername(username);
-    if (!user) {
-      throw new NotFoundException('User not found');
-    }
+  // @Get(':username')
+  // async getUserByUsername(@Param('username') username: string) {      
+  //   const user = await this.usersService.findOneByUsername(username);
+  //   if (!user) {
+  //     throw new NotFoundException('User not found');
+  //   }
 
-    return user;
-  }
+  //   return user;
+  // }
 
   @Patch(':id')
   async updateUser(@Param('id') id: string, @Body() userUpdated: UpdateUserDto) {

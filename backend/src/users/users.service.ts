@@ -12,7 +12,7 @@ export class UsersService {
 
     create(userDto: CreateUserDto) {
         const user = this.usersRepository.create(userDto);
-        user.profile_photo = 'https://lexq.us/wp-content/uploads/2019/07/user-pic.jpg';
+
         return this.usersRepository.save(user);
     }
 
@@ -24,9 +24,9 @@ export class UsersService {
         return this.usersRepository.findOneBy({ _id: new ObjectId(id) });
     }
 
-    findOneByUsername(username: string): Promise<User> {
-        return this.usersRepository.findOne({ where: {user: username} });
-    }
+    // findOneByUsername(username: string): Promise<User> {
+    //     return this.usersRepository.findOne({ where: {user: username} });
+    // }
 
     async update(id: string, userDto: UpdateUserDto) {
         const user = await this.findOne(id);
