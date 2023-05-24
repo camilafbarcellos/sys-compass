@@ -12,7 +12,7 @@ export class User {
   user: string;
 
   @Column()
-  birthdate: string;
+  birthdate: Date;
 
   @Column()
   email: string;
@@ -20,8 +20,8 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
-  profile_photo: string;
+  @Column({default: 'https://lexq.us/wp-content/uploads/2019/07/user-pic.jpg'})
+  profile_photo?: string;
 
   constructor(user?: Partial<User>) {
     Object.assign(this, user);
