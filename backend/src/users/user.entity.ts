@@ -20,8 +20,8 @@ export class User {
   @Column()
   password: string;
 
-  @Column({default: 'https://lexq.us/wp-content/uploads/2019/07/user-pic.jpg'})
-  profile_photo?: string;
+  @Column()
+  profile_photo?: string = 'https://lexq.us/wp-content/uploads/2019/07/user-pic.jpg';
 
   constructor(user?: Partial<User>) {
     Object.assign(this, user);
