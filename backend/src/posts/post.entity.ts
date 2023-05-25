@@ -1,4 +1,4 @@
-import { Comment } from 'src/comments/comment.entity';
+import { Comment } from '../comments/comment.entity';
 import { Entity, ObjectId, ObjectIdColumn, Column } from 'typeorm';
 
 @Entity('posts')

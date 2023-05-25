@@ -2,6 +2,7 @@ import {
     IsInt, IsString, IsArray,
     IsDate, IsOptional, MaxDate, Min
 } from 'class-validator';
+import { Comment } from '../../comments/comment.entity';
 
 export class UpdatePostDto {
 

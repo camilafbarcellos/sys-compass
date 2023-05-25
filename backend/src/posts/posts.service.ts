@@ -5,7 +5,6 @@ import { Post as PostEntity } from './post.entity';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { UpdatePostDto } from './dtos/update-post.dto';
 import { ObjectId } from 'mongodb';
-import { Comment } from 'src/comments/comment.entity';
 
 @Injectable()
 export class PostsService {
@@ -43,33 +42,5 @@ export class PostsService {
         }
 
         return this.postsRepository.remove(post);
-    }
-
-    async findAllComments(id: string): Promise<Comment[]> {
-        const post = await this.findOne(id);
-        if (!post) {
-            throw new NotFoundException('Post not found');
-        }
-
-        if (!post.comments) {
-            throw new BadRequestException('Comments not found');
-        }
-
-        return post.comments;
-    }
-
-    async findOneComment(id: string, commentId: string): Promise<Comment> {
-        const post = await this.findOne(id);
-        if (!post) {
-            throw new NotFoundException('Post not found');
-        }
-
-        if (!post.comments) {
-            throw new BadRequestException('Comments not found');
-        }
-
-        const comment = post.comments.find(c => c.id === new ObjectId(commentId));
-
-        return comment;
     }
 }

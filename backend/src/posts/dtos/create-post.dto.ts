@@ -2,7 +2,7 @@ import {
     IsInt, IsString, IsArray, MaxDate,
     IsDate, IsNotEmpty, IsOptional, Min
 } from 'class-validator';
-import { Comment } from 'src/comments/comment.entity';
+import { Comment } from '../../comments/comment.entity';
 
 export class CreatePostDto {
 
