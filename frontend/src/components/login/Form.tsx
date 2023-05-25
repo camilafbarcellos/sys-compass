@@ -31,14 +31,12 @@ export default function Form({ users }: any) {
 
         let exists: boolean = false;
         let userPassword: string = '';
-        let userName: string = '';
 
         if (users.length > 0) {
             users.forEach((user: User) => {
                 if (form.username === user.user || form.username === user.email) {
                     exists = true;
                     userPassword = user.password;
-                    userName = user.name;
                     return;
                 }
             })
