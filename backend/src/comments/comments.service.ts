@@ -6,6 +6,7 @@ import { Comment } from '../comments/comment.entity';
 import { PostsService } from '../posts/posts.service';
 import { CreateCommentDto } from './dtos/create-comment.dto';
 import { UpdateCommentDto } from './dtos/update-comment.dto';
+import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class CommentsService {
@@ -23,8 +24,8 @@ export class CommentsService {
             post.comments = [];
         }
 
-        const comment = commentDto as Comment;
-        comment.id = Math.floor(Math.random() * 999999);
+        const comment = new Comment(commentDto);
+        comment.id = new Date().getTime().toString();
         post.comments.push(comment);
         Object.assign(post, post);             
 
@@ -44,7 +45,7 @@ export class CommentsService {
         return post.comments;
     }
 
-    async findOne(id: string, commentId: number): Promise<Comment> {
+    async findOne(id: string, commentId: string): Promise<Comment> {
         const post = await this.postsService.findOne(id);
         if (!post) {
             throw new NotFoundException('Post not found');
@@ -59,7 +60,7 @@ export class CommentsService {
         return comment;
     }
 
-    async update(id: string, commentId: number, commentDto: UpdateCommentDto) {
+    async update(id: string, commentId: string, commentDto: UpdateCommentDto) {
         const post = await this.postsService.findOne(id);
         if (!post) {
             throw new NotFoundException('Post not found');
@@ -78,7 +79,7 @@ export class CommentsService {
         return this.postsRepository.save(post);
     }
 
-    async delete(id: string, commentId: number) {
+    async delete(id: string, commentId: string) {
         const post = await this.postsService.findOne(id);
         if (!post) {
             throw new NotFoundException('Post not found');

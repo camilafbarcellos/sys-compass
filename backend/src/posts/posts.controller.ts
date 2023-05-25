@@ -68,18 +68,18 @@ export class PostsController {
   }
 
   @Get(':id/comments/:comment_id')
-  async getPostComment(@Param('id') id: string, @Param('comment_id') commentId: number) {
+  async getPostComment(@Param('id') id: string, @Param('comment_id') commentId: string) {
     return this.commentsService.findOne(id, commentId);
   }
 
   @Put(':id/comments/:comment_id')
-  async updatePostComment(@Param('id') id: string, @Param('comment_id') commentId: number,
+  async updatePostComment(@Param('id') id: string, @Param('comment_id') commentId: string,
     @Body() comment: UpdateCommentDto) {
     return this.commentsService.update(id, commentId, comment);
   }
 
   @Delete(':id/comments/:comment_id')
-  async deletePostComment(@Param('id') id: string, @Param('comment_id') commentId: number) {
+  async deletePostComment(@Param('id') id: string, @Param('comment_id') commentId: string) {
     return this.commentsService.delete(id, commentId);
   }
 }
