@@ -1,7 +1,7 @@
 import HomePost from './HomePost';
 import Friends from './Friends';
 
-export default function Body({ localUser, posts, users }: any, ) {
+export default function Body({ localUser, posts, users }: any) {
 
     return (
         <section className='homeBody'>

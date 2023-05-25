@@ -1,27 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 import User from '../../types/user';
 
-export default function Form() {
+export default function Form({ users }: any) {
 
-    const navigate = useNavigate();
-
-    const [users, setUsers] = useState<any[]>([]);
-
-    const fetchUserData = () => {
-        fetch('http://localhost:9000/users')
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                setUsers(data)
-            })
-    }
-
-    useEffect(() => {
-        fetchUserData()
-    }, []);
+    const navigate = useNavigate();    
 
     const [form, setForm] = useState({
         username: '',
