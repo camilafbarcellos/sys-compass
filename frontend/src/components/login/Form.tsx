@@ -47,7 +47,6 @@ export default function Form({ users }: any) {
         if (exists) {
             if (form.password === userPassword) {
                 sessionStorage.setItem('user', form.username);
-                alert(`Bem vind@, ${userName}! Redirecionando para a homepage...`)
                 navigate('/home');
             } else {
                 setInvalidPassword(true);

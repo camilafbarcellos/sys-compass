@@ -25,8 +25,6 @@ export default function HomePost({ localUser, posts, users }: any) {
             ...timelinePosts
         ]);
 
-        alert(`Ótimo post, ${localUser.name}! Acompanhe o seu engajamento na timeline`);
-
         (document.getElementById('newPostDescription') as HTMLInputElement).value = '';
     }
 
