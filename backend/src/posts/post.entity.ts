@@ -10,13 +10,13 @@ export class Post {
   user: string;
 
   @Column()
-  post_date: Date;
+  post_date: Date = new Date();
 
   @Column()
   description: string;
 
   @Column()
-  likes: number;
+  likes: number = 0;
 
   @Column()
   comments?: Comment[];

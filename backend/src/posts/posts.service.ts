@@ -13,8 +13,6 @@ export class PostsService {
 
     create(postDto: CreatePostDto) {
         const post = this.postsRepository.create(postDto);
-        post.likes = 0;
-        post.post_date = new Date();
 
         return this.postsRepository.save(post);
     }
@@ -33,7 +31,9 @@ export class PostsService {
             throw new NotFoundException('Post not found');
         }
 
-        return this.postsRepository.update(id, postDto);
+        Object.assign(post, postDto);
+        
+        return this.postsRepository.save(post);
     }
 
     async remove(id: string) {

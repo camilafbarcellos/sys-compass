@@ -1,31 +1,31 @@
 import {
-    IsNumber, IsString, IsArray, MinDate,
-    IsDate, MaxDate, IsNotEmpty, IsOptional
+    IsInt, IsString, IsArray,
+    IsDate, IsOptional, MaxDate, Min
 } from 'class-validator';
 
 export class UpdatePostDto {
 
-    @IsNotEmpty()
+    @IsOptional()
     @IsString()
-    user: string;
+    user?: string;
 
-    @IsNotEmpty()
-    // @IsDate()
-    // @MinDate(new Date())
-    // @MaxDate(new Date())
-    post_date: Date;
+    @IsOptional()
+    @IsDate()
+    @MaxDate(new Date())
+    post_date?: Date;
 
-    @IsNotEmpty()
+    @IsOptional()
     @IsString()
-    description: string;
+    description?: string;
 
-    @IsNotEmpty()
-    @IsNumber()
-    likes: number;
+    @IsOptional()
+    @IsInt()
+    @Min(0)
+    likes?: number;
 
     @IsOptional()
     @IsArray()
-    comments?: [];
+    comments?: Comment[];
 
     @IsOptional()
     @IsString()

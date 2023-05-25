@@ -1,7 +1,8 @@
 import {
-    IsNumber, IsString, IsArray, MinDate,
-    IsDate, MaxDate, IsNotEmpty, IsOptional
+    IsInt, IsString, IsArray, MaxDate,
+    IsDate, IsNotEmpty, IsOptional, Min
 } from 'class-validator';
+import { Comment } from 'src/comments/comment.entity';
 
 export class CreatePostDto {
 
@@ -9,23 +10,23 @@ export class CreatePostDto {
     @IsString()
     user: string;
 
-    @IsNotEmpty()
-    // @IsDate()
-    // @MinDate(new Date())
-    // @MaxDate(new Date())
-    post_date: Date;
+    @IsOptional()
+    @IsDate()
+    @MaxDate(new Date())
+    post_date?: Date;
 
     @IsNotEmpty()
     @IsString()
     description: string;
 
-    @IsNotEmpty()
-    @IsNumber()
-    likes: number;
+    @IsOptional()
+    @IsInt()
+    @Min(0)
+    likes?: number;
 
     @IsOptional()
     @IsArray()
-    comments?: [];
+    comments?: Comment[];
 
     @IsOptional()
     @IsString()

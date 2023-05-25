@@ -6,8 +6,7 @@ import {
   Post,
   NotFoundException,
   Param,
-  Delete,
-  Patch,
+  Delete
 } from '@nestjs/common';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PostsService } from './posts.service';
@@ -37,7 +36,7 @@ export class PostsController {
     return post;
   }
 
-  @Patch(':id')
+  @Post(':id')
   async updateUser(@Param('id') id: string, @Body() postUpdated: UpdatePostDto) {
     const post = await this.postsService.findOne(id);
     if (!post) {
