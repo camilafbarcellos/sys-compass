@@ -9,8 +9,8 @@ import { checkName, checkUsername, checkEmail, checkPassword } from '../../util/
 export default function Form() {
     const [form, setForm] = useState({
         name: '',
-        username: '',
-        birthDate: '',
+        user: '',
+        birthdate: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -28,26 +28,36 @@ export default function Form() {
             ...form,
             [name]: value
         });
+
+        if (name === 'name') {
+            !checkName.test(form.name)
+                ? setInvalidName(true)
+                : setInvalidName(false);
+        }
+
+        if (name === 'user') {
+            !checkUsername.test(form.user)
+                ? setInvalidUsername(true)
+                : setInvalidUsername(false);
+        }
+
+        if (name === 'email') {
+            !checkEmail.test(form.email)
+                ? setInvalidEmail(true)
+                : setInvalidEmail(false);
+        }
+
+        if (name === 'password') {
+            !checkPassword.test(form.password)
+                ? setInvalidPassword(true)
+                : setInvalidPassword(false);
+        }
     }
 
     function handlesubmit(event: React.SyntheticEvent<HTMLFormElement>) {
-        event.preventDefault();
-
-        !checkName.test(form.name)
-            ? setInvalidName(true)
-            : setInvalidName(false);
-
-        !checkUsername.test(form.username)
-            ? setInvalidUsername(true)
-            : setInvalidUsername(false);
-
-        !checkEmail.test(form.email)
-            ? setInvalidEmail(true)
-            : setInvalidEmail(false);
-
-        !checkPassword.test(form.password)
-            ? setInvalidPassword(true)
-            : setInvalidPassword(false);
+        if (invalidName || invalidUsername || invalidPassword) {
+            event.preventDefault();
+        }
     }
 
     useEffect(() => {
@@ -58,7 +68,7 @@ export default function Form() {
     }, [form]);
 
     return (
-        <form className='form' onSubmit={handlesubmit}>
+        <form className='form' onSubmit={handlesubmit} action='http://localhost:9000/users' method='POST'>
             <h2 className='label-form'>Registro</h2>
             <p className='form-item'>
                 <input required
@@ -82,12 +92,12 @@ export default function Form() {
                     aria-label='Username'
                     id='input required-username'
                     type={'text'}
-                    className={!invalidUsername ? 'username' : 'input-error'}
-                    name='username'
+                    className={!invalidUsername ? 'user' : 'input-error'}
+                    name='user'
                     placeholder='Usuário'
                     aria-required='true'
                     onChange={handleInputChange}
-                    value={form.username}
+                    value={form.user}
                 />
                 <FingerPrintIcon className='icon' />
                 {invalidUsername && <span className='input-error-message'>
@@ -101,12 +111,12 @@ export default function Form() {
                     type={'text'}
                     onFocus={(e) => (e.target.type = 'date')}
                     onBlur={(e) => (e.target.type = 'text')}
-                    className='birthDate'
-                    name='birthDate'
+                    className='birthdate'
+                    name='birthdate'
                     placeholder='Nascimento'
                     aria-required='true'
                     onChange={handleInputChange}
-                    value={form.birthDate}
+                    value={form.birthdate}
                 />
                 <CakeIcon className='icon' />
             </p>
