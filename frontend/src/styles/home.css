@@ -197,7 +197,7 @@ button {
     flex-direction: row;
     align-items: center;
     padding-top: 15px;
-    gap: 110%;
+    gap: 50%;
 }
 
 .newPostOptionsItems {
