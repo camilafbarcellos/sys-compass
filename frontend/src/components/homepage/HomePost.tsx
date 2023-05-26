@@ -3,11 +3,11 @@ import {
     PaperClipIcon, MapPinIcon, FaceSmileIcon
 } from '@heroicons/react/24/outline';
 import Timeline from './Timeline';
-import axios from 'axios';
+import { axiosRequest } from '../../util/axiosRequest';
 
-export default function HomePost({ localUser, posts, users }: any) {
+export default function HomePost({ localUser, posts, users, refreshPosts }: any) {
 
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         const formData = {
@@ -15,20 +15,9 @@ export default function HomePost({ localUser, posts, users }: any) {
             description: (document.getElementById('newPostDescription') as HTMLInputElement).value
         }
 
-        axios({
-            method: 'POST',
-            url: 'http://localhost:9000/posts',
-            data: formData
-        })
-            .then(response => {
-                console.log(response);
-
-            })
-            .catch(error => {
-                console.log(error);
-            });
-
+        await axiosRequest('posts', 'POST', formData);
         (document.getElementById('newPostDescription') as HTMLInputElement).value = '';
+        refreshPosts();
     }
 
     return (
@@ -37,7 +26,7 @@ export default function HomePost({ localUser, posts, users }: any) {
                 <form className='newPostForm' onSubmit={handleSubmit}>
                     <div className='newPost'>
                         <img src={localUser.profile_photo} alt='User' className='userIconPost' />
-                        <input placeholder='No que você está pensando?'
+                        <input placeholder='No que você está pensando?' autoComplete='off'
                             className='newPostInput' id='newPostDescription' name='description' />
                     </div>
 
@@ -57,7 +46,7 @@ export default function HomePost({ localUser, posts, users }: any) {
                 </form>
             </section>
 
-            <Timeline localUser={localUser} posts={posts} users={users} />
+            <Timeline localUser={localUser} posts={posts} users={users} refreshPosts={refreshPosts} />
         </section>
     );
 }

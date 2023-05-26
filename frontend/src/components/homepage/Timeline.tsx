@@ -7,9 +7,9 @@ import {
 import User from '../../types/user';
 import Post from '../../types/post';
 import Comment from '../../types/comment';
-import axios from 'axios';
+import { axiosRequest } from '../../util/axiosRequest';
 
-export default function Timeline({ localUser, posts, users }: any) {
+export default function Timeline({ localUser, posts, users, refreshPosts }: any) {
 
     function likePost(event: React.MouseEvent<HTMLButtonElement>) {
         const button: HTMLButtonElement = event.currentTarget;
@@ -36,28 +36,18 @@ export default function Timeline({ localUser, posts, users }: any) {
         }
     }
 
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>, postId: string) {
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>, postId: string) {
         event.preventDefault();
 
         const formData = {
             user: localUser.user,
             comment: (document.getElementById('commentDescription') as HTMLInputElement).value
-        };
+        };        
 
-        axios({
-            method: 'POST',
-            url: 'http://localhost:9000/posts/'+ postId + '/comments',
-            data: formData
-        })
-            .then(response => {
-                console.log(response);
-
-            })
-            .catch(error => {
-                console.log(error);
-            });
-
+        const endpoint = 'posts/'+ postId + '/comments';
+        await axiosRequest(endpoint, 'POST', formData);
         (document.getElementById('commentDescription') as HTMLInputElement).value = '';
+        refreshPosts();
     }
 
     return (
@@ -120,7 +110,7 @@ export default function Timeline({ localUser, posts, users }: any) {
                                 <form className='addCommentForm' onSubmit={(event) => handleSubmit(event, post.id)} >
                                     <input placeholder='O que você está pensando?'
                                         className='addCommentInput' name='description'
-                                        id='commentDescription' />
+                                        id='commentDescription' autoComplete='off' />
                                     <button id='comment' type='submit'
                                         name='comment' data-post={JSON.stringify(post.id)}>
                                         <PencilSquareIcon className='addCommentButton' />

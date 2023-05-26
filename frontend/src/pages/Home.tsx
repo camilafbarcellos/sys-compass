@@ -25,13 +25,18 @@ function Home() {
 
     const localUser = users.find((i: User) => i.user === sessionStorage.getItem('user'));
 
+    async function refreshPosts () {
+        let fetch = await fetchAPI('posts', 'GET');
+        setPosts((fetch.data).reverse());
+    }
+
     return (
         <section>
             {localUser && (
                 <section className='homeContainer'>
                     <Nav/>
 
-                    <Main localUser={localUser} posts={posts} users={users}/>
+                    <Main localUser={localUser} posts={posts} users={users} refreshPosts={refreshPosts}/>
                 </section>
             )}
         </section>

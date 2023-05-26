@@ -197,7 +197,7 @@ button {
     flex-direction: row;
     align-items: center;
     padding-top: 15px;
-    gap: 50%;
+    gap: 53%;
 }
 
 .newPostOptionsItems {
@@ -209,8 +209,8 @@ button {
 }
 
 .newPostOptionIcon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
     color: #A1A3A7;
 }
@@ -392,6 +392,7 @@ button {
 .addCommentForm {
     display: flex;
     gap: 17px;
+    width: 100%;
 }
 
 .addCommentInput {
@@ -419,14 +420,15 @@ button {
     align-items: flex-start;
     padding: 0px;
     gap: 17px;
+    margin-left: -25px;
 }
 
 .addCommentButton {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     color: #A1A3A7;
     cursor: pointer;
-    margin-top: 7px;
+    margin: 5px -10px 0px -100px;
 }
 
 .addCommentButton:hover {
