@@ -54,7 +54,7 @@ export default function Form() {
         }
     }
 
-    function handlesubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+    function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
         if (invalidName || invalidUsername || invalidPassword) {
             event.preventDefault();
         }
@@ -68,7 +68,7 @@ export default function Form() {
     }, [form]);
 
     return (
-        <form className='form' onSubmit={handlesubmit} action='http://localhost:9000/users' method='POST'>
+        <form className='form' onSubmit={handleSubmit} action='http://localhost:9000/users' method='POST'>
             <h2 className='label-form'>Registro</h2>
             <p className='form-item'>
                 <input required

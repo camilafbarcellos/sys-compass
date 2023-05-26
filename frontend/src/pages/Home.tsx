@@ -5,20 +5,22 @@ import User from '../types/user';
 import Nav from '../components/homepage/Nav';
 import Main from '../components/homepage/Main';
 import { useEffect, useState } from 'react';
-import { fetchData } from '../util/fetchData';
+import { fetchAPI } from '../util/fetchAPI';
 
 function Home() {
 
     const [posts, setPosts] = useState<Post[]>([]);
     const [users, setUsers] = useState<User[]>([]);
 
-    const fetcAllData = async () => {
-        setPosts(await fetchData('posts'));
-        setUsers(await fetchData('users'));
+    const fetchAllData = async () => {
+        let fetch = await fetchAPI('posts', 'GET');
+        setPosts((fetch.data).reverse());
+        fetch = await fetchAPI('users', 'GET');
+        setUsers(fetch.data);
     }
 
     useEffect(() => {
-        fetcAllData()
+        fetchAllData();
     }, []);
 
     const localUser = users.find((i: User) => i.user === sessionStorage.getItem('user'));

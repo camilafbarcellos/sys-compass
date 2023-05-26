@@ -3,18 +3,19 @@ import Header from '../components/login/Header';
 import Form from '../components/login/Form';
 import { useEffect, useState } from 'react';
 import User from '../types/user';
-import { fetchData } from '../util/fetchData';
+import { fetchAPI } from '../util/fetchAPI';
 
 export default function Login() {
 
     const [users, setUsers] = useState<User[]>([]);
 
-    const fetcUserData = async () => {
-        setUsers(await fetchData('users'));
+    const fetchUserData = async () => {
+        let fetch = await fetchAPI('users', 'GET');
+        setUsers(fetch.data);        
     }
 
     useEffect(() => {
-        fetcUserData()
+        fetchUserData();
     }, []);
 
     return (
