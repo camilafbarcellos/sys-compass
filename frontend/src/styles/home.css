@@ -389,6 +389,11 @@ button {
     height: 37px;
 }
 
+.addCommentForm {
+    display: flex;
+    gap: 17px;
+}
+
 .addCommentInput {
     padding: 8px 24px;
     height: 37px;
@@ -416,9 +421,21 @@ button {
     gap: 17px;
 }
 
+.addCommentButton {
+    width: 24px;
+    height: 24px;
+    color: #A1A3A7;
+    cursor: pointer;
+    margin-top: 7px;
+}
+
+.addCommentButton:hover {
+    color: #2D86FC;
+}
+
 .addCommentOptionIcon {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     color: #A1A3A7;
     cursor: pointer;
 }
@@ -433,6 +450,7 @@ button {
 .everyCommentsText {
     font-size: 0.9rem;
     line-height: 18px;
+    font-weight: bold;
 }
 
 .comment {

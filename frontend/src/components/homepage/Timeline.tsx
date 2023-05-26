@@ -1,4 +1,4 @@
-import { HandThumbUpIcon } from '@heroicons/react/20/solid';
+import { HandThumbUpIcon, PencilSquareIcon } from '@heroicons/react/20/solid';
 import {
     CameraIcon, PhotoIcon, ShareIcon,
     PaperClipIcon, MapPinIcon, FaceSmileIcon,
@@ -7,6 +7,7 @@ import {
 import User from '../../types/user';
 import Post from '../../types/post';
 import Comment from '../../types/comment';
+import axios from 'axios';
 
 export default function Timeline({ localUser, posts, users }: any) {
 
@@ -25,7 +26,7 @@ export default function Timeline({ localUser, posts, users }: any) {
                 (likeText[0] as HTMLSpanElement).textContent = 'Curtiu';
                 (likesBadge[0] as HTMLDivElement).style.background = '#2D86FC';
                 (likesNumber[0] as HTMLSpanElement).textContent = (++oldLikes).toString();
-            } else if((likeText[0] as HTMLSpanElement).textContent === 'Curtiu') {
+            } else if ((likeText[0] as HTMLSpanElement).textContent === 'Curtiu') {
                 (likeIcon[0] as HTMLElement).style.color = '#A1A3A7';
                 (likeText[0] as HTMLSpanElement).style.color = '#A1A3A7';
                 (likeText[0] as HTMLSpanElement).textContent = 'Curtir';
@@ -35,17 +36,41 @@ export default function Timeline({ localUser, posts, users }: any) {
         }
     }
 
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>, postId: string) {
+        event.preventDefault();
+
+        const formData = {
+            user: localUser.user,
+            comment: (document.getElementById('commentDescription') as HTMLInputElement).value
+        };
+
+        axios({
+            method: 'POST',
+            url: 'http://localhost:9000/posts/'+ postId + '/comments',
+            data: formData
+        })
+            .then(response => {
+                console.log(response);
+
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        (document.getElementById('commentDescription') as HTMLInputElement).value = '';
+    }
+
     return (
         <section className='timeline'>
             {posts.length > 0 && (
                 posts.map((post: Post) => (
-                    <section className='timelinePost' key={post.user}>
+                    <section className='timelinePost' key={post.id}>
                         <div className='postHeader'>
                             <div className='postUser'>
                                 <img src={users.find((i: User) => i.user === post.user)?.profile_photo}
                                     alt='User' className='userIconPost' />
                                 <div className='postInfo'>
-                                    <div className='postAuthor' key={post.user}>
+                                    <div className='postAuthor' key={post.id}>
                                         {users.find((i: User) => i.user === post.user)?.name}
                                     </div>
 
@@ -58,7 +83,7 @@ export default function Timeline({ localUser, posts, users }: any) {
                                 </div>
                             </div>
 
-                            <div className='postDescription' key={post.user}>
+                            <div className='postDescription' key={post.id}>
                                 {post.description}
                             </div>
                             {post.url_image && (
@@ -71,7 +96,7 @@ export default function Timeline({ localUser, posts, users }: any) {
                                 <HandThumbUpIcon className='likeIcon' id='likeIcon' />
                                 <span className='likeText' id='likeText'>Curtir</span>
                                 <div className='likesBadge' id='likesBadge'>
-                                    <span className='likesNumber' id='likesNumber' key={post.user}>{post.likes}</span>
+                                    <span className='likesNumber' id='likesNumber' key={post.id}>{post.likes}</span>
                                 </div>
                             </button>
 
@@ -79,7 +104,7 @@ export default function Timeline({ localUser, posts, users }: any) {
                                 <ChatBubbleLeftEllipsisIcon className='commentIcon' />
                                 <span className='commentText'>Comentários</span>
                                 <div className='commentsBadge'>
-                                    <span className='commentsNumber' key={post.user}>{post.comments?.length}</span>
+                                    <span className='commentsNumber' key={post.id}>{post.comments?.length ?? 0}</span>
                                 </div>
                             </button>
 
@@ -92,7 +117,15 @@ export default function Timeline({ localUser, posts, users }: any) {
                         <div className='postComments'>
                             <div className='addComment'>
                                 <img src={localUser.profile_photo} alt='User' className='userIconPost' />
-                                <input placeholder='O que você está pensando?' className='addCommentInput' />
+                                <form className='addCommentForm' onSubmit={(event) => handleSubmit(event, post.id)} >
+                                    <input placeholder='O que você está pensando?'
+                                        className='addCommentInput' name='description'
+                                        id='commentDescription' />
+                                    <button id='comment' type='submit'
+                                        name='comment' data-post={JSON.stringify(post.id)}>
+                                        <PencilSquareIcon className='addCommentButton' />
+                                    </button>
+                                </form>
                                 <div className='addCommentOptions'>
                                     <CameraIcon className='addCommentOptionIcon' />
                                     <PhotoIcon className='addCommentOptionIcon' />
