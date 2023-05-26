@@ -1,6 +1,7 @@
 import Comment from './comment';
 
 type Post = {
+    id: string;
     user: string,
     post_date: string,
     description: string,
