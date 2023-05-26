@@ -11,29 +11,39 @@ import { axiosRequest } from '../../util/axiosRequest';
 
 export default function Timeline({ localUser, posts, users, refreshPosts }: any) {
 
-    function likePost(event: React.MouseEvent<HTMLButtonElement>) {
+    async function likePost(event: React.MouseEvent<HTMLButtonElement>, post: Post) {
         const button: HTMLButtonElement = event.currentTarget;
         const likeIcon = button.getElementsByClassName('likeIcon');
         const likeText = button.getElementsByClassName('likeText');
         const likesBadge = button.getElementsByClassName('likesBadge');
-        const likesNumber = button.getElementsByClassName('likesNumber');
-        let oldLikes = parseInt((likesNumber[0] as HTMLSpanElement).textContent!);
+        let formData = {};
 
-        if (likeIcon && likeText && likesBadge && likesNumber) {
+        if (likeIcon && likeText && likesBadge) {
             if ((likeText[0] as HTMLSpanElement).textContent === 'Curtir') {
+                formData = {
+                    likes: post.likes + 1
+                };
+
                 (likeIcon[0] as HTMLElement).style.color = '#2D86FC';
                 (likeText[0] as HTMLSpanElement).style.color = '#2D86FC';
                 (likeText[0] as HTMLSpanElement).textContent = 'Curtiu';
                 (likesBadge[0] as HTMLDivElement).style.background = '#2D86FC';
-                (likesNumber[0] as HTMLSpanElement).textContent = (++oldLikes).toString();
+                
             } else if ((likeText[0] as HTMLSpanElement).textContent === 'Curtiu') {
+                formData = {
+                    likes: post.likes - 1
+                };
+
                 (likeIcon[0] as HTMLElement).style.color = '#A1A3A7';
                 (likeText[0] as HTMLSpanElement).style.color = '#A1A3A7';
                 (likeText[0] as HTMLSpanElement).textContent = 'Curtir';
                 (likesBadge[0] as HTMLDivElement).style.background = '#27282F';
-                (likesNumber[0] as HTMLSpanElement).textContent = (--oldLikes).toString();
             }
-        }
+        } 
+
+        const endpoint = 'posts/' + post.id;
+        await axiosRequest(endpoint, 'PUT', formData);
+        refreshPosts();
     }
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>, postId: string) {
@@ -42,9 +52,9 @@ export default function Timeline({ localUser, posts, users, refreshPosts }: any)
         const formData = {
             user: localUser.user,
             comment: (document.getElementById('commentDescription') as HTMLInputElement).value
-        };        
+        };
 
-        const endpoint = 'posts/'+ postId + '/comments';
+        const endpoint = 'posts/' + postId + '/comments';
         await axiosRequest(endpoint, 'POST', formData);
         (document.getElementById('commentDescription') as HTMLInputElement).value = '';
         refreshPosts();
@@ -82,7 +92,7 @@ export default function Timeline({ localUser, posts, users, refreshPosts }: any)
                         </div>
 
                         <div className='postInteraction'>
-                            <button className='postLike' type='button' onClick={likePost}>
+                            <button className='postLike' type='button' onClick={(event) => likePost(event, post)}>
                                 <HandThumbUpIcon className='likeIcon' id='likeIcon' />
                                 <span className='likeText' id='likeText'>Curtir</span>
                                 <div className='likesBadge' id='likesBadge'>
