@@ -35,9 +35,9 @@ export default function Friends({ localUser, users }: any) {
             <div className='friendsContent' id='friendsContent'>
                 {users.length > 0 && (
                     users.filter((user: User) => localUser.user !== user.user).map((user: User) => (
-                        <div className='friend' key={user.user}>
+                        <div className='friend' key={user.id}>
                             <img src={user.profile_photo} alt='Friend' className='friendUserIcon' />
-                            <span className='friendName' key={user.user}>
+                            <span className='friendName' key={user.id}>
                                 {user.name}
                             </span>
                         </div>

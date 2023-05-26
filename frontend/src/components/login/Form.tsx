@@ -23,7 +23,7 @@ export default function Form({ users }: any) {
         });
     }
 
-    function handlesubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+    function handlesubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         setInvalidUsername(false);

@@ -54,7 +54,7 @@ export default function Form() {
         }
     }
 
-    function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         if (invalidName || invalidUsername || invalidPassword) {
             event.preventDefault();
         }

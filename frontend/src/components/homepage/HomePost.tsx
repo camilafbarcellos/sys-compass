@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import {
     CameraIcon, PhotoIcon,
     PaperClipIcon, MapPinIcon, FaceSmileIcon
@@ -8,7 +7,7 @@ import axios from 'axios';
 
 export default function HomePost({ localUser, posts, users }: any) {
 
-    function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         const formData = {
