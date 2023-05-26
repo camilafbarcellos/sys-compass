@@ -139,6 +139,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #e9b425;
 }
 
+.success-message {
+  display: flex;
+  justify-content: center;
+  color: #51DA4C;
+  font-weight: bold;
+}
+
 /* Responsive */
 @media (max-width:1350px) {
   .left {

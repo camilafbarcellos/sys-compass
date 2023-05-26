@@ -5,6 +5,7 @@ import {
     AtSymbolIcon, LockClosedIcon, ShieldCheckIcon
 } from '@heroicons/react/24/outline'
 import { checkName, checkUsername, checkEmail, checkPassword } from '../../util/regex';
+import axios from 'axios';
 
 export default function Form() {
     const [form, setForm] = useState({
@@ -54,10 +55,40 @@ export default function Form() {
         }
     }
 
+    const [success, setSuccess] = useState(false);
+
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
         if (invalidName || invalidUsername || invalidPassword) {
-            event.preventDefault();
+            return;
         }
+
+        const formData = {
+            name: form.name,
+            user: form.user,
+            birthdate: form.birthdate,
+            email: form.email,
+            password: form.password
+        }
+
+        axios({
+            method: 'POST',
+            url: 'http://localhost:9000/users',
+            data: formData
+        })
+            .then(response => {
+                console.log(response);
+                if (response.status === 201) {
+                    setSuccess(true);
+                } else {
+                    alert('Erro no registro! Tente novamente');
+                }
+
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     useEffect(() => {
@@ -68,7 +99,7 @@ export default function Form() {
     }, [form]);
 
     return (
-        <form className='form' onSubmit={handleSubmit} action='http://localhost:9000/users' method='POST'>
+        <form className='form' onSubmit={handleSubmit}>
             <h2 className='label-form'>Registro</h2>
             <p className='form-item'>
                 <input required
@@ -179,6 +210,12 @@ export default function Form() {
                         </span>
                     )}
             </p>
+            {!success ? ''
+                : (
+                    <span className='success-message'>
+                        Registro realizado com sucesso!
+                    </span>
+                )}
             <p>
                 <button
                     aria-label='Create Account'
