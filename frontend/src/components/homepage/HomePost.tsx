@@ -35,24 +35,27 @@ export default function HomePost({ localUser, posts, users }: any) {
     return (
         <section className='homePost'>
             <section className='writeField'>
-                <div className='newPost'>
-                    <img src={localUser.profile_photo} alt='User' className='userIconPost' />
-                    <input placeholder='No que você está pensando?' className='newPostInput' id='newPostDescription' />
-                </div>
-
-                <div className='newPostOptions'>
-                    <div className='newPostOptionsItems'>
-                        <CameraIcon className='newPostOptionIcon' />
-                        <PhotoIcon className='newPostOptionIcon' />
-                        <PaperClipIcon className='newPostOptionIcon' />
-                        <MapPinIcon className='newPostOptionIcon' />
-                        <FaceSmileIcon className='newPostOptionIcon' />
+                <form className='newPostForm' action='http://localhost:9000/posts' method='POST'>
+                    <div className='newPost'>
+                        <img src={localUser.profile_photo} alt='User' className='userIconPost' />
+                        <input placeholder='No que você está pensando?'
+                        className='newPostInput' id='newPostDescription' name='description' />
                     </div>
 
-                    <button className='buttonPost' id='post' type='button' name='post' onClick={addNewPost}>
-                        Postar
-                    </button>
-                </div>
+                    <div className='newPostOptions'>
+                        <div className='newPostOptionsItems'>
+                            <CameraIcon className='newPostOptionIcon' />
+                            <PhotoIcon className='newPostOptionIcon' />
+                            <PaperClipIcon className='newPostOptionIcon' />
+                            <MapPinIcon className='newPostOptionIcon' />
+                            <FaceSmileIcon className='newPostOptionIcon' />
+                        </div>
+
+                        <button className='buttonPost' id='post' type='submit' name='post' >
+                            Postar
+                        </button>
+                    </div>
+                </form>
             </section>
 
             <Timeline localUser={localUser} posts={timelinePosts} users={users} />
