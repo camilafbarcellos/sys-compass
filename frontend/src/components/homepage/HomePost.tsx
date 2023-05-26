@@ -3,43 +3,43 @@ import {
     CameraIcon, PhotoIcon,
     PaperClipIcon, MapPinIcon, FaceSmileIcon
 } from '@heroicons/react/24/outline';
-import Post from '../../types/post';
 import Timeline from './Timeline';
+import axios from 'axios';
 
 export default function HomePost({ localUser, posts, users }: any) {
 
-    const [timelinePosts, setTimelinePosts] = useState<Post[]>([]);
+    function handleSubmit(event: React.SyntheticEvent<HTMLFormElement>) {
+        event.preventDefault();
 
-    function addNewPost() {
-        const postDescription = (document.getElementById('newPostDescription') as HTMLInputElement).value;
+        const formData = {
+            user: (localUser.user),
+            description: (document.getElementById('newPostDescription') as HTMLInputElement).value
+        }
 
-        setTimelinePosts([
-            {
-                user: localUser.user,
-                post_date: new Date().toJSON().toString(),
-                description: postDescription,
-                likes: 0,
-                comments: []
+        axios({
+            method: 'POST',
+            url: 'http://localhost:9000/posts',
+            data: formData
+        })
+            .then(response => {
+                console.log(response);
 
-            },
-            ...timelinePosts
-        ]);
+            })
+            .catch(error => {
+                console.log(error);
+            });
 
         (document.getElementById('newPostDescription') as HTMLInputElement).value = '';
     }
 
-    useEffect(() => {
-        setTimelinePosts(posts);
-    }, [posts]);
-
     return (
         <section className='homePost'>
             <section className='writeField'>
-                <form className='newPostForm' action='http://localhost:9000/posts' method='POST'>
+                <form className='newPostForm' onSubmit={handleSubmit}>
                     <div className='newPost'>
                         <img src={localUser.profile_photo} alt='User' className='userIconPost' />
                         <input placeholder='No que você está pensando?'
-                        className='newPostInput' id='newPostDescription' name='description' />
+                            className='newPostInput' id='newPostDescription' name='description' />
                     </div>
 
                     <div className='newPostOptions'>
@@ -58,7 +58,7 @@ export default function HomePost({ localUser, posts, users }: any) {
                 </form>
             </section>
 
-            <Timeline localUser={localUser} posts={timelinePosts} users={users} />
+            <Timeline localUser={localUser} posts={posts} users={users} />
         </section>
     );
 }
