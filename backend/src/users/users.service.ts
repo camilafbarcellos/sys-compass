@@ -24,6 +24,10 @@ export class UsersService {
         return this.usersRepository.findOneBy({ _id: new ObjectId(id) });
     }
 
+    findOneByLogin(user: string, password: string): Promise<User> {
+        return this.usersRepository.findOneBy({ user: user, password: password });
+    }
+
     async update(id: string, userDto: UpdateUserDto) {
         const user = await this.findOne(id);
         if (!user) {

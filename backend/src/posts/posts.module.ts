@@ -6,8 +6,8 @@ import { PostsService } from './posts.service';
 import { CommentsService } from '../comments/comments.service';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([PostEntity])],
-    controllers: [PostsController],
-    providers: [PostsService, CommentsService]
-  })
-  export class PostsModule {}
+  imports: [TypeOrmModule.forFeature([PostEntity])],
+  controllers: [PostsController],
+  providers: [PostsService, CommentsService]
+})
+export class PostsModule { }
