@@ -5,7 +5,7 @@ import User from '../types/user';
 import Nav from '../components/homepage/Nav';
 import Main from '../components/homepage/Main';
 import { useEffect, useState } from 'react';
-import { fetchAPI } from '../util/fetchAPI';
+import { axiosRequest } from '../util/axiosRequest';
 
 function Home() {
 
@@ -13,10 +13,10 @@ function Home() {
     const [users, setUsers] = useState<User[]>([]);
 
     const fetchAllData = async () => {
-        let fetch = await fetchAPI('posts', 'GET');
-        setPosts((fetch.data).reverse());
-        fetch = await fetchAPI('users', 'GET');
-        setUsers(fetch.data);
+        const posts = await axiosRequest('posts', 'GET');
+        setPosts((posts.data).reverse());
+        const users = await axiosRequest('users', 'GET');
+        setUsers(users.data);
     }
 
     useEffect(() => {
@@ -26,8 +26,8 @@ function Home() {
     const localUser = users.find((i: User) => i.user === sessionStorage.getItem('user'));
 
     async function refreshPosts () {
-        let fetch = await fetchAPI('posts', 'GET');
-        setPosts((fetch.data).reverse());
+        const posts = await axiosRequest('posts', 'GET');
+        setPosts((posts.data).reverse());
     }
 
     return (

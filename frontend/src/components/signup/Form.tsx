@@ -7,7 +7,7 @@ import {
 import { checkName, checkUsername, checkEmail, checkPassword } from '../../util/regex';
 import axios from 'axios';
 
-export default function Form() {
+export default function Form({ createUser }: any) {
     const [form, setForm] = useState({
         name: '',
         user: '',
@@ -72,23 +72,12 @@ export default function Form() {
             password: form.password
         }
 
-        axios({
-            method: 'POST',
-            url: 'http://localhost:9000/users',
-            data: formData
-        })
-            .then(response => {
-                console.log(response);
-                if (response.status === 201) {
-                    setSuccess(true);
-                } else {
-                    alert('Erro no registro! Tente novamente');
-                }
-
-            })
-            .catch(error => {
-                console.log(error);
-            });
+        const response = createUser(formData);
+        if (response.status === 201) {
+            setSuccess(true);
+        } else {
+            alert('Erro no registro! Tente novamente');
+        }
     }
 
     useEffect(() => {
