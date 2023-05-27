@@ -28,7 +28,7 @@ export class UsersController {
   }
 
   @UseGuards(AuthGuard)
-  @Post('me')
+  @Get('me')
   async me(@Req() req) {
     return req.tokenPayLoad;
   }

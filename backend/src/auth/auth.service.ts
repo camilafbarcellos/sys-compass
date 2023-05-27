@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { User } from 'src/users/user.entity';
 import { UsersService } from 'src/users/users.service';
@@ -11,7 +11,8 @@ export class AuthService {
     createToken(user: User) {
         return {
             jwt: this.jwtService.sign({
-                id: user.id
+                id: user.id,
+                user: user.user
             }, {
                 expiresIn: '12h',
                 subject: String(user.id),
