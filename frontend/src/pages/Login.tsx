@@ -1,31 +1,26 @@
 import '../styles/loginSignup.css';
 import Header from '../components/login/Header';
 import Form from '../components/login/Form';
-import { useEffect, useState } from 'react';
-import User from '../types/user';
 import { fetchAPI } from '../util/fetchAPI';
+import { axiosRequest } from '../util/axiosRequest';
 
 export default function Login() {
-
-    const [users, setUsers] = useState<User[]>([]);
-
-    const fetchUserData = async () => {
-        let fetch = await fetchAPI('users', 'GET');
-        setUsers(fetch.data);        
+    const checkUser = async (body: any) => {
+        return await axiosRequest('users/login', 'POST', body);
     }
 
-    useEffect(() => {
-        fetchUserData();
-    }, []);
+    const authUser = async (token: string) => {
+        return (await fetchAPI('users/me', 'GET', token)).data;
+    } 
 
     return (
         <section className='container'>
             <section className='left'>
                 <Header />
-                <Form users={users} />
+                <Form checkUser={checkUser} authUser={authUser} />
             </section>
             <section className='right' />
         </section>
-        
+
     )
 }

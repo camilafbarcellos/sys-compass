@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserIcon, LockClosedIcon } from '@heroicons/react/24/outline'
-import User from '../../types/user';
 
-export default function Form({ users }: any) {
+export default function Form({ checkUser, authUser }: any) {
 
-    const navigate = useNavigate();    
+    const navigate = useNavigate();
 
     const [form, setForm] = useState({
         username: '',
@@ -23,35 +22,24 @@ export default function Form({ users }: any) {
         });
     }
 
-    function handlesubmit(event: React.FormEvent<HTMLFormElement>) {
+    async function handlesubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        setInvalidUsername(false);
-        setInvalidPassword(false);
-
-        let exists: boolean = false;
-        let userPassword: string = '';
-
-        if (users.length > 0) {
-            users.forEach((user: User) => {
-                if (form.username === user.user || form.username === user.email) {
-                    exists = true;
-                    userPassword = user.password;
-                    return;
-                }
-            })
+        const formData = {
+            user: form.username,
+            password: form.password
         }
 
-        if (exists) {
-            if (form.password === userPassword) {
-                sessionStorage.setItem('user', form.username);
-                navigate('/home');
-            } else {
-                setInvalidPassword(true);
-            }
+        const checkAuth = await checkUser(formData);
+
+        if (checkAuth.status === 201) {
+            const user = await authUser(checkAuth.data.jwt);
+            console.log(user);
+            sessionStorage.setItem('user', user.user);
+            navigate('/home');
         } else {
-            setInvalidUsername(true);
-            setInvalidPassword(true);
+            setInvalidUsername(false);
+            setInvalidPassword(false);
         }
     }
 
