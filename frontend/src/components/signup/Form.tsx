@@ -5,7 +5,6 @@ import {
     AtSymbolIcon, LockClosedIcon, ShieldCheckIcon
 } from '@heroicons/react/24/outline'
 import { checkName, checkUsername, checkEmail, checkPassword } from '../../util/regex';
-import axios from 'axios';
 
 export default function Form({ createUser }: any) {
     const [form, setForm] = useState({
@@ -29,38 +28,46 @@ export default function Form({ createUser }: any) {
             ...form,
             [name]: value
         });
+    }
 
-        if (name === 'name') {
-            !checkName.test(form.name)
-                ? setInvalidName(true)
-                : setInvalidName(false);
+    const checkErrors = async () => {
+        !checkName.test(form.name)
+            ? setInvalidName(true)
+            : setInvalidName(false);
+
+        !checkUsername.test(form.user)
+            ? setInvalidUsername(true)
+            : setInvalidUsername(false);
+
+        !checkEmail.test(form.email)
+            ? setInvalidEmail(true)
+            : setInvalidEmail(false);
+
+        !checkPassword.test(form.password)
+            ? setInvalidPassword(true)
+            : setInvalidPassword(false);
+
+        if (invalidName || invalidUsername || invalidPassword) {
+            console.log(invalidName, invalidUsername, invalidPassword);
+            
+            return false;
         }
 
-        if (name === 'user') {
-            !checkUsername.test(form.user)
-                ? setInvalidUsername(true)
-                : setInvalidUsername(false);
-        }
-
-        if (name === 'email') {
-            !checkEmail.test(form.email)
-                ? setInvalidEmail(true)
-                : setInvalidEmail(false);
-        }
-
-        if (name === 'password') {
-            !checkPassword.test(form.password)
-                ? setInvalidPassword(true)
-                : setInvalidPassword(false);
-        }
+        return true;
     }
 
     const [success, setSuccess] = useState(false);
+    const [failure, setFailure] = useState(false);
 
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        if (invalidName || invalidUsername || invalidPassword) {
+        const error = await checkErrors();
+
+        if (!error) {
+            console.log(error);
+            
+            setFailure(true);
             return;
         }
 
@@ -72,8 +79,11 @@ export default function Form({ createUser }: any) {
             password: form.password
         }
 
-        const response = createUser(formData);
+        const response = await createUser(formData);
+        console.log(response.status);
+        
         if (response.status === 201) {
+            setFailure(false);
             setSuccess(true);
         } else {
             alert('Erro no registro! Tente novamente');
@@ -203,6 +213,12 @@ export default function Form({ createUser }: any) {
                 : (
                     <span className='success-message'>
                         Registro realizado com sucesso!
+                    </span>
+                )}
+            {!failure ? ''
+                : (
+                    <span className='failure-message'>
+                        Preencha os campos corretamente!
                     </span>
                 )}
             <p>
