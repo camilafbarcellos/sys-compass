@@ -31,14 +31,16 @@ button {
     display: none;
 }
 
+/* NAV */
+
 .homeNav {
-    flex: 0.5;
+    flex: 0;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     padding: 42px 10px;
     height: 100vh;
+    max-width: 19vw;
     background: #1E1F23;
     border: 2px solid #2E2F36;
 }
@@ -47,6 +49,8 @@ button {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+/* MAIN */
 
 .homeMain {
     flex: 2;
@@ -113,6 +117,12 @@ button {
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+}
+
+/* BODY CONTENT */
+.homeBodyContent {
+    display: flex;
+    align-self: center;
 }
 
 /* BODY */
@@ -529,7 +539,8 @@ button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0px;
+    padding: 36px;
+    padding-bottom: 0px;
     gap: 36px;
 }
 
@@ -541,8 +552,8 @@ button {
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
-    width: 272px;
-    height: 267.5px;
+    width: 280px;
+    height: 280px;
 }
 
 /* FRIENDS */
@@ -556,8 +567,8 @@ button {
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
-    max-width: 272px;
-    max-height: 267.5px;
+    max-width: 280px;
+    max-height: 280px;
 }
 
 .friendsHeader {
