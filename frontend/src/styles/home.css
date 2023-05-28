@@ -326,7 +326,7 @@ button {
     flex-direction: row;
     align-items: center;
     padding: 10px 48px;
-    gap: 35%;
+    gap: 27%;
 }
 
 .postLike,
@@ -337,6 +337,17 @@ button {
     align-items: center;
     gap: 8px;
     cursor: pointer;
+}
+
+.postLike:hover .likeIcon,
+.postLike:hover .likeText,
+.postLike.clicked .likeIcon,
+.postLike.clicked .likeText {
+  color: #2D86FC;
+}
+
+.postLike.clicked .likesBadge {
+    background-color: #2D86FC;
 }
 
 .likeIcon,
@@ -577,6 +588,7 @@ button {
     justify-content: space-between;
     align-items: flex-start;
     padding: 0px;
+    gap: 97px;
 }
 
 .friendsTitle {
@@ -586,7 +598,11 @@ button {
 }
 
 .toggleButton {
-    padding-left: 101px;
+    border-radius: 100px;
+}
+
+.toggleButton:hover {
+    background-color: #4a4b4e;
 }
 
 #toggleButtonDownIcon,

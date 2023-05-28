@@ -11,35 +11,29 @@ import { axiosRequest } from '../../util/axiosRequest';
 
 export default function Timeline({ localUser, posts, users, refreshPosts }: any) {
 
-    async function likePost(event: React.MouseEvent<HTMLButtonElement>, post: Post) {
-        const button: HTMLButtonElement = event.currentTarget;
-        const likeIcon = button.getElementsByClassName('likeIcon');
-        const likeText = button.getElementsByClassName('likeText');
-        const likesBadge = button.getElementsByClassName('likesBadge');
+    async function handleLikeButton(event: React.MouseEvent<HTMLButtonElement>, post: Post) {
         let formData = {};
 
-        if (likeIcon && likeText && likesBadge) {
-            if ((likeText[0] as HTMLSpanElement).textContent === 'Curtir') {
+        const likeButton: HTMLButtonElement = event.currentTarget;        
+        likeButton.classList.toggle('clicked');
+
+        const likeText = likeButton.getElementsByClassName('likeText');
+        if (likeText) {
+            if (likeButton.classList.contains('clicked')) {
+                likeText[0].textContent = 'Curtiu';
+
                 formData = {
                     likes: post.likes + 1
                 };
 
-                (likeIcon[0] as HTMLElement).style.color = '#2D86FC';
-                (likeText[0] as HTMLSpanElement).style.color = '#2D86FC';
-                (likeText[0] as HTMLSpanElement).textContent = 'Curtiu';
-                (likesBadge[0] as HTMLDivElement).style.background = '#2D86FC';
-                
-            } else if ((likeText[0] as HTMLSpanElement).textContent === 'Curtiu') {
+            } else {
+                likeText[0].textContent = 'Curtir';
+
                 formData = {
                     likes: post.likes - 1
                 };
-
-                (likeIcon[0] as HTMLElement).style.color = '#A1A3A7';
-                (likeText[0] as HTMLSpanElement).style.color = '#A1A3A7';
-                (likeText[0] as HTMLSpanElement).textContent = 'Curtir';
-                (likesBadge[0] as HTMLDivElement).style.background = '#27282F';
             }
-        } 
+        }
 
         const endpoint = 'posts/' + post.id;
         await axiosRequest(endpoint, 'PUT', formData);
@@ -92,7 +86,7 @@ export default function Timeline({ localUser, posts, users, refreshPosts }: any)
                         </div>
 
                         <div className='postInteraction'>
-                            <button className='postLike' type='button' onClick={(event) => likePost(event, post)}>
+                            <button className='postLike' type='button' onClick={(event) => handleLikeButton(event, post)}>
                                 <HandThumbUpIcon className='likeIcon' id='likeIcon' />
                                 <span className='likeText' id='likeText'>Curtir</span>
                                 <div className='likesBadge' id='likesBadge'>
