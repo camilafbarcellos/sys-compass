@@ -1,5 +1,5 @@
 {
-  "name": "sys-compass-front",
+  "name": "sys-compass-client",
   "version": "1.0.0",
   "description": "Client side (frontend) of the application",
   "private": true,
@@ -22,7 +22,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
