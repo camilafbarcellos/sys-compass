@@ -1,7 +1,6 @@
 import '../styles/loginSignup.css';
 import Header from '../components/login/Header';
 import Form from '../components/login/Form';
-import { fetchAPI } from '../util/fetchAPI';
 import { axiosRequest } from '../util/axiosRequest';
 
 export default function Login() {
@@ -10,7 +9,7 @@ export default function Login() {
     }
 
     const authUser = async (token: string) => {
-        return (await fetchAPI('users/me', 'GET', token)).data;
+        return await axiosRequest('users/me', 'GET', null, token) as any;
     } 
 
     return (

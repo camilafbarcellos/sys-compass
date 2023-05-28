@@ -32,7 +32,7 @@ export default function Form({ checkUser, authUser }: any) {
         const checkAuth = await checkUser(formData);
 
         if (checkAuth.status === 201) {
-            const user = await authUser(checkAuth.data.jwt);
+            const user = (await authUser(checkAuth.data.jwt)).data;
             console.log(user);
             sessionStorage.setItem('userId', user.id);
             navigate('/home');
