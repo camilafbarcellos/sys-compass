@@ -11,8 +11,7 @@ export class AuthService {
     createToken(user: User) {
         return {
             jwt: this.jwtService.sign({
-                id: user.id,
-                user: user.user
+                id: user.id
             }, {
                 expiresIn: '12h',
                 subject: String(user.id),
