@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     UserIcon, FingerPrintIcon, CakeIcon,
@@ -87,7 +87,7 @@ export default function Form({ createUser }: any) {
         if (response.status === 201) {
             setFailure(false);
             setSuccess(true);
-            
+
         } else {
             alert('Erro no registro! Tente novamente');
         }
