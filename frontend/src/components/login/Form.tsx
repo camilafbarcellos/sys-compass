@@ -4,6 +4,7 @@ import { UserIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
 export default function Form({ checkUser, authUser }: any) {
 
+    const [invalidCredentials, setInvalidCredentials] = useState(false);
     const navigate = useNavigate();
 
     const [form, setForm] = useState({
@@ -11,10 +12,8 @@ export default function Form({ checkUser, authUser }: any) {
         password: ''
     });
 
-    const [invalidUsername, setInvalidUsername] = useState(false);
-    const [invalidPassword, setInvalidPassword] = useState(false);
-
     const handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
+        setInvalidCredentials(false);
         const { value, name } = event.target;
         setForm({
             ...form,
@@ -37,9 +36,9 @@ export default function Form({ checkUser, authUser }: any) {
             console.log(user);
             sessionStorage.setItem('user', user.user);
             navigate('/home');
-        } else {
-            setInvalidUsername(false);
-            setInvalidPassword(false);
+
+        } else if (checkAuth.error.code === 'ERR_BAD_REQUEST') {
+            setInvalidCredentials(true);
         }
     }
 
@@ -51,7 +50,7 @@ export default function Form({ checkUser, authUser }: any) {
                     aria-label='Username'
                     id='input required-username'
                     type={'text'}
-                    className={!invalidUsername ? 'username' : 'input-error'}
+                    className={!invalidCredentials ? 'username' : 'input-error'}
                     name='username'
                     placeholder='Usuário'
                     aria-required='true'
@@ -65,7 +64,7 @@ export default function Form({ checkUser, authUser }: any) {
                     aria-label='Password'
                     id='input required-password'
                     type={'password'}
-                    className={!invalidPassword ? 'password' : 'input-error'}
+                    className={!invalidCredentials ? 'password' : 'input-error'}
                     name='password'
                     placeholder='Senha'
                     aria-required='true'
@@ -73,8 +72,7 @@ export default function Form({ checkUser, authUser }: any) {
                     value={form.password}
                 />
                 <LockClosedIcon className='icon' />
-                {(invalidUsername
-                    || invalidPassword)
+                {invalidCredentials
                     && <span className='input-error-message'>
                         Usuário e/ou Senha inválidos.
                         <br />Por favor, tente novamente!
