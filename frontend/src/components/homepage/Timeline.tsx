@@ -76,7 +76,7 @@ export default function Timeline({ localUser, posts, users, refreshPosts }: any)
 
                                     <div className='dateInfo'>
                                         <ClockIcon className='dateIcon' />
-                                        <div className='postDate' key={post.post_date}>
+                                        <div className='postDate' key={post.id}>
                                             {post.post_date}
                                         </div>
                                     </div>
@@ -141,14 +141,14 @@ export default function Timeline({ localUser, posts, users, refreshPosts }: any)
 
                             {post.comments && (
                                 post.comments.map((comment: Comment) => (
-                                    <div className='comment' key={comment.user}>
+                                    <div className='comment' key={comment.id}>
                                         <div className='commentLeft'>
                                             <img src={users.find((i: User) => i.user === comment.user)?.profile_photo}
                                                 alt='Post user' className='commentUserIcon' />
                                         </div>
 
                                         <div className='commentFrame'>
-                                            <span className='commentContent' key={comment.user}>
+                                            <span className='commentContent' key={comment.id}>
                                                 <b>{users.find((i: User) => i.user === comment.user)?.name}: &nbsp;</b>
                                                 {comment.comment}
                                             </span>
