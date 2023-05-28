@@ -1,5 +1,5 @@
 {
-  "name": "sys-compass-server",
+  "name": "sys-compass-back",
   "version": "1.0.0",
   "description": "Server side (backend) of the application",
   "private": true,
