@@ -36,7 +36,7 @@ export default function Form({ checkUser, authUser }: any) {
             console.log(user);
             sessionStorage.setItem('userId', user.id);
             navigate('/home');
-
+            
         } else if (checkAuth.error.code === 'ERR_BAD_REQUEST') {
             setInvalidCredentials(true);
         }

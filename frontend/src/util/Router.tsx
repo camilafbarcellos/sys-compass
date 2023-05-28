@@ -11,7 +11,6 @@ export default function Router() {
                 <Route path='/signup' element={<SignUp />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='*' element={<Navigate to='/login' />} />
-
                 <Route path='/home' element={<Home />} />
             </Routes>
         </BrowserRouter>
