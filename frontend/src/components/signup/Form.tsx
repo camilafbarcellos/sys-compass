@@ -7,6 +7,14 @@ import {
 import { checkName, checkUsername, checkEmail, checkPassword } from '../../util/regex';
 
 export default function Form({ createUser }: any) {
+    const [success, setSuccess] = useState(false);
+    const [failure, setFailure] = useState(false);
+    const [invalidName, setInvalidName] = useState(false);
+    const [invalidUsername, setInvalidUsername] = useState(false);
+    const [invalidEmail, setInvalidEmail] = useState(false);
+    const [invalidPassword, setInvalidPassword] = useState(false);
+    const [matchPasswords, setMatchPasswords] = useState(true);
+
     const [form, setForm] = useState({
         name: '',
         user: '',
@@ -16,12 +24,6 @@ export default function Form({ createUser }: any) {
         confirmPassword: ''
     });
 
-    const [invalidName, setInvalidName] = useState(false);
-    const [invalidUsername, setInvalidUsername] = useState(false);
-    const [invalidEmail, setInvalidEmail] = useState(false);
-    const [invalidPassword, setInvalidPassword] = useState(false);
-    const [matchPasswords, setMatchPasswords] = useState(true);
-
     const handleInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void = (event) => {
         const { value, name } = event.target;
         setForm({
@@ -30,43 +32,44 @@ export default function Form({ createUser }: any) {
         });
     }
 
-    const checkErrors = async () => {
-        !checkName.test(form.name)
-            ? setInvalidName(true)
-            : setInvalidName(false);
+    function checkInput(event: React.FocusEvent<HTMLInputElement>) {
+        const { name } = event.target;
 
-        !checkUsername.test(form.user)
-            ? setInvalidUsername(true)
-            : setInvalidUsername(false);
-
-        !checkEmail.test(form.email)
-            ? setInvalidEmail(true)
-            : setInvalidEmail(false);
-
-        !checkPassword.test(form.password)
-            ? setInvalidPassword(true)
-            : setInvalidPassword(false);
-
-        if (invalidName || invalidUsername || invalidPassword) {
-            console.log(invalidName, invalidUsername, invalidPassword);
-            
-            return false;
+        if (name === 'name') {
+            !checkName.test(form.name)
+                ? setInvalidName(true)
+                : setInvalidName(false);
         }
 
-        return true;
+        if (name === 'user') {
+            !checkUsername.test(form.user)
+                ? setInvalidUsername(true)
+                : setInvalidUsername(false);
+        }
+
+        if (name === 'email') {
+            !checkEmail.test(form.email)
+                ? setInvalidEmail(true)
+                : setInvalidEmail(false);
+        }
+
+        if (name === 'password') {
+            !checkPassword.test(form.password)
+                ? setInvalidPassword(true)
+                : setInvalidPassword(false);
+        }
     }
 
-    const [success, setSuccess] = useState(false);
-    const [failure, setFailure] = useState(false);
+    function checkMatchingPassword() {
+        form.password === form.confirmPassword
+            ? setMatchPasswords(true)
+            : setMatchPasswords(false);
+    }
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        const error = await checkErrors();
-
-        if (!error) {
-            console.log(error);
-            
+        if (invalidName || invalidUsername || invalidPassword || !matchPasswords) {
             setFailure(true);
             return;
         }
@@ -80,22 +83,15 @@ export default function Form({ createUser }: any) {
         }
 
         const response = await createUser(formData);
-        console.log(response.status);
-        
+
         if (response.status === 201) {
             setFailure(false);
             setSuccess(true);
+            
         } else {
             alert('Erro no registro! Tente novamente');
         }
     }
-
-    useEffect(() => {
-        form.password === form.confirmPassword
-            ? setMatchPasswords(true)
-            : setMatchPasswords(false);
-
-    }, [form]);
 
     return (
         <form className='form' onSubmit={handleSubmit}>
@@ -110,6 +106,7 @@ export default function Form({ createUser }: any) {
                     placeholder='Nome'
                     aria-required='true'
                     onChange={handleInputChange}
+                    onBlur={checkInput}
                     value={form.name}
                 />
                 <UserIcon className='icon' />
@@ -127,6 +124,7 @@ export default function Form({ createUser }: any) {
                     placeholder='Usuário'
                     aria-required='true'
                     onChange={handleInputChange}
+                    onBlur={checkInput}
                     value={form.user}
                 />
                 <FingerPrintIcon className='icon' />
@@ -160,6 +158,7 @@ export default function Form({ createUser }: any) {
                     placeholder='Email'
                     aria-required='true'
                     onChange={handleInputChange}
+                    onBlur={checkInput}
                     value={form.email}
                 />
                 <AtSymbolIcon className='icon' />
@@ -177,6 +176,7 @@ export default function Form({ createUser }: any) {
                     placeholder='Senha'
                     aria-required='true'
                     onChange={handleInputChange}
+                    onBlur={checkInput}
                     value={form.password}
                 />
                 <LockClosedIcon className='icon' />
@@ -199,6 +199,7 @@ export default function Form({ createUser }: any) {
                     placeholder='Confirmar Senha'
                     aria-required='true'
                     onChange={handleInputChange}
+                    onBlur={checkMatchingPassword}
                     value={form.confirmPassword}
                 />
                 <ShieldCheckIcon className='icon' />
