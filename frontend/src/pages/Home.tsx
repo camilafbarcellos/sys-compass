@@ -13,9 +13,9 @@ function Home() {
     const [users, setUsers] = useState<User[]>([]);
 
     const fetchAllData = async () => {
-        const posts = await axiosRequest('posts', 'GET');
+        const posts = await axiosRequest('posts', 'GET') as any;
         setPosts((posts.data).reverse());
-        const users = await axiosRequest('users', 'GET');
+        const users = await axiosRequest('users', 'GET')  as any;
         setUsers(users.data);
     }
 
@@ -26,7 +26,7 @@ function Home() {
     const localUser = users.find((i: User) => i.user === sessionStorage.getItem('user'));
 
     async function refreshPosts () {
-        const posts = await axiosRequest('posts', 'GET');
+        const posts = await axiosRequest('posts', 'GET') as any;
         setPosts((posts.data).reverse());
     }
 
