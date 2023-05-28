@@ -11,21 +11,28 @@ function Home() {
 
     const [posts, setPosts] = useState<Post[]>([]);
     const [users, setUsers] = useState<User[]>([]);
+    const [localUser, setLocalUser] = useState<User>();
 
     const fetchAllData = async () => {
         const posts = await axiosRequest('posts', 'GET') as any;
         setPosts((posts.data).reverse());
-        const users = await axiosRequest('users', 'GET')  as any;
+        const users = await axiosRequest('users', 'GET') as any;
         setUsers(users.data);
+    }
+
+    async function fetchLocalUser() {
+        const localUserId = sessionStorage.getItem('userId');
+        const endpoint = 'users/' + localUserId;
+        const localUser = await axiosRequest(endpoint, 'GET') as any;
+        setLocalUser(localUser.data);
     }
 
     useEffect(() => {
         fetchAllData();
+        fetchLocalUser();
     }, []);
 
-    const localUser = users.find((i: User) => i.user === sessionStorage.getItem('user'));
-
-    async function refreshPosts () {
+    async function refreshPosts() {
         const posts = await axiosRequest('posts', 'GET') as any;
         setPosts((posts.data).reverse());
     }
@@ -34,9 +41,9 @@ function Home() {
         <section>
             {localUser && (
                 <section className='homeContainer'>
-                    <Nav/>
+                    <Nav />
 
-                    <Main localUser={localUser} posts={posts} users={users} refreshPosts={refreshPosts}/>
+                    <Main localUser={localUser} posts={posts} users={users} refreshPosts={refreshPosts} />
                 </section>
             )}
         </section>

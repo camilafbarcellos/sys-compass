@@ -34,7 +34,7 @@ export default function Form({ checkUser, authUser }: any) {
         if (checkAuth.status === 201) {
             const user = await authUser(checkAuth.data.jwt);
             console.log(user);
-            sessionStorage.setItem('user', user.user);
+            sessionStorage.setItem('userId', user.id);
             navigate('/home');
 
         } else if (checkAuth.error.code === 'ERR_BAD_REQUEST') {
