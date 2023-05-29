@@ -83,13 +83,13 @@ export class CommentsService {
             throw new NotFoundException('Post not found');
         }
         
-        const comment = post.comments.find(c => c.id == new ObjectId(commentId));
+        const comment = await this.findOne(id, commentId);
 
         if (!post.comments || !comment) {
             throw new BadRequestException('Comment not found');
         }
 
-        post.comments = post.comments.filter(c => c.id !== new ObjectId(commentId));
+        post.comments = post.comments.filter(c => (c.id).toString() == commentId);
         Object.assign(post, post);             
 
         return this.postsRepository.save(post);
