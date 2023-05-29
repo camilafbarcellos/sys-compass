@@ -1,9 +1,13 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Transform } from 'class-transformer';
+import { Entity, Column, ObjectIdColumn, ObjectId } from 'typeorm';
+import { ObjectId as MongoObjectId } from 'mongodb';
 
 @Entity('comments')
 export class Comment {
-  @PrimaryColumn()
-  id: string;
+
+  @Transform(({ value }) => value.toString())
+  @ObjectIdColumn()
+  id: ObjectId = new MongoObjectId();
 
   @Column()
   user: string;

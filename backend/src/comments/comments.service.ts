@@ -24,9 +24,7 @@ export class CommentsService {
             post.comments = [];
         }
 
-        const comment = new Comment(commentDto);
-        comment.id = new Date().getTime().toString();
-        post.comments.push(comment);
+        post.comments.push(new Comment(commentDto));
         Object.assign(post, post);             
 
         return this.postsRepository.save(post);
@@ -51,7 +49,7 @@ export class CommentsService {
             throw new NotFoundException('Post not found');
         }
         
-        const comment = post.comments.find(c => c.id == commentId);
+        const comment = post.comments.find(c => c.id == new ObjectId(commentId));
 
         if (!post.comments || !comment) {
             throw new BadRequestException('Comment not found');
@@ -66,14 +64,14 @@ export class CommentsService {
             throw new NotFoundException('Post not found');
         }
         
-        const comment = post.comments.find(c => c.id == commentId);
+        const comment = post.comments.find(c => c.id == new ObjectId(commentId));
 
         if (!post.comments || !comment) {
             throw new BadRequestException('Comment not found');
         }
 
         Object.assign(comment, commentDto);
-        post.comments[post.comments.findIndex(c => c.id == commentId)] = comment;
+        post.comments[post.comments.findIndex(c => c.id == new ObjectId(commentId))] = comment;
         Object.assign(post, post);             
 
         return this.postsRepository.save(post);
@@ -85,13 +83,13 @@ export class CommentsService {
             throw new NotFoundException('Post not found');
         }
         
-        const comment = post.comments.find(c => c.id == commentId);
+        const comment = post.comments.find(c => c.id == new ObjectId(commentId));
 
         if (!post.comments || !comment) {
             throw new BadRequestException('Comment not found');
         }
 
-        post.comments = post.comments.filter(c => c.id !== commentId);
+        post.comments = post.comments.filter(c => c.id !== new ObjectId(commentId));
         Object.assign(post, post);             
 
         return this.postsRepository.save(post);
