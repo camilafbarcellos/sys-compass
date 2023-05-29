@@ -49,7 +49,7 @@ export class CommentsService {
             throw new NotFoundException('Post not found');
         }
         
-        const comment = post.comments.find(c => (c.id).toString() == commentId);
+        const comment = post.comments.find(c => (c.id).toString() === commentId);
 
         if (!post.comments || !comment) {
             throw new BadRequestException('Comment not found');
@@ -71,7 +71,7 @@ export class CommentsService {
         }
 
         Object.assign(comment, commentDto);
-        post.comments[post.comments.findIndex(c => (c.id).toString() == commentId)] = comment;
+        post.comments[post.comments.findIndex(c => (c.id).toString() === commentId)] = comment;
         Object.assign(post, post);             
 
         return this.postsRepository.save(post);
@@ -89,7 +89,7 @@ export class CommentsService {
             throw new BadRequestException('Comment not found');
         }
 
-        post.comments = post.comments.filter(c => (c.id).toString() == commentId);
+        post.comments = post.comments.filter(c => (c.id).toString() !== commentId);
         Object.assign(post, post);             
 
         return this.postsRepository.save(post);
