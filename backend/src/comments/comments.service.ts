@@ -6,7 +6,6 @@ import { Comment } from '../comments/comment.entity';
 import { PostsService } from '../posts/posts.service';
 import { CreateCommentDto } from './dtos/create-comment.dto';
 import { UpdateCommentDto } from './dtos/update-comment.dto';
-import { ObjectId } from 'mongodb';
 
 @Injectable()
 export class CommentsService {
