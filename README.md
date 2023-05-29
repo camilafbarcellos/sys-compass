@@ -106,13 +106,13 @@ npm start
 |  `/posts/:id`       |    DELETE    |  Deletes a specific post by its ID                |
 
 ### Comments Endpoints
-|            Route            |    Method    |                   Description                     |                                                                         
-|       ---------------       | :----------: |  ----------------------------------------------   |                                                                           
-|  `/posts/:id/comments`      |    POST      |  Creates a new comment on a specific post         | 
-|  `/posts/:id/comments`      |    GET       |  Gets all comments on a specific post             |   
-|  `/posts/:id/comments/:id`  |    GET       |  Gets a specific comment by its ID                |   
-|  `/posts/:id/comments/:id`  |    PUT       |  Updates a specific comment by its ID             |                                                        
-|  `/posts/:id/comments/:id`  |    DELETE    |  Deletes a specific comment by its ID             |     
+|                Route                |    Method    |                   Description                     |                                                                         
+|       ---------------               | :----------: |  ----------------------------------------------   |                                                                           
+|  `/posts/:id/comments`              |    POST      |  Creates a new comment on a specific post         | 
+|  `/posts/:id/comments`              |    GET       |  Gets all comments on a specific post             |   
+|  `/posts/:id/comments/:comment_id`  |    GET       |  Gets a specific comment by its ID                |   
+|  `/posts/:id/comments/:comment_id`  |    PUT       |  Updates a specific comment by its ID             |                                                        
+|  `/posts/:id/comments/:comment_id`  |    DELETE    |  Deletes a specific comment by its ID             |     
 
 [↑ Back to top](#compass-sys-compass)
 
