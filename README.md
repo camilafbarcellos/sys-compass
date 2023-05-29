@@ -12,12 +12,12 @@ Week 12 • FullStack Journey • Compass UOL • 2023
   <img src="/frontend/src/assets/images/compass-uol-logo.png" />
 </p>
 
-Complete [Compass.UOL](https://compass.uol/en/home/) social application including functional register and login pages and a homepage for creating and viewing posts. The project follows a Figma project, and all the data resides in a local Mongo database witch a NestJS backend API that retrieves the data to the frontend by Axios
+Complete [Compass.UOL](https://compass.uol/en/home/) social application including functional register and login pages and a homepage for creating and viewing posts. The project follows a Figma layout, and all the data resides in a local Mongo database with a NestJS backend API that serves the data to the frontend by Axios
 
 ## :heavy_check_mark: Features
 - Sign up page capable of register users to the database
-    - Includes both front and backend validation of the inputs
-- Login page capable of authenticate registered users and send them to the homepage
+    - Includes both front and backend input validation
+- Login page capable of authenticate users and send them to the homepage
     - Uses [JSON Web Token (JWT)](https://jwt.io/) to authenticate and authorize tokens that lasts 12h
 - Individual homepage for each user capable of rendering all posts in the timeline and all other users in the friends list
     - Completely interactive, the logged user can add new posts and like or comment other posts
@@ -59,7 +59,7 @@ npm start
 npm run dev
 ```
 
-### Fronted
+### Frontend
 - In the second terminal, access the frontend directory
 ```
 cd frontend/
@@ -75,12 +75,12 @@ npm start
 
 ### MongoDB and Postman
 - Make sure you have a local Mongo database named **`sys-compass`** running locally at the port **27017**
-- You can also change the default database variables on the `.env` document at the root of ``backend`` directory to fit your needs
+- You can also change the default database variables on the `.env` file at the root of the ``backend`` directory to fit your needs
     - **Default values:** `DB_HOST=localhost`, `PORT=27017`, `DB_DATABASE=sys-compass`
 - If wanted to, you can import both [Users](#user-entity) and [Posts](#post-entity) full and ready collections directly to your MongoDB from the JSON files at the root of this project
     - [Users collection](/users.json)
     - [Posts collection](/posts.json)
-- At the root of this project, there's a JSON of a [Postman collection](/sys-compass_API.postman_collection.json) that can be imported to your Postman to check the API description and request examples
+- At the root of this project, there's also a JSON file of a [Postman collection](/sys-compass_API.postman_collection.json) that can be directly imported to your Postman to check the full API description and request examples
     - At Postman, follow ``Import > Select file`` to correctly import the collection and use it
 
 [↑ Back to top](#compass-sys-compass)
@@ -150,9 +150,9 @@ npm start
 [↑ Back to top](#compass-sys-compass)
 
 ## :exclamation: Know Issues
-- The MongoDB collections and entities [Users](#user-entity), [Posts](#post-entity) and [Comments](#comment-entity) are totally individual and don't share any relationship (OneToMany and ManyToOne)
-- Home page without mobile responsiveness, the layout only fits sceens with resolution greater than or equal to 1024
-- Mostly home page buttons are purely visual, the only functional ones are related to adding a new post, adding a new comment, liking/desliking a post and the toggle to show/hide the friends lists
+- The MongoDB collections and entities [Users](#user-entity), [Posts](#post-entity) and [Comments](#comment-entity) are totally individual and don't share any relationship with eachother (OneToMany and ManyToOne)
+- Homepage without mobile responsiveness, the layout only fits sceens with resolution greater than or equal to 1024
+- Mostly homepage buttons are purely visual, the only functional ones are related to adding a new post, adding a new comment, liking/disliking a post and the toggle to show/hide the friends lists
 
 ## :camera_flash: Screenshots
 ### Register page
