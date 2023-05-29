@@ -77,6 +77,9 @@ npm start
 - Make sure you have a local Mongo database named **`sys-compass`** running locally at the port **27017**
 - You can also change the default database variables on the `.env` document at the root of ``backend`` directory to fit your needs
     - **Default values:** `DB_HOST=localhost`, `PORT=27017`, `DB_DATABASE=sys-compass`
+- If wanted to, you can import both [Users](#user-entity) and [Posts](#post-entity) full and ready collections directly to your MongoDB from the JSON files at the root of this project
+    - [Users collection](/users.json)
+    - [Posts collection](/posts.json)
 - At the root of this project, there's a JSON of a [Postman collection](/sys-compass_API.postman_collection.json) that can be imported to your Postman to check the API description and request examples
     - At Postman, follow ``Import > Select file`` to correctly import the collection and use it
 

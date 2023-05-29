@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "64656261c5b3c84b4800b85d"
+  },
+  "user": "viniciusperes",
+  "post_date": "2023-04-05T17:30:00",
+  "description": "Dia de praia com a galera! 🌊☀️",
+  "likes": 25,
+  "comments": [
+    {
+      "id": {
+        "$oid": "64741c50d9117416d23a7f1e"
+      },
+      "user": "isadorabrito",
+      "comment": "E essa marquinha de sol, hein, Vinicius? 😅"
+    },
+    {
+      "id": {
+        "$oid": "64741c6bd9117416d23a7f1f"
+      },
+      "user": "camilabarcellos",
+      "comment": "Foi muito divertido, precisamos fazer de novo! 🙌"
+    }
+  ],
+  "url_image": "https://picsum.photos/675/350"
+},{
+  "_id": {
+    "$oid": "64656261c5b3c84b4800b85e"
+  },
+  "user": "yuricaetano",
+  "post_date": "2023-04-03T22:00:00",
+  "description": "Noite de karaokê com os amigos! 🎤🎶",
+  "likes": 21,
+  "comments": [
+    {
+      "id": {
+        "$oid": "6474296294b58f397c016ac6"
+      },
+      "user": "isadorabrito",
+      "comment": "Quando é a minha vez de escolher a música, hein? 😜"
+    },
+    {
+      "id": {
+        "$oid": "6474296894b58f397c016ac7"
+      },
+      "user": "gabrielgarcia",
+      "comment": "Você arrasou no Queen, Yuri! 👏"
+    },
+    {
+      "id": {
+        "$oid": "6474296e94b58f397c016ac8"
+      },
+      "user": "emmanuelscortegagna",
+      "comment": "Precisamos repetir mais vezes! 🙌"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6474e4f3d5211f1ea7c762c3"
+  },
+  "post_date": {
+    "$date": "2023-05-29T17:46:27.326Z"
+  },
+  "likes": 0,
+  "user": "camilabarcellos",
+  "description": "Bem vindo ao System Compass!",
+  "comments": [
+    {
+      "id": {
+        "$oid": "6474e516d5211f1ea7c762c4"
+      },
+      "user": "camilabarcellos",
+      "comment": "Fique à vontade para postar, curtir e comentar!"
+    }
+  ]
+}]
