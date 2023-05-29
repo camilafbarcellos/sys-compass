@@ -91,7 +91,7 @@ export class CommentsService {
             throw new BadRequestException('Comment not found');
         }
 
-        post.comments = post.comments.filter(c => c.id === commentId);
+        post.comments = post.comments.filter(c => c.id !== commentId);
         Object.assign(post, post);             
 
         return this.postsRepository.save(post);

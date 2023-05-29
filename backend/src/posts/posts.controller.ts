@@ -54,7 +54,8 @@ export class PostsController {
 
   @Delete(':id')
   async deletePost(@Param('id') id: string) {
-    return this.postsService.remove(id);
+    this.postsService.remove(id);
+    return;
   }
 
   @Post(':id/comments')
@@ -80,6 +81,7 @@ export class PostsController {
 
   @Delete(':id/comments/:comment_id')
   async deletePostComment(@Param('id') id: string, @Param('comment_id') commentId: string) {
-    return this.commentsService.delete(id, commentId);
+    this.commentsService.delete(id, commentId);
+    return;
   }
 }
