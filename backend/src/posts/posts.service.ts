@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { Post as PostEntity } from './post.entity';
@@ -31,7 +31,7 @@ export class PostsService {
         }
 
         Object.assign(post, postDto);
-        
+
         return this.postsRepository.save(post);
     }
 

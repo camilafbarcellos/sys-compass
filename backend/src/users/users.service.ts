@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { ObjectId } from 'mongodb';
@@ -34,7 +34,7 @@ export class UsersService {
             throw new NotFoundException('User not found');
         }
         Object.assign(user, userDto);
-        
+
         return this.usersRepository.save(user);
     }
 
