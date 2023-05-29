@@ -8,7 +8,9 @@ import {
   Post,
   Put,
   UseGuards,
-  Req
+  Req,
+  UseInterceptors,
+  ClassSerializerInterceptor
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
@@ -33,16 +35,19 @@ export class UsersController {
     return req.tokenPayLoad;
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Post()
   async createUser(@Body() user: CreateUserDto) {
     return this.usersService.create(user);
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get()
   async getUsers() {
     return await this.usersService.findAll();
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Get(':id')
   async getUser(@Param('id') id: string) {
     const user = await this.usersService.findOne(id);
@@ -53,6 +58,7 @@ export class UsersController {
     return user;
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Put(':id')
   async updateUser(@Param('id') id: string, @Body() userUpdated: UpdateUserDto) {
     const user = await this.usersService.findOne(id);
@@ -63,8 +69,10 @@ export class UsersController {
     return this.usersService.update(id, userUpdated);
   }
 
+  @UseInterceptors(ClassSerializerInterceptor)
   @Delete(':id')
   async deleteUser(@Param('id') id: string) {
-    return this.usersService.remove(id);
+    this.usersService.remove(id);
+    return;
   }
 }

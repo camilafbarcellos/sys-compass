@@ -1,7 +1,9 @@
 import { Column, ObjectId, Entity, ObjectIdColumn } from 'typeorm';
+import { Exclude, Transform } from 'class-transformer'
 
 @Entity('users')
 export class User {
+  @Transform(({ value }) => value.toString())
   @ObjectIdColumn()
   id: ObjectId;
 
@@ -18,6 +20,7 @@ export class User {
   email: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @Column()
