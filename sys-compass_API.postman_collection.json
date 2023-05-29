@@ -1,0 +1,1672 @@
+{
+	"info": {
+		"_postman_id": "cf072036-43e2-46c4-a241-76ed0458cb88",
+		"name": "sys-compass API",
+		"description": "<img src=\"https://content.pstmn.io/07b76bfe-43c5-4575-aebe-991b15383c21/Y29tcGFzcy11b2wtbG9nby5wbmc=\">\n\nNestJS API for the **sys-compass** application developed as the 3rd challenge at the week 12 of Compass.UOL's FullStack Journey 2023.\n\nThe full project can be found at the following [**GitHub repository**](https://github.com/camilafbarcellos/sys-compass)\n\n> **Developed by Camila Barcellos - 2023**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27610932"
+	},
+	"item": [
+		{
+			"name": "USERS",
+			"item": [
+				{
+					"name": "GET USERS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "List **all users**.\n\n- Cannot response the password\n- In case of success return **200** with the users"
+					},
+					"response": [
+						{
+							"name": "GET USERS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:9000/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4514"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"11a2-KspmeZCDYb9NdRWTDKqP5UQsteg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:12:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=1\",\n        \"id\": \"6465623bc5b3c84b4800b847\",\n        \"name\": \"Ana Luiza Landim Irschlinger\",\n        \"user\": \"analuizairschlinger\",\n        \"birthdate\": \"1992-08-05\",\n        \"email\": \"ana.irschlinger.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=2\",\n        \"id\": \"6465623bc5b3c84b4800b848\",\n        \"name\": \"Camila Florão Barcellos\",\n        \"user\": \"camilabarcellos\",\n        \"birthdate\": \"1993-04-10\",\n        \"email\": \"camila.barcellos.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=3\",\n        \"id\": \"6465623bc5b3c84b4800b849\",\n        \"name\": \"Dener Kisner Borges\",\n        \"user\": \"denerborges\",\n        \"birthdate\": \"1992-06-03\",\n        \"email\": \"dener.borges.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=4\",\n        \"id\": \"6465623bc5b3c84b4800b84a\",\n        \"name\": \"Diego Leonardo Martinicorena Suarez\",\n        \"user\": \"diegosuarez\",\n        \"birthdate\": \"1994-09-27\",\n        \"email\": \"diego.suarez.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=5\",\n        \"id\": \"6465623bc5b3c84b4800b84b\",\n        \"name\": \"Emanuelle Fritzen Machado\",\n        \"user\": \"emanuellemachado\",\n        \"birthdate\": \"1993-01-28\",\n        \"email\": \"emanuelle.machado.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=6\",\n        \"id\": \"6465623bc5b3c84b4800b84c\",\n        \"name\": \"Emmanuel Enrick Scortegagna\",\n        \"user\": \"emmanuelscortegagna\",\n        \"birthdate\": \"1994-05-21\",\n        \"email\": \"emmanuel.scortegagna.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=7\",\n        \"id\": \"6465623bc5b3c84b4800b84d\",\n        \"name\": \"Gabriel Afonso Fiss\",\n        \"user\": \"gabrielfiss\",\n        \"birthdate\": \"1992-12-07\",\n        \"email\": \"gabriel.fiss.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=8\",\n        \"id\": \"6465623bc5b3c84b4800b84e\",\n        \"name\": \"Gabriel Medeiros Garcia\",\n        \"user\": \"gabrielgarcia\",\n        \"birthdate\": \"1993-10-18\",\n        \"email\": \"gabriel.garcia.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=9\",\n        \"id\": \"6465623bc5b3c84b4800b84f\",\n        \"name\": \"Isadora de Pinho Brito\",\n        \"user\": \"isadorabrito\",\n        \"birthdate\": \"1994-06-17\",\n        \"email\": \"isadora.brito.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=10\",\n        \"id\": \"6465623bc5b3c84b4800b850\",\n        \"name\": \"José Valério da Silva Figueira\",\n        \"user\": \"josevaleriofigueira\",\n        \"birthdate\": \"1993-09-15\",\n        \"email\": \"jose.figueira.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=11\",\n        \"id\": \"6465623bc5b3c84b4800b851\",\n        \"name\": \"Josiel Jesus Matos\",\n        \"user\": \"josieljesusmatos\",\n        \"birthdate\": \"1992-11-29\",\n        \"email\": \"josiel.matos.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=12\",\n        \"id\": \"6465623bc5b3c84b4800b852\",\n        \"name\": \"Kaiane Gabriela Rodrigues Cardozo\",\n        \"user\": \"kaianecardozo\",\n        \"birthdate\": \"1994-02-22\",\n        \"email\": \"kaiane.cardozo.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=13\",\n        \"id\": \"6465623bc5b3c84b4800b853\",\n        \"name\": \"Luiz Ricardo Brugnera\",\n        \"user\": \"luizbrugnera\",\n        \"birthdate\": \"1993-05-14\",\n        \"email\": \"luiz.brugnera.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=14\",\n        \"id\": \"6465623bc5b3c84b4800b854\",\n        \"name\": \"Luiz Tadeu Nespatti Sureto\",\n        \"user\": \"luizsureto\",\n        \"birthdate\": \"1992-07-06\",\n        \"email\": \"luiz.sureto.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=15\",\n        \"id\": \"6465623bc5b3c84b4800b855\",\n        \"name\": \"Maria Flor Oliveira Di Piero\",\n        \"user\": \"mariaflordipiero\",\n        \"birthdate\": \"1994-03-31\",\n        \"email\": \"maria.piero.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=16\",\n        \"id\": \"6465623bc5b3c84b4800b856\",\n        \"name\": \"Pedro Fajreldin Poglia\",\n        \"user\": \"pedropoglia\",\n        \"birthdate\": \"1993-02-25\",\n        \"email\": \"pedro.poglia.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=17\",\n        \"id\": \"6465623bc5b3c84b4800b857\",\n        \"name\": \"Victor Rodrigues Pithan\",\n        \"user\": \"victorpithan\",\n        \"birthdate\": \"1994-07-12\",\n        \"email\": \"victor.pithan.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=18\",\n        \"id\": \"6465623bc5b3c84b4800b858\",\n        \"name\": \"Vinicius Faller de Oliveira\",\n        \"user\": \"viniciusfaller\",\n        \"birthdate\": \"1992-09-08\",\n        \"email\": \"vinicius.oliveira.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=19\",\n        \"id\": \"6465623bc5b3c84b4800b859\",\n        \"name\": \"Vinicius Gonçalves Peres\",\n        \"user\": \"viniciusperes\",\n        \"birthdate\": \"1993-11-17\",\n        \"email\": \"vinicius.peres.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=20\",\n        \"id\": \"6465623bc5b3c84b4800b85a\",\n        \"name\": \"Vinicius Madruga Telles\",\n        \"user\": \"viniciustelles\",\n        \"birthdate\": \"1994-01-23\",\n        \"email\": \"vinicius.telles.pb@compasso.com.br\"\n    },\n    {\n        \"profile_photo\": \"https://picsum.photos/200?random=21\",\n        \"id\": \"6465623bc5b3c84b4800b85b\",\n        \"name\": \"Yuri Gonçalves Caetano\",\n        \"user\": \"yuricaetano\",\n        \"birthdate\": \"1992-10-20\",\n        \"email\": \"yuri.caetano.pb@compasso.com.br\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET USER",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/users/6465623bc5b3c84b4800b848",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"6465623bc5b3c84b4800b848"
+							]
+						},
+						"description": "Retrieve information about a **specific user**.\n\n- Cannot response the password\n- In case of success return **200** with the users\n- If the ID is not found, return **404**"
+					},
+					"response": [
+						{
+							"name": "GET USER",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:9000/users/6465623bc5b3c84b4800b848",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"users",
+										"6465623bc5b3c84b4800b848"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "216"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d8-96C6wDFI87x4t9lvcRc18oNa+2s\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:14:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"profile_photo\": \"https://picsum.photos/200?random=2\",\n    \"id\": \"6465623bc5b3c84b4800b848\",\n    \"name\": \"Camila Florão Barcellos\",\n    \"user\": \"camilabarcellos\",\n    \"birthdate\": \"1993-04-10\",\n    \"email\": \"camila.barcellos.pb@compasso.com.br\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD USER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Usuário teste\",\n\t\"user\": \"teste\",\n\t\"birthdate\": \"2023-05-23\",\n\t\"email\": \"teste@compasso.com.br\",\n\t\"password\": \"Senhaboa10\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Register a **new user**.\n\n- The birthdate must be less than today\n- `profile_photo` is optional\n- Cannot response the password\n- In case of success return **201** with the user registered\n- If the request has any invalid fields, return **400** informing the error"
+					},
+					"response": [
+						{
+							"name": "ADD USER",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Usuário teste\",\n\t\"user\": \"teste\",\n\t\"birthdate\": \"2023-05-23\",\n\t\"email\": \"teste@compasso.com.br\",\n\t\"password\": \"Senhaboa10\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:9000/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "9000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "203"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cb-8Cti+d7LWMd2a+72E9gBeB+XHJw\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:14:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"profile_photo\": \"https://lexq.us/wp-content/uploads/2019/07/user-pic.jpg\",\n    \"name\": \"Usuário teste\",\n    \"user\": \"teste\",\n    \"birthdate\": \"2023-05-23\",\n    \"email\": \"teste@compasso.com.br\",\n    \"id\": \"647426b8d2b24b32551a57a9\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE USER",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Usuário novo\",\n\t\"user\": \"testenovo\",\n\t\"email\": \"testenovo@compasso.com.br\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/647426b8d2b24b32551a57a9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"647426b8d2b24b32551a57a9"
+							]
+						},
+						"description": "**Update** information of a **specific user**.\n\n- Cannot response the password\n- In case of success return **200** with the user\n- If the ID is not found, return **404**"
+					},
+					"response": [
+						{
+							"name": "UPDATE USER",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Usuário novo\",\n\t\"user\": \"testenovo\",\n\t\"email\": \"testenovo@compasso.com.br\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users/647426b8d2b24b32551a57a9",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										"647426b8d2b24b32551a57a9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "210"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d2-wulDc7C/uAUtiqu/NDA3LJL5XcM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:15:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"profile_photo\": \"https://lexq.us/wp-content/uploads/2019/07/user-pic.jpg\",\n    \"id\": \"647426b8d2b24b32551a57a9\",\n    \"name\": \"Usuário novo\",\n    \"user\": \"testenovo\",\n    \"birthdate\": \"2023-05-23\",\n    \"email\": \"testenovo@compasso.com.br\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/647426b8d2b24b32551a57a9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"647426b8d2b24b32551a57a9"
+							]
+						},
+						"description": "**Remove** a **specific user**.\n\n- In case of success return **204** with empty body\n- If the ID is not found, return **404**"
+					},
+					"response": [
+						{
+							"name": "DELETE USER",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users/647426b8d2b24b32551a57a9",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										"647426b8d2b24b32551a57a9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:15:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "This route allows performing operations related to the **users** MongoDB collection."
+		},
+		{
+			"name": "POSTS",
+			"item": [
+				{
+					"name": "GET POSTS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/posts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts"
+							]
+						},
+						"description": "List **all posts**.\n\n- In case of success return **200** with the posts"
+					},
+					"response": [
+						{
+							"name": "GET POSTS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/posts",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "961"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c1-Zs/IvN0BqmiO/Zvg0JFzWXPc8q4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:26:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"post_date\": \"2023-04-05T17:30:00\",\n        \"likes\": 25,\n        \"id\": \"64656261c5b3c84b4800b85d\",\n        \"user\": \"viniciusperes\",\n        \"description\": \"Dia de praia com a galera! 🌊☀️\",\n        \"comments\": [\n            {\n                \"id\": \"64741c50d9117416d23a7f1e\",\n                \"user\": \"isadorabrito\",\n                \"comment\": \"E essa marquinha de sol, hein, Vinicius? 😅\"\n            },\n            {\n                \"id\": \"64741c6bd9117416d23a7f1f\",\n                \"user\": \"camilabarcellos\",\n                \"comment\": \"Foi muito divertido, precisamos fazer de novo! 🙌\"\n            }\n        ],\n        \"url_image\": \"https://picsum.photos/675/350\"\n    },\n    {\n        \"post_date\": \"2023-04-03T22:00:00\",\n        \"likes\": 20,\n        \"id\": \"64656261c5b3c84b4800b85e\",\n        \"user\": \"yuricaetano\",\n        \"description\": \"Noite de karaokê com os amigos! 🎤🎶\",\n        \"comments\": [\n            {\n                \"id\": \"6474296294b58f397c016ac6\",\n                \"user\": \"isadorabrito\",\n                \"comment\": \"Quando é a minha vez de escolher a música, hein? 😜\"\n            },\n            {\n                \"id\": \"6474296894b58f397c016ac7\",\n                \"user\": \"gabrielgarcia\",\n                \"comment\": \"Você arrasou no Queen, Yuri! 👏\"\n            },\n            {\n                \"id\": \"6474296e94b58f397c016ac8\",\n                \"user\": \"emmanuelscortegagna\",\n                \"comment\": \"Precisamos repetir mais vezes! 🙌\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET POST",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"64656261c5b3c84b4800b85e"
+							]
+						},
+						"description": "Retrieve information about a **specific post**.\n\n- In case of success return **200** with the post"
+					},
+					"response": [
+						{
+							"name": "GET POST",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"64656261c5b3c84b4800b85e"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "509"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1fd-n9KjZbWIkHDt2McCRqVraoDcN5c\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:26:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"post_date\": \"2023-04-03T22:00:00\",\n    \"likes\": 20,\n    \"id\": \"64656261c5b3c84b4800b85e\",\n    \"user\": \"yuricaetano\",\n    \"description\": \"Noite de karaokê com os amigos! 🎤🎶\",\n    \"comments\": [\n        {\n            \"id\": \"6474296294b58f397c016ac6\",\n            \"user\": \"isadorabrito\",\n            \"comment\": \"Quando é a minha vez de escolher a música, hein? 😜\"\n        },\n        {\n            \"id\": \"6474296894b58f397c016ac7\",\n            \"user\": \"gabrielgarcia\",\n            \"comment\": \"Você arrasou no Queen, Yuri! 👏\"\n        },\n        {\n            \"id\": \"6474296e94b58f397c016ac8\",\n            \"user\": \"emmanuelscortegagna\",\n            \"comment\": \"Precisamos repetir mais vezes! 🙌\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD POST",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": \"camilabarcellos\",\n\t\"description\": \"Teste de post!\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts"
+							]
+						},
+						"description": "Create a **new post**.\n\n- `likes` is created by the api, initialized with 0\n- In case of success return **201** with the post\n- If the request has any invalid fields, return **400** informing the error"
+					},
+					"response": [
+						{
+							"name": "ADD POST",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"user\": \"camilabarcellos\",\n\t\"description\": \"Teste de post!\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/posts",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "138"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8a-fbz53Krz4bfILWiEq8iDUgbOTbc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:27:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"post_date\": \"2023-05-29T04:27:08.381Z\",\n    \"likes\": 0,\n    \"user\": \"camilabarcellos\",\n    \"description\": \"Teste de post!\",\n    \"id\": \"6474299c94b58f397c016ac9\"\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE POST",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"likes\": 3,\n\t\"description\": \"Mudança de post!\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts/6474299c94b58f397c016ac9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"6474299c94b58f397c016ac9"
+							]
+						},
+						"description": "**Update** information of a **specific post**.\n\n- In case of success return **200** with the post\n- If the ID is not found, return **404**\n- If the request has any invalid fields, return **400** informing the error"
+					},
+					"response": [
+						{
+							"name": "UPDATE POST",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"likes\": 3,\n\t\"description\": \"Mudança de post!\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/posts/6474299c94b58f397c016ac9",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"6474299c94b58f397c016ac9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8d-Zz8D4OqJazizp6rUakQkmXOo+Oo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:27:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"post_date\": \"2023-05-29T04:27:08.381Z\",\n    \"likes\": 3,\n    \"id\": \"6474299c94b58f397c016ac9\",\n    \"user\": \"camilabarcellos\",\n    \"description\": \"Mudança de post!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE POST",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts/6474299c94b58f397c016ac9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"6474299c94b58f397c016ac9"
+							]
+						},
+						"description": "**Remove** a **specific post**.\n\n- In case of success return **204** with empty body\n- If the ID is not found, return **404**"
+					},
+					"response": [
+						{
+							"name": "DELETE POST",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/posts/6474299c94b58f397c016ac9",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"6474299c94b58f397c016ac9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:27:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "This route allows performing operations related to the **posts** MongoDB collection in general."
+		},
+		{
+			"name": "COMMENTS",
+			"item": [
+				{
+					"name": "GET COMMENTS",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85d/comments",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"64656261c5b3c84b4800b85d",
+								"comments"
+							]
+						},
+						"description": "List **all comments** on the post.\n\n- In case of success return **200** with the comments"
+					},
+					"response": [
+						{
+							"name": "GET COMMENTS",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85d/comments",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"64656261c5b3c84b4800b85d",
+										"comments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "238"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ee-zH7srLGK4ulZZyU1FUn9+1k5VSU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:28:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"64741c50d9117416d23a7f1e\",\n        \"user\": \"isadorabrito\",\n        \"comment\": \"E essa marquinha de sol, hein, Vinicius? 😅\"\n    },\n    {\n        \"id\": \"64741c6bd9117416d23a7f1f\",\n        \"user\": \"camilabarcellos\",\n        \"comment\": \"Foi muito divertido, precisamos fazer de novo! 🙌\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET COMMENT",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85d/comments/64741c6bd9117416d23a7f1f",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"64656261c5b3c84b4800b85d",
+								"comments",
+								"64741c6bd9117416d23a7f1f"
+							]
+						},
+						"description": "Retrieve information about a **specific commen**t on the post.\n\n- In case of success return **200** with the comment"
+					},
+					"response": [
+						{
+							"name": "GET COMMENT",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85d/comments/64741c6bd9117416d23a7f1f",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"64656261c5b3c84b4800b85d",
+										"comments",
+										"64741c6bd9117416d23a7f1f"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "122"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7a-8vx2+RXr0HlV3ibJLuLSwYPqdbs\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:28:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"64741c6bd9117416d23a7f1f\",\n    \"user\": \"camilabarcellos\",\n    \"comment\": \"Foi muito divertido, precisamos fazer de novo! 🙌\"\n}"
+						}
+					]
+				},
+				{
+					"name": "ADD COMMENT",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": \"camilabarcellos\",\n\t\"comment\": \"Fim de semana bora de novo! 🔥\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e/comments",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"64656261c5b3c84b4800b85e",
+								"comments"
+							]
+						},
+						"description": "Add a **new comment** to the post.\n\n- In case of success return **201** with the comment\n- If the request has any invalid fields, return **400** informing the error"
+					},
+					"response": [
+						{
+							"name": "ADD COMMENT",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"user\": \"camilabarcellos\",\n\t\"comment\": \"Fim de semana bora de novo! 🔥\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e/comments",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"64656261c5b3c84b4800b85e",
+										"comments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "613"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"265-wxstJaXjPzi0YNErPdpUeDO4KEM\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:29:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"post_date\": \"2023-04-03T22:00:00\",\n    \"likes\": 20,\n    \"id\": \"64656261c5b3c84b4800b85e\",\n    \"user\": \"yuricaetano\",\n    \"description\": \"Noite de karaokê com os amigos! 🎤🎶\",\n    \"comments\": [\n        {\n            \"id\": \"6474296294b58f397c016ac6\",\n            \"user\": \"isadorabrito\",\n            \"comment\": \"Quando é a minha vez de escolher a música, hein? 😜\"\n        },\n        {\n            \"id\": \"6474296894b58f397c016ac7\",\n            \"user\": \"gabrielgarcia\",\n            \"comment\": \"Você arrasou no Queen, Yuri! 👏\"\n        },\n        {\n            \"id\": \"6474296e94b58f397c016ac8\",\n            \"user\": \"emmanuelscortegagna\",\n            \"comment\": \"Precisamos repetir mais vezes! 🙌\"\n        },\n        {\n            \"id\": \"64742a1694b58f397c016aca\",\n            \"user\": \"camilabarcellos\",\n            \"comment\": \"Fim de semana bora de novo! 🔥\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "UPDATE COMMENT",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"comment\": \"Bora fim de semana de novo? 🔥\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e/comments/64742a1694b58f397c016aca",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"64656261c5b3c84b4800b85e",
+								"comments",
+								"64742a1694b58f397c016aca"
+							]
+						},
+						"description": "**Update** information of a **specific comment** on the post.\n\n- In case of success return **200** with the comment\n- If the ID is not found, return **404**\n- If the request has any invalid fields, return **400** informing the error"
+					},
+					"response": [
+						{
+							"name": "UPDATE COMMENT",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"comment\": \"Bora fim de semana de novo? 🔥\"\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e/comments/64742a1694b58f397c016aca",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"64656261c5b3c84b4800b85e",
+										"comments",
+										"64742a1694b58f397c016aca"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "613"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"265-qrfMhLgT3Nv3UVLD4r/DwryYm1E\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:29:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"post_date\": \"2023-04-03T22:00:00\",\n    \"likes\": 20,\n    \"id\": \"64656261c5b3c84b4800b85e\",\n    \"user\": \"yuricaetano\",\n    \"description\": \"Noite de karaokê com os amigos! 🎤🎶\",\n    \"comments\": [\n        {\n            \"id\": \"6474296294b58f397c016ac6\",\n            \"user\": \"isadorabrito\",\n            \"comment\": \"Quando é a minha vez de escolher a música, hein? 😜\"\n        },\n        {\n            \"id\": \"6474296894b58f397c016ac7\",\n            \"user\": \"gabrielgarcia\",\n            \"comment\": \"Você arrasou no Queen, Yuri! 👏\"\n        },\n        {\n            \"id\": \"6474296e94b58f397c016ac8\",\n            \"user\": \"emmanuelscortegagna\",\n            \"comment\": \"Precisamos repetir mais vezes! 🙌\"\n        },\n        {\n            \"id\": \"64742a1694b58f397c016aca\",\n            \"user\": \"camilabarcellos\",\n            \"comment\": \"Bora fim de semana de novo? 🔥\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE COMMENT",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e/comments/64742a1694b58f397c016aca",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"posts",
+								"64656261c5b3c84b4800b85e",
+								"comments",
+								"64742a1694b58f397c016aca"
+							]
+						},
+						"description": "**Remove** a **specific comment**.\n\n- In case of success return **204** with empty body\n- If the ID is not found, return **404**"
+					},
+					"response": [
+						{
+							"name": "DELETE COMMENT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/posts/64656261c5b3c84b4800b85e/comments/64742a1694b58f397c016aca",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"posts",
+										"64656261c5b3c84b4800b85e",
+										"comments",
+										"64742a1694b58f397c016aca"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:30:04 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"description": "This route allows performing operations related to **comments on a specific post**.\n\n> **Obs.:** in this case, comments are an array atribute of the posts MongoDB collection"
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "POST LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": \"camilabarcellos\",\n\t\"password\": \"BolsistasUOL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "**Login** a user and generates it's JWT token.\n\n- n case of success return **200** with the JWT token\n- If the request has any invalid fields or wrong credentials return **400** informing the error"
+					},
+					"response": [
+						{
+							"name": "POST LOGIN",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"user\": \"camilabarcellos\",\n\t\"password\": \"BolsistasUOL\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10b-/UE7Mq3wUctoy+7RuqeC3EgTFxo\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:30:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"jwt\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY1NjIzYmM1YjNjODRiNDgwMGI4NDgiLCJpYXQiOjE2ODUzMzQ2MjMsImV4cCI6MTY4NTM3NzgyMywiYXVkIjoidXNlcnMiLCJpc3MiOiJsb2dpbiIsInN1YiI6IjY0NjU2MjNiYzViM2M4NGI0ODAwYjg0OCJ9.CkrfV9Fg93y-e8iEKVhbA23t1BzyFUpChnCrz6AC3kQ\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET ME",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDY1NjIzYmM1YjNjODRiNDgwMGI4NDgiLCJpYXQiOjE2ODUzMzQ2MjMsImV4cCI6MTY4NTM3NzgyMywiYXVkIjoidXNlcnMiLCJpc3MiOiJsb2dpbiIsInN1YiI6IjY0NjU2MjNiYzViM2M4NGI0ODAwYjg0OCJ9.CkrfV9Fg93y-e8iEKVhbA23t1BzyFUpChnCrz6AC3kQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/users/me",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						},
+						"description": "**Validates** the user's JWT token.\n\n- In case of success return **200** with the token informations\n- If the request has any invalid fields or invalid token return **400** informing the error"
+					},
+					"response": [
+						{
+							"name": "GET ME",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/users/me",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"84-m8TtbMO1/LwHpqOmAhqQvj/UptA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 May 2023 04:30:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": \"6465623bc5b3c84b4800b848\",\n    \"iat\": 1685334623,\n    \"exp\": 1685377823,\n    \"aud\": \"users\",\n    \"iss\": \"login\",\n    \"sub\": \"6465623bc5b3c84b4800b848\"\n}"
+						}
+					]
+				}
+			],
+			"description": "This route allows to **authenticate a user** using JWT."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:9000"
+		}
+	]
+}

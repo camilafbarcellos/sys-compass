@@ -22,7 +22,7 @@ Complete [Compass.UOL](https://compass.uol/en/home/) social application includin
 - Individual homepage for each user capable of rendering all posts in the timeline and all other users in the friends list
     - Completely interactive, the logged user can add new posts and like or comment other posts
 - [NestJS](https://nestjs.com/) API with complete CRUD routes to [Users](#users-endpoints), [Posts](#posts-endpoints) and [Comments](#comments-endpoints)
-- Local [Mongo](https://www.mongodb.com/) database with [Users](#users-entity) and [Posts](#posts-entity) collections
+- Local [Mongo](https://www.mongodb.com/) database with [Users](#user-entity) and [Posts](#post-entity) collections
 - Uses the [Lorem Picsum](https://picsum.photos/) API to generate random pictures used in users profile photo and posts images
 - Complete [Postman](https://www.postman.com/) collection containing all the REST API tests and a full detailed description
 
@@ -73,10 +73,12 @@ npm i
 npm start
 ```
 
-### MongoDB
-- Make sure you have a local database named **`sys-compass`** or add the name of your choice at the variable `DB_DATABASE` on the `.env` document
-- You can also change the default database variables, like `DB_HOST` and `PORT`, on the `.env` document
+### MongoDB and Postman
+- Make sure you have a local Mongo database named **`sys-compass`** running locally at the port **27017**
+- You can also change the default database variables on the `.env` document at the root of ``backend`` directory to fit your needs
     - **Default values:** `DB_HOST=localhost`, `PORT=27017`, `DB_DATABASE=sys-compass`
+- At the root of this project, there's a JSON of a [Postman collection](/sys-compass_API.postman_collection.json) that can be imported to your Postman to check the API description and request examples
+    - At Postman, follow ``Import > Select file`` to correctly import the collection and use it
 
 [↑ Back to top](#compass-sys-compass)
 
@@ -105,7 +107,7 @@ npm start
 |       ---------------       | :----------: |  ----------------------------------------------   |                                                                           
 |  `/posts/:id/comments`      |    POST      |  Creates a new comment on a specific post         | 
 |  `/posts/:id/comments`      |    GET       |  Gets all comments on a specific post             |   
-|  `/posts/:id/comments/:id`  |    GET       |  Gets a specific comment on a specific post       |   
+|  `/posts/:id/comments/:id`  |    GET       |  Gets a specific comment by its ID                |   
 |  `/posts/:id/comments/:id`  |    PUT       |  Updates a specific comment by its ID             |                                                        
 |  `/posts/:id/comments/:id`  |    DELETE    |  Deletes a specific comment by its ID             |     
 
@@ -113,28 +115,29 @@ npm start
 
 ## :bricks: Schemas
 
-### Users Entity
+### User Entity
 |    FieldName   |    Type   | Required |
 |----------------|:---------:|:--------:|
 | `id`           | ObjectId  |   true   |
 | `name`         | String    |   true   |
 | `user`         | String    |   true   |
-| `birthday`     | String    |   true   |
+| `birthdate`    | Date      |   true   |
 | `email`        | String    |   true   |
 | `password`     | String    |   true   |
 | `profile_photo`| String    |   false  |
 
-### Posts Entity
+### Post Entity
 |     FieldName    |    Type   | Required |
 |------------------|:---------:|:--------:|
 | `id`             | ObjectId  | true     |
 | `user`           | String    | true     |
+| `post_date`      | Date      | true     |
 | `description`    | String    | true     |
 | `likes`          | Number    | true     |
-| `url_image`      | String    | false    |
 | `comments`       | Array     | false    |
+| `url_image`      | String    | false    |
 
-### Comments Entity
+### Comment Entity
 |     FieldName    |    Type   | Required |
 |------------------|:---------:|:--------:|
 | `id`             | ObjectId  | true     |
@@ -144,7 +147,7 @@ npm start
 [↑ Back to top](#compass-sys-compass)
 
 ## :exclamation: Know Issues
-- The MongoDB collections and entities [Users](#users-entity), [Posts](#posts-entity) and [Comments](#comments-entity) are totally individual and don't share any relationship (OneToMany and ManyToOne)
+- The MongoDB collections and entities [Users](#user-entity), [Posts](#post-entity) and [Comments](#comment-entity) are totally individual and don't share any relationship (OneToMany and ManyToOne)
 - Home page without mobile responsiveness, the layout only fits sceens with resolution greater than or equal to 1024
 - Mostly home page buttons are purely visual, the only functional ones are related to adding a new post, adding a new comment, liking/desliking a post and the toggle to show/hide the friends lists
 
