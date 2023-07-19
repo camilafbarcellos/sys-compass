@@ -43,12 +43,10 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:9000/users",
-									"protocol": "http",
+									"raw": "{{BASE_URL}}/users",
 									"host": [
-										"localhost"
+										"{{BASE_URL}}"
 									],
-									"port": "9000",
 									"path": [
 										"users"
 									]
@@ -130,12 +128,10 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:9000/users/6465623bc5b3c84b4800b848",
-									"protocol": "http",
+									"raw": "{{BASE_URL}}/users/6465623bc5b3c84b4800b848",
 									"host": [
-										"localhost"
+										"{{BASE_URL}}"
 									],
-									"port": "9000",
 									"path": [
 										"users",
 										"6465623bc5b3c84b4800b848"
@@ -233,12 +229,10 @@
 									"raw": "{\n\t\"name\": \"Usuário teste\",\n\t\"user\": \"teste\",\n\t\"birthdate\": \"2023-05-23\",\n\t\"email\": \"teste@compasso.com.br\",\n\t\"password\": \"Senhaboa10\"\n}"
 								},
 								"url": {
-									"raw": "http://localhost:9000/users",
-									"protocol": "http",
+									"raw": "{{BASE_URL}}/users",
 									"host": [
-										"localhost"
+										"{{BASE_URL}}"
 									],
-									"port": "9000",
 									"path": [
 										"users"
 									]
@@ -1457,7 +1451,7 @@
 								"login"
 							]
 						},
-						"description": "**Login** a user and generates it's JWT token.\n\n- n case of success return **200** with the JWT token\n- If the request has any invalid fields or wrong credentials return **400** informing the error"
+						"description": "**Login** a user and generates it's JWT token.\n\n- In case of success return **200** with the JWT token\n- If the request has any invalid fields or wrong credentials return **400** informing the error"
 					},
 					"response": [
 						{

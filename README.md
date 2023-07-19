@@ -79,9 +79,9 @@ npm start
 - You can also change the default database variables on the `.env` file at the root of the ``backend`` directory to fit your needs
     - **Default values:** `DB_HOST=localhost`, `PORT=27017`, `DB_DATABASE=sys-compass`
 - If wanted to, you can import both [Users](#user-entity) and [Posts](#post-entity) full and ready collections directly to your MongoDB from the JSON files at the root of this project
-    - [Users collection](/users.json)
-    - [Posts collection](/posts.json)
-- At the root of this project, there's also a JSON file of a [Postman collection](/sys-compass_API.postman_collection.json) that can be directly imported to your Postman to check the full API description and request examples
+    - [Users collection](/github/users.json)
+    - [Posts collection](/github/posts.json)
+- At the root of this project, there's also a JSON file of a [Postman collection](/github/sys-compass_API.postman_collection.json) that can be directly imported to your Postman to check the full API description and request examples
     - At Postman, follow ``Import > Select file`` to correctly import the collection and use it
 
 [↑ Back to top](#compass-sys-compass)
@@ -163,12 +163,12 @@ npm start
 
 ## :camera_flash: Screenshots
 ### Register page
-![Signup](/frontend/src/assets/screenshots/Signup.jpeg)
+![Signup](/github/screenshots/Signup.jpeg)
 
 ### Login page
-![Login](/frontend/src/assets/screenshots/Login.jpeg)
+![Login](/github/screenshots/Login.jpeg)
 
 ### Homepage
-![Homepage](/frontend/src/assets/screenshots/Homepage.jpeg)
+![Homepage](/github/screenshots/Homepage.jpeg)
 
 [↑ Back to top](#compass-sys-compass)
