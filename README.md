@@ -12,7 +12,7 @@ Week 12 • FullStack Journey • Compass UOL • 2023
   <img src="/frontend/src/assets/images/compass-uol-logo.png" />
 </p>
 
-Complete [Compass.UOL](https://compass.uol/en/home/) social application including functional register and login pages and a homepage for creating and viewing posts. The project follows a Figma layout, and all the data resides in a local Mongo database with a NestJS backend API that serves the data to the frontend by Axios
+Complete [Compass.UOL](https://compass.uol/en/home/) social application including functional register and login pages and a homepage for creating and viewing posts. The project follows a Figma layout, and all the data resides in a local Mongo database with a NestJS backend API that serves the data to the frontend by [Axios](https://axios-http.com/)
 
 ## :heavy_check_mark: Features
 - Sign up page capable of register users to the database
@@ -35,6 +35,7 @@ Complete [Compass.UOL](https://compass.uol/en/home/) social application includin
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-5A29E4.svg?style=for-the-badge&logo=Axios&logoColor=white)
 
 ## :rocket: Setup
 - Download or clone the repository
@@ -106,13 +107,19 @@ npm start
 |  `/posts/:id`       |    DELETE    |  Deletes a specific post by its ID                |
 
 ### Comments Endpoints
-|                Route                |    Method    |                   Description                     |                                                                         
-|       ---------------               | :----------: |  ----------------------------------------------   |                                                                           
-|  `/posts/:id/comments`              |    POST      |  Creates a new comment on a specific post         | 
-|  `/posts/:id/comments`              |    GET       |  Gets all comments on a specific post             |   
-|  `/posts/:id/comments/:comment_id`  |    GET       |  Gets a specific comment by its ID                |   
-|  `/posts/:id/comments/:comment_id`  |    PUT       |  Updates a specific comment by its ID             |                                                        
-|  `/posts/:id/comments/:comment_id`  |    DELETE    |  Deletes a specific comment by its ID             |     
+|            Route            |    Method    |                   Description                     |                                                                         
+|       ---------------       | :----------: |  ----------------------------------------------   |                                                                           
+|  `/posts/:id/comments`      |    POST      |  Creates a new comment on a specific post         | 
+|  `/posts/:id/comments`      |    GET       |  Gets all comments on a specific post             |   
+|  `/posts/:id/comments/:id`  |    GET       |  Gets a specific comment by its ID                |   
+|  `/posts/:id/comments/:id`  |    PUT       |  Updates a specific comment by its ID             |                                                        
+|  `/posts/:id/comments/:id`  |    DELETE    |  Deletes a specific comment by its ID             |     
+
+### Login Authentication Endpoints
+|       Route         |    Method    |                   Description                    |                                                                         
+|   ---------------   | :----------: |  ----------------------------------------------  |                                                                           
+|  `/users/login`     |    POST      |  Login a user and generates it's JWT token       | 
+|  `/users/me`        |    GET       |  Validates a user's JWT token and returns the ID | 
 
 [↑ Back to top](#compass-sys-compass)
 
