@@ -170,5 +170,7 @@ npm start
 
 ### Homepage
 ![Homepage](/github/screenshots/Homepage.jpeg)
+![Homepage-add-post](/github/screenshots/Homepage-add-post.gif)
+![Homepage-interactivity](/github/screenshots/Homepage-interactivity.gif)
 
 [↑ Back to top](#compass-sys-compass)
